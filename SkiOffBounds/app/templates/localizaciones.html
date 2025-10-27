@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %}Localizaciones - SkiOffBounds{% endblock %}
+
+{% block contenido %}
+<h2>Listado de Localizaciones</h2>
+
+{% if lista_localizaciones %}
+    <ul>
+    {% for loc in lista_localizaciones %}
+        <li>
+            <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}">
+                {{ loc.nombre }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay localizaciones creadas.</p>
+{% endif %}
+{% endblock %}

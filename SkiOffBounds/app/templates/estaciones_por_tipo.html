@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titulo %}Estaciones con {{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
+
+{% block contenido %}
+<h2>Estaciones de Esquí</h2>
+<h3 class="pista-{{ tipo_pista.nombre }}">Pistas {{ tipo_pista.get_nombre_display }}</h3>
+
+{% if estaciones %}
+    <ul>
+        {% for e in estaciones %}
+        <li>
+            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
+                {{ e.nombre }}
+            </a>
+            - {{ e.localizacion.nombre }}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay estaciones con este tipo de pista.</p>
+{% endif %}
+
+<p><a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}">← Volver al tipo de pista</a></p>
+{% endblock %}

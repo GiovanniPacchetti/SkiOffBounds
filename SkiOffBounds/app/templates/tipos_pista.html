@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block titulo %}Tipos de Pista - SkiOffBounds{% endblock %}
+
+{% block contenido %}
+<h2>Tipos de Pista</h2>
+
+{% if lista_tipos %}
+    <ul>
+    {% for tipo in lista_tipos %}
+        <li class="pista-{{ tipo.nombre }}">
+            <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo.id %}">
+                {{ tipo.get_nombre_display }}
+            </a>
+            - Nivel {{ tipo.nivel_dificultad }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay tipos de pista creados.</p>
+{% endif %}
+{% endblock %}

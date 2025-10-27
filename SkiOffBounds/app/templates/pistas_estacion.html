@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titulo %}Pistas de {{ estacion.nombre }} - SkiOffBounds{% endblock %}
+
+{% block contenido %}
+<h2>Tipos de Pistas</h2>
+<h3>{{ estacion.nombre }}</h3>
+
+{% if pistas %}
+    <ul>
+        {% for p in pistas %}
+        <li class="pista-{{ p.tipo_pista.nombre }}">
+            <a href="{% url 'skioffbounds:tipo_pista_detalle' p.tipo_pista.id %}">
+                {{ p.tipo_pista.get_nombre_display }}
+            </a>
+            - {{ p.cantidad }} pistas ({{ p.km_totales }} km)
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Esta estación no tiene pistas registradas aún.</p>
+{% endif %}
+
+<p><a href="{% url 'skioffbounds:estacion_detalle' estacion.id %}">← Volver a la estación</a></p>
+{% endblock %}

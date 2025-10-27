@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block titulo %}SkiOffBounds - Gestor de Estaciones de Esquí{% endblock %}</title>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div id="content">
+        <h1>SkiOffBounds ⛷️</h1>
+        
+        <!-- Navegación común para todas las páginas -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'skioffbounds:index' %}">Estaciones</a></li>
+                <li><a href="{% url 'skioffbounds:localizaciones' %}">Localizaciones</a></li>
+                <li><a href="{% url 'skioffbounds:tipos_pista' %}">Tipos de Pista</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Contenido específico de cada página -->
+        {% block contenido %}{% endblock %}
+        
+        <!-- Footer común -->
+        <footer>
+            <p>&copy; 2025 SkiOffBounds - Encuentra tu estación perfecta</p>
+        </footer>
+    </div>
+</body>
+</html>

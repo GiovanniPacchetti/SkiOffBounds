@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
+
+{% block contenido %}
+<h2>Detalles del Tipo de Pista</h2>
+
+{% if tipo_pista %}
+    <h3 class="pista-{{ tipo_pista.nombre }}">{{ tipo_pista.get_nombre_display }}</h3>
+    <ul>
+        <li><strong>Nivel de dificultad:</strong> {{ tipo_pista.nivel_dificultad }}/5</li>
+        {% if tipo_pista.descripcion %}
+            <li><strong>Descripción:</strong> {{ tipo_pista.descripcion }}</li>
+        {% endif %}
+    </ul>
+    
+    <h3>Estaciones con este tipo de pista</h3>
+    {% if estaciones %}
+        <ol>
+            {% for e in estaciones %}
+            <li>
+                <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
+                    {{ e.nombre }}
+                </a>
+            </li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>No hay estaciones con este tipo de pista.</p>
+    {% endif %}
+    
+    <p><a href="{% url 'skioffbounds:tipos_pista' %}">← Volver al listado</a></p>
+{% else %}
+    <p>No existe este tipo de pista.</p>
+{% endif %}
+{% endblock %}
