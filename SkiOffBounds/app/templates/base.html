@@ -2,14 +2,25 @@
 <html lang="es">
 <head>
     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/images/faviconNoBg.ico' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/faviconNoBg.ico' %}">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <title>{% block titulo %}SkiOffBounds - Gestor de Estaciones de Esquí{% endblock %}</title>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <div id="content">
-        <h1>SkiOffBounds ⛷️</h1>
-        
+         <header>
+            <a href="{% url 'skioffbounds:index' %}" class="logo-link">
+                <img src="{% static 'assets/images/logoNoBg.png' %}" alt="SkiOffBounds Logo" class="logo">
+                <h1>SkiOffBounds</h1>
+            </a>
+        </header>
         <!-- Navegación común para todas las páginas -->
         <nav>
             <ul>
