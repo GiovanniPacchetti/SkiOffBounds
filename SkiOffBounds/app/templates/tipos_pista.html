@@ -1,22 +1,21 @@
 {% extends "base.html" %}
-
 {% block titulo %}Tipos de Pista - SkiOffBounds{% endblock %}
-
 {% block contenido %}
-<h2>Tipos de Pista</h2>
-
-{% if lista_tipos %}
-    <ul>
-    {% for tipo in lista_tipos %}
-        <li class="pista-{{ tipo.nombre }}">
-            <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo.id %}">
-                {{ tipo.get_nombre_display }}
-            </a>
-            - Nivel {{ tipo.nivel_dificultad }}
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay tipos de pista creados.</p>
-{% endif %}
+<h2 class="main-title"><i class="bi bi-flag"></i> Tipos de pista</h2>
+<div class="cards-grid">
+  {% for tipo in lista_tipos %}
+    <div class="card">
+      <h3 class="card-title pista-{{ tipo.nombre|lower }}">
+        {{ tipo.get_nombre_display }}
+      </h3>
+      <div class="card-subtitle"><i class="bi bi-activity"></i> Dificultad: <b>{{ tipo.nivel_dificultad }}/5</b></div>
+      {% if tipo.descripcion %}
+        <div class="card-info">{{ tipo.descripcion }}</div>
+      {% endif %}
+      <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo.id %}" class="card-link">
+        <i class="bi bi-arrow-right"></i> Estaciones con este tipo
+      </a>
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}

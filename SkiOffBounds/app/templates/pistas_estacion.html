@@ -1,25 +1,30 @@
 {% extends "base.html" %}
-
-{% block titulo %}Pistas de {{ estacion.nombre }} - SkiOffBounds{% endblock %}
-
+{% block titulo %}Tipos de Pistas - {{ estacion.nombre }}{% endblock %}
 {% block contenido %}
-<h2>Tipos de Pistas</h2>
-<h3>{{ estacion.nombre }}</h3>
-
-{% if pistas %}
-    <ul>
-        {% for p in pistas %}
-        <li class="pista-{{ p.tipo_pista.nombre }}">
-            <a href="{% url 'skioffbounds:tipo_pista_detalle' p.tipo_pista.id %}">
-                {{ p.tipo_pista.get_nombre_display }}
-            </a>
-            - {{ p.cantidad }} pistas ({{ p.km_totales }} km)
-        </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>Esta estación no tiene pistas registradas aún.</p>
-{% endif %}
-
-<p><a href="{% url 'skioffbounds:estacion_detalle' estacion.id %}">← Volver a la estación</a></p>
+<div class="card" style="margin: 0 auto; max-width: 750px;">
+  <h2 class="card-title"><i class="bi bi-flag"></i> Tipos de pistas en {{ estacion.nombre }}</h2>
+  {% if pistas %}
+  <ul class="info-list">
+    {% for p in pistas %}
+    <li>
+      <span class="pista-{{ p.tipo_pista.nombre|lower }}">
+        <i class="bi bi-record2-fill"></i>
+        <b>{{ p.tipo_pista.get_nombre_display }}</b>
+      </span>:
+      {{ p.cantidad }} pistas ({{ p.km_totales }} km)
+      <a href="{% url 'skioffbounds:tipo_pista_detalle' p.tipo_pista.id %}" class="card-link" style="background: none; color: #1976d2; font-size:0.97em; margin-left:10px;">
+        <i class="bi bi-info-circle"></i> Detalles tipo
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p class="card-info">Esta estación no tiene pistas registradas aún.</p>
+  {% endif %}
+  <div style="margin-top:13px;">
+    <a href="{% url 'skioffbounds:estacion_detalle' estacion.id %}" class="card-link" style="background:none;color:#1976d2;">
+      <i class="bi bi-arrow-left"></i> Volver a detalles de estación
+    </a>
+  </div>
+</div>
 {% endblock %}

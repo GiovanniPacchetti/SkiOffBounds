@@ -4,38 +4,41 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/faviconNoBg.ico' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/faviconNoBg.ico' %}">
-
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts: Montserrat y Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
     <title>{% block titulo %}SkiOffBounds - Gestor de Estaciones de Esquí{% endblock %}</title>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <div id="content">
-         <header>
-            <a href="{% url 'skioffbounds:index' %}" class="logo-link">
-                <img src="{% static 'assets/images/logoNoBg.png' %}" alt="SkiOffBounds Logo" class="logo">
-                <h1>SkiOffBounds</h1>
-            </a>
+        <header class="header-hero">
+            <div class="hero-img-container">
+                <img src="{% static 'assets/images/hero_nieve.jpg' %}" alt="Paisaje de nieve" class="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-text">
+                <a href="{% url 'skioffbounds:index' %}" class="logo-link">
+                    <img src="{% static 'assets/images/logoNoBg.png' %}" alt="SkiOffBounds Logo" class="logo">
+                    <span class="hero-title">SkiOffBounds <i class="bi bi-snow"></i></span>
+                </a>
+                <p class="hero-subtitle">Encuentra tu estación de esquí perfecta</p>
+            </div>
         </header>
-        <!-- Navegación común para todas las páginas -->
         <nav>
             <ul>
-                <li><a href="{% url 'skioffbounds:index' %}">Estaciones</a></li>
-                <li><a href="{% url 'skioffbounds:localizaciones' %}">Localizaciones</a></li>
-                <li><a href="{% url 'skioffbounds:tipos_pista' %}">Tipos de Pista</a></li>
+                <li><a href="{% url 'skioffbounds:index' %}"><i class="bi bi-house"></i> Inicio</a></li>
+                <li><a href="{% url 'skioffbounds:localizaciones' %}"><i class="bi bi-geo-alt"></i> Localizaciones</a></li>
+                <li><a href="{% url 'skioffbounds:tipos_pista' %}"><i class="bi bi-flag"></i> Tipos de Pista</a></li>
             </ul>
         </nav>
-        
-        <!-- Contenido específico de cada página -->
         {% block contenido %}{% endblock %}
-        
-        <!-- Footer común -->
         <footer>
-            <p>&copy; 2025 SkiOffBounds - Encuentra tu estación perfecta</p>
+            <p>&copy; 2025 SkiOffBounds</p>
         </footer>
     </div>
 </body>

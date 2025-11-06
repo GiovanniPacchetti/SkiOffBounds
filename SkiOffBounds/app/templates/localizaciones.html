@@ -1,21 +1,18 @@
 {% extends "base.html" %}
-
 {% block titulo %}Localizaciones - SkiOffBounds{% endblock %}
-
 {% block contenido %}
-<h2>Listado de Localizaciones</h2>
-
-{% if lista_localizaciones %}
-    <ul>
-    {% for loc in lista_localizaciones %}
-        <li>
-            <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}">
-                {{ loc.nombre }}
-            </a>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay localizaciones creadas.</p>
-{% endif %}
+<h2 class="main-title"><i class="bi bi-geo-alt"></i> Lista de Localizaciones</h2>
+<div class="cards-grid">
+  {% for loc in lista_localizaciones %}
+    <div class="card">
+      <h3 class="card-title">{{ loc.nombre }}</h3>
+      {% if loc.descripcion %}
+        <div class="card-subtitle"><i class="bi bi-info-circle"></i> {{ loc.descripcion }}</div>
+      {% endif %}
+      <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
+        <i class="bi bi-arrow-right"></i> Detalles
+      </a>
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}

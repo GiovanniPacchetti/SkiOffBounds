@@ -1,25 +1,25 @@
 {% extends "base.html" %}
-
 {% block titulo %}Estaciones en {{ localizacion.nombre }} - SkiOffBounds{% endblock %}
-
 {% block contenido %}
-<h2>Estaciones de Esquí</h2>
-<h3>{{ localizacion.nombre }}</h3>
+<h2 class="main-title">
+    <i class="bi bi-geo-alt"></i>
+    Estaciones en {{ localizacion.nombre }}
+</h2>
 
-{% if estaciones %}
-    <ul>
-        {% for e in estaciones %}
-        <li>
-            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
-                {{ e.nombre }}
-            </a>
-            - {{ e.km_pistas_totales }} km
-        </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay estaciones en esta localización.</p>
-{% endif %}
+<p style="text-align: center; margin-bottom:18px;">
+    <a href="{% url 'skioffbounds:localizacion_detail' localizacion.id %}" class="card-link" style="background: none; color: #1976d2;"><i class="bi bi-arrow-left"></i> Volver a localización</a>
+</p>
 
-<p><a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}">← Volver a la localización</a></p>
+<div class="cards-grid">
+    {% for e in estaciones %}
+        <div class="card">
+            <h3 class="card-title">{{ e.nombre }}</h3>
+            <div class="card-subtitle">
+                <i class="bi bi-rulers"></i> {{ e.km_pistas_totales }} km |
+                <i class="bi bi-flag"></i> {{ e.tipos_pista.count }} tipo{{ e.tipos_pista.count|pluralize }}
+            </div>
+            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link"><i class="bi bi-chevron-double-right"></i> Ver detalles</a>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

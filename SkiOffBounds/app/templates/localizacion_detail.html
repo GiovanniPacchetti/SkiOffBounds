@@ -1,28 +1,25 @@
 {% extends "base.html" %}
-
-{% block titulo %}{{ localizacion.nombre }} - SkiOffBounds{% endblock %}
-
+{% block titulo %}{{ localizacion.nombre }} - Localización{% endblock %}
 {% block contenido %}
-<h2>Detalles de la Localización</h2>
-
-{% if localizacion %}
-    <h3>{{ localizacion.nombre }}</h3>
-    <ul>
-        {% if localizacion.descripcion %}
-            <li><strong>Descripción:</strong> {{ localizacion.descripcion }}</li>
-        {% endif %}
-        {% if localizacion.latitud and localizacion.longitud %}
-            <li><strong>Coordenadas:</strong> {{ localizacion.latitud }}, {{ localizacion.longitud }}</li>
-        {% endif %}
-        <li>
-            <a href="{% url 'skioffbounds:localizacion_estaciones' localizacion.id %}">
-                Ver estaciones de esta localización
-            </a>
-        </li>
-    </ul>
-    
-    <p><a href="{% url 'skioffbounds:localizaciones' %}">← Volver al listado</a></p>
-{% else %}
-    <p>No existe esta localización.</p>
-{% endif %}
+<div class="card" style="margin: 0 auto; max-width: 500px;">
+  <h2 class="card-title"><i class="bi bi-map"></i> {{ localizacion.nombre }}</h2>
+  {% if localizacion.descripcion %}
+    <div class="card-subtitle"><i class="bi bi-info-circle"></i> {{ localizacion.descripcion }}</div>
+  {% endif %}
+  <ul class="info-list">
+    {% if localizacion.latitud and localizacion.longitud %}
+      <li><i class="bi bi-compass"></i> Coordenadas: {{ localizacion.latitud }}, {{ localizacion.longitud }}</li>
+    {% endif %}
+  </ul>
+  <div style="margin-top: 12px;">
+    <a href="{% url 'skioffbounds:localizacion_estaciones' localizacion.id %}" class="btn">
+      <i class="bi bi-list-ul"></i> Ver estaciones de esta localización
+    </a>
+  </div>
+  <p style="margin:10px 0 0 0;">
+    <a href="{% url 'skioffbounds:localizaciones' %}" class="card-link" style="background: none; color: #1976d2;">
+      <i class="bi bi-arrow-left"></i> Volver a localizaciones
+    </a>
+  </p>
+</div>
 {% endblock %}

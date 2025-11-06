@@ -1,36 +1,21 @@
 {% extends "base.html" %}
-
-{% block titulo %}{{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
-
+{% block titulo %}{{ tipo_pista.get_nombre_display }} - Detalles Tipo de Pista{% endblock %}
 {% block contenido %}
-<h2>Detalles del Tipo de Pista</h2>
-
-{% if tipo_pista %}
-    <h3 class="pista-{{ tipo_pista.nombre }}">{{ tipo_pista.get_nombre_display }}</h3>
-    <ul>
-        <li><strong>Nivel de dificultad:</strong> {{ tipo_pista.nivel_dificultad }}/5</li>
-        {% if tipo_pista.descripcion %}
-            <li><strong>Descripción:</strong> {{ tipo_pista.descripcion }}</li>
-        {% endif %}
-    </ul>
-    
-    <h3>Estaciones con este tipo de pista</h3>
-    {% if estaciones %}
-        <ol>
-            {% for e in estaciones %}
-            <li>
-                <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
-                    {{ e.nombre }}
-                </a>
-            </li>
-            {% endfor %}
-        </ol>
-    {% else %}
-        <p>No hay estaciones con este tipo de pista.</p>
+<div class="card" style="margin: 0 auto; max-width: 600px;">
+  <h2 class="card-title pista-{{ tipo_pista.nombre|lower }}">{{ tipo_pista.get_nombre_display }}</h2>
+  <ul class="info-list">
+    <li><i class="bi bi-lightning"></i> Dificultad: <b>{{ tipo_pista.nivel_dificultad }}/5</b></li>
+    {% if tipo_pista.descripcion %}
+    <li><i class="bi bi-chat-left-text"></i> {{ tipo_pista.descripcion }}</li>
     {% endif %}
-    
-    <p><a href="{% url 'skioffbounds:tipos_pista' %}">← Volver al listado</a></p>
-{% else %}
-    <p>No existe este tipo de pista.</p>
-{% endif %}
+  </ul>
+  <div style="margin-top:12px;">
+    <a href="{% url 'skioffbounds:tipo_pista_estaciones' tipo_pista.id %}" class="btn"><i class="bi bi-list-check"></i> Ver estaciones con este tipo</a>
+  </div>
+  <p style="margin:10px 0 0 0;">
+    <a href="{% url 'skioffbounds:tipos_pista' %}" class="card-link" style="background:none;color:#1976d2;">
+      <i class="bi bi-arrow-left"></i> Volver a listado de tipos
+    </a>
+  </p>
+</div>
 {% endblock %}

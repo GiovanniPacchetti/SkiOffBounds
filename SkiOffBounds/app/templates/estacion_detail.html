@@ -1,35 +1,35 @@
 {% extends "base.html" %}
-
-{% block titulo %}{{ estacion.nombre }} - SkiOffBounds{% endblock %}
-
+{% block titulo %}{{ estacion.nombre }} - Detalles{% endblock %}
 {% block contenido %}
-<h2>Detalles de la Estación</h2>
-
-{% if estacion %}
-    <h3>{{ estacion.nombre }}</h3>
-    <ul>
-        <li><strong>Localización:</strong> 
-            <a href="{% url 'skioffbounds:localizacion_detalle' estacion.localizacion.id %}">
-                {{ estacion.localizacion.nombre }}
-            </a>
-        </li>
-        <li><strong>Kilómetros de pistas:</strong> {{ estacion.km_pistas_totales }} km</li>
-        <li><strong>Altitud:</strong> {{ estacion.altitud_minima }}m - {{ estacion.altitud_maxima }}m</li>
-        <li><strong>Desnivel:</strong> {{ estacion.desnivel }} m</li>
-        <li><strong>Remontes:</strong> {{ estacion.numero_remontes }}</li>
-        {% if estacion.telefono %}
-            <li><strong>Teléfono:</strong> {{ estacion.telefono }}</li>
-        {% endif %}
-        {% if estacion.web %}
-            <li><strong>Web:</strong> <a href="{{ estacion.web }}" target="_blank">{{ estacion.web }}</a></li>
-        {% endif %}
-        <li>
-            <a href="{% url 'skioffbounds:estacion_pistas' estacion.id %}">Ver tipos de pistas</a>
-        </li>
-    </ul>
-    
-    <p><a href="{% url 'skioffbounds:index' %}">← Volver al listado</a></p>
-{% else %}
-    <p>No existe esta estación.</p>
-{% endif %}
+<div class="card" style="margin: 0 auto; max-width: 570px;">
+  <h2 class="card-title">
+    <i class="bi bi-geo-alt"></i> {{ estacion.nombre }}
+  </h2>
+  <div class="card-subtitle">
+    <i class="bi bi-map"></i> Localización:
+    <a href="{% url 'skioffbounds:localizacion_detalle' estacion.localizacion.id %}" class="card-link" style="background: none; color: #1976d2;">{{ estacion.localizacion.nombre }}</a>
+  </div>
+  <ul class="info-list">
+    <li><i class="bi bi-rulers li-icon"></i> <b>Kilómetros de pistas:</b> {{ estacion.km_pistas_totales }} km</li>
+    <li><i class="bi bi-caret-up li-icon"></i> <b>Altitud:</b> {{ estacion.altitud_minima }}&ndash;{{ estacion.altitud_maxima }} m</li>
+    <li><i class="bi bi-caret-right-square li-icon"></i> <b>Desnivel:</b> {{ estacion.desnivel }} m</li>
+    <li><i class="bi bi-cable-car li-icon"></i> <b>Remontes:</b> {{ estacion.numero_remontes }}</li>
+    {% if estacion.telefono %}
+      <li><i class="bi bi-telephone"></i> <b>Teléfono:</b> {{ estacion.telefono }}</li>
+    {% endif %}
+    {% if estacion.web %}
+      <li><i class="bi bi-box-arrow-up-right"></i> <b>Web:</b>
+        <a href="{{ estacion.web }}" target="_blank" rel="noopener" class="card-link" style="background: none; color: #1976d2;">{{ estacion.web }}</a>
+      </li>
+    {% endif %}
+  </ul>
+  <div style="margin-top: 10px;">
+    <a href="{% url 'skioffbounds:estacion_pistas' estacion.id %}" class="btn"><i class="bi bi-flag"></i> Ver tipos de pistas</a>
+  </div>
+  <p style="margin:10px 0 0 0;">
+    <a href="{% url 'skioffbounds:index' %}" class="card-link" style="background: none; color: #1976d2;">
+      <i class="bi bi-arrow-left"></i> Volver al inicio
+    </a>
+  </p>
+</div>
 {% endblock %}

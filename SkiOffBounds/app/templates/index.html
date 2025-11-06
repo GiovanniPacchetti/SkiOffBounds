@@ -1,23 +1,20 @@
 {% extends "base.html" %}
-
-{% block titulo %}SkiOffBounds - Estaciones Destacadas{% endblock %}
-
+{% block titulo %}Inicio - SkiOffBounds{% endblock %}
 {% block contenido %}
-<h2>Estaciones Destacadas</h2>
-<p>Una estación destacada por cada localización (la que más km de pistas tiene)</p>
-
-{% if lista_estaciones %}
-    <ul>
-    {% for e in lista_estaciones %}
-        <li>
-            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
-                {{ e.nombre }}
-            </a>
-            - {{ e.localizacion.nombre }} ({{ e.km_pistas_totales }} km)
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay estaciones creadas.</p>
-{% endif %}
+<h2 class="main-title">Estación destacada por cada localización</h2>
+<div class="cards-grid">
+{% for e in lista_estaciones %}
+  <div class="card">
+    <h3 class="card-title"><i class="bi bi-geo-alt"></i> {{ e.nombre }}</h3>
+    <div class="card-subtitle">{{ e.localizacion.nombre }}</div>
+    <div class="card-info">
+      <i class="bi bi-graph-up-arrow li-icon"></i>{{ e.km_pistas_totales }} km &mdash; <i class="bi bi-caret-up li-icon"></i>Altitud: {{ e.altitud_minima }}-{{ e.altitud_maxima }} m
+    </div>
+    <div class="card-info">
+      <i class="bi bi-cash-coin li-icon"></i><b>Precio</b> (ejemplo): {{ e.precio|default:'-' }} €
+    </div>
+    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">Ver detalles</a>
+  </div>
+{% endfor %}
+</div>
 {% endblock %}

@@ -1,25 +1,26 @@
 {% extends "base.html" %}
-
-{% block titulo %}Estaciones con {{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
-
+{% block titulo %}Estaciones con {{ tipo_pista.get_nombre_display }}{% endblock %}
 {% block contenido %}
-<h2>Estaciones de Esquí</h2>
-<h3 class="pista-{{ tipo_pista.nombre }}">Pistas {{ tipo_pista.get_nombre_display }}</h3>
-
-{% if estaciones %}
-    <ul>
-        {% for e in estaciones %}
-        <li>
-            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}">
-                {{ e.nombre }}
+<h2 class="main-title">
+    <i class="bi bi-flag"></i>
+    Estaciones con pistas {{ tipo_pista.get_nombre_display }}
+</h2>
+<div class="cards-grid">
+    {% for e in estaciones %}
+        <div class="card">
+            <h3 class="card-title">{{ e.nombre }}</h3>
+            <div class="card-subtitle">
+                <i class="bi bi-geo-alt"></i> {{ e.localizacion.nombre }}
+            </div>
+            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
+                <i class="bi bi-info-circle"></i> Ir a estación
             </a>
-            - {{ e.localizacion.nombre }}
-        </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay estaciones con este tipo de pista.</p>
-{% endif %}
-
-<p><a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}">← Volver al tipo de pista</a></p>
+        </div>
+    {% endfor %}
+</div>
+<p style="text-align:center; margin-top:18px;">
+    <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}" class="card-link" style="background:none;color:#1976d2;">
+        <i class="bi bi-arrow-left"></i> Volver al tipo de pista
+    </a>
+</p>
 {% endblock %}
