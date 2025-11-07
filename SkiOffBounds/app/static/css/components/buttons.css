@@ -1,0 +1,159 @@
+/* ============================================
+   BOTONES Y CTAs
+   ============================================ */
+
+.btn,
+.card-link,
+.card-cta,
+.detail-cta,
+.hero-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent);
+    cursor: pointer;
+}
+
+.btn:hover,
+.card-link:hover,
+.card-cta:hover,
+.detail-cta:hover {
+    background: var(--white);
+    color: var(--accent);
+}
+
+/* HERO CTA - Especial */
+.hero-cta {
+    padding: 16px 50px;
+    font-size: 0.9rem;
+    border: 2px solid var(--accent);
+}
+
+.hero-cta:hover {
+    background: var(--white);
+    color: var(--accent);
+}
+
+/* ACTION BUTTONS */
+.action-button {
+    flex: 1;
+    padding: 16px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid;
+}
+
+.action-primary {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+}
+
+.action-primary:hover {
+    background: var(--white);
+    color: var(--accent);
+}
+
+.action-secondary {
+    background: var(--white);
+    color: var(--text-primary);
+    border-color: #e0e0e0;
+}
+
+.action-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* FOOTER LINKS */
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 30px;
+    background: var(--white);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.footer-link.footer-primary {
+    background: var(--accent);
+    color: var(--white);
+    border-color: var(--accent);
+}
+
+.footer-link.footer-primary:hover {
+    background: var(--white);
+    color: var(--accent);
+}
+
+/* BACK LINK */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+/* EMPTY CTA */
+.empty-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent);
+}
+
+.empty-cta:hover {
+    background: var(--white);
+    color: var(--accent);
+}
+

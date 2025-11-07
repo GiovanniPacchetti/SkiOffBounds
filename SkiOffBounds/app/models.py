@@ -124,11 +124,7 @@ class Estacion(models.Model):
     # Información adicional
     telefono = models.CharField(max_length=20, blank=True, null=True)
     web = models.URLField(blank=True, null=True)
-    imagen_portada = models.URLField(
-        blank=True, 
-        null=True,
-        help_text="URL de la imagen principal"
-    )
+    imagen_portada = models.ImageField(upload_to='portadas/',blank=True, help_text='Imagen Principal', null=True)
     
     # Fechas
     fecha_creacion = models.DateTimeField(auto_now_add=True)

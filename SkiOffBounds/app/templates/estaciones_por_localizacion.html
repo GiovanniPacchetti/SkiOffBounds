@@ -1,25 +1,71 @@
 {% extends "base.html" %}
 {% block titulo %}Estaciones en {{ localizacion.nombre }} - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<h2 class="main-title">
-    <i class="bi bi-geo-alt"></i>
-    Estaciones en {{ localizacion.nombre }}
-</h2>
-
-<p style="text-align: center; margin-bottom:18px;">
-    <a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}" class="card-link" style="background: none; color: #1976d2;"><i class="bi bi-arrow-left"></i> Volver a localización</a>
-</p>
-
-<div class="cards-grid">
-    {% for e in estaciones %}
-        <div class="card">
-            <h3 class="card-title">{{ e.nombre }}</h3>
-            <div class="card-subtitle">
-                <i class="bi bi-rulers"></i> {{ e.km_pistas_totales }} km |
-                <i class="bi bi-flag"></i> {{ e.tipos_pista.count }} tipo{{ e.tipos_pista.count|pluralize }}
+<section class="listing-section">
+    <div class="listing-container">
+        <!-- Header -->
+        <div class="listing-header">
+            <div class="header-top">
+                <a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}" class="back-link">
+                    <i class="bi bi-arrow-left"></i> Volver a {{ localizacion.nombre }}
+                </a>
             </div>
-            <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link"><i class="bi bi-chevron-double-right"></i> Ver detalles</a>
+
+            <h1 class="listing-title">
+                <i class="bi bi-geo-alt"></i>
+                Estaciones en {{ localizacion.nombre }}
+            </h1>
+
+            <p class="listing-subtitle">
+                {{ estaciones.count }} estaciones
+            </p>
         </div>
-    {% endfor %}
-</div>
+
+        <!-- Cards Grid -->
+        <div class="cards-grid">
+            {% for e in estaciones %}
+            <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <h3 class="card-title">{{ e.nombre }}</h3>
+                    
+                    <div class="card-stats">
+                        <div class="stat">
+                            <i class="bi bi-rulers"></i>
+                            <span>{{ e.km_pistas_totales }} km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="bi bi-flag"></i>
+                            <span>{{ e.tipos_pista.count }} tipo{{ e.tipos_pista.count|pluralize }}</span>
+                        </div>
+                    </div>
+
+                    {% if e.altitud_minima and e.altitud_maxima %}
+                    <div class="card-altitude">
+                        <i class="bi bi-arrow-up"></i>
+                        <span>{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
+                    </div>
+                    {% endif %}
+
+                    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
+                        Ver Detalles
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="empty-state" style="grid-column: 1/-1;">
+                <div class="empty-icon">
+                    <i class="bi bi-inbox"></i>
+                </div>
+                <h3>No hay estaciones disponibles</h3>
+                <p>En {{ localizacion.nombre }} no hay estaciones registradas actualmente.</p>
+                <a href="{% url 'skioffbounds:localizaciones' %}" class="empty-cta">
+                    Explorar otras localizaciones
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endblock %}

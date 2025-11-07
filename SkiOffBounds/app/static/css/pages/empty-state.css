@@ -1,0 +1,31 @@
+/* ============================================
+   EMPTY STATES
+   ============================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    background: var(--gray-light);
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: #c0c0c0;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+

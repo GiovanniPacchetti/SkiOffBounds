@@ -1,35 +1,132 @@
 {% extends "base.html" %}
-{% block titulo %}{{ estacion.nombre }} - Detalles{% endblock %}
+{% block titulo %}{{ estacion.nombre }} - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<div class="card" style="margin: 0 auto; max-width: 570px;">
-  <h2 class="card-title">
-    <i class="bi bi-geo-alt"></i> {{ estacion.nombre }}
-  </h2>
-  <div class="card-subtitle">
-    <i class="bi bi-map"></i> Localización:
-    <a href="{% url 'skioffbounds:localizacion_detalle' estacion.localizacion.id %}" class="card-link" style="background: none; color: #1976d2;">{{ estacion.localizacion.nombre }}</a>
-  </div>
-  <ul class="info-list">
-    <li><i class="bi bi-rulers li-icon"></i> <b>Kilómetros de pistas:</b> {{ estacion.km_pistas_totales }} km</li>
-    <li><i class="bi bi-caret-up li-icon"></i> <b>Altitud:</b> {{ estacion.altitud_minima }}&ndash;{{ estacion.altitud_maxima }} m</li>
-    <li><i class="bi bi-caret-right-square li-icon"></i> <b>Desnivel:</b> {{ estacion.desnivel }} m</li>
-    <li><i class="bi bi-cable-car li-icon"></i> <b>Remontes:</b> {{ estacion.numero_remontes }}</li>
-    {% if estacion.telefono %}
-      <li><i class="bi bi-telephone"></i> <b>Teléfono:</b> {{ estacion.telefono }}</li>
-    {% endif %}
-    {% if estacion.web %}
-      <li><i class="bi bi-box-arrow-up-right"></i> <b>Web:</b>
-        <a href="{{ estacion.web }}" target="_blank" rel="noopener" class="card-link" style="background: none; color: #1976d2;">{{ estacion.web }}</a>
-      </li>
-    {% endif %}
-  </ul>
-  <div style="margin-top: 10px;">
-    <a href="{% url 'skioffbounds:estacion_pistas' estacion.id %}" class="btn"><i class="bi bi-flag"></i> Ver tipos de pistas</a>
-  </div>
-  <p style="margin:10px 0 0 0;">
-    <a href="{% url 'skioffbounds:index' %}" class="card-link" style="background: none; color: #1976d2;">
-      <i class="bi bi-arrow-left"></i> Volver al inicio
-    </a>
-  </p>
-</div>
+<section class="detail-section">
+    <div class="detail-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="{% url 'skioffbounds:index' %}" class="breadcrumb-link">
+                <i class="bi bi-house"></i> Inicio
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ estacion.nombre }}</span>
+        </div>
+
+        <!-- Header de Estación -->
+        <div class="detail-header">
+            {% if estacion.imagen_portada %}
+            <div class="detail-image">
+                <img src="{{ estacion.imagen_portada.url }}" alt="{{ estacion.nombre }}" class="image-full">
+            </div>
+            {% endif %}
+            
+            <div class="detail-info">
+                <h1 class="detail-title">{{ estacion.nombre }}</h1>
+                
+                <div class="location-badge">
+                    <i class="bi bi-map"></i>
+                    <a href="{% url 'skioffbounds:localizacion_detalle' estacion.localizacion.id %}" class="location-link">
+                        {{ estacion.localizacion.nombre }}
+                    </a>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Pistas Totales</span>
+                            <span class="stat-value">{{ estacion.km_pistas_totales }} km</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Altitud</span>
+                            <span class="stat-value">{{ estacion.altitud_minima }}-{{ estacion.altitud_maxima }} m</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div class="stat-content">
+                            <span class="stat-label">Desnivel</span>
+                            <span class="stat-value">{{ estacion.desnivel }} m</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Remontes</span>
+                            <span class="stat-value">{{ estacion.numero_remontes }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información Detallada -->
+        <div class="detail-content">
+            <div class="content-section">
+                <h2 class="section-heading">Información General</h2>
+                
+                <div class="info-grid">
+                    {% if estacion.telefono %}
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="bi bi-telephone"></i> Teléfono
+                        </span>
+                        <a href="tel:{{ estacion.telefono }}" class="info-value">
+                            {{ estacion.telefono }}
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if estacion.web %}
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="bi bi-link-45deg"></i> Sitio Web
+                        </span>
+                        <a href="{{ estacion.web }}" target="_blank" rel="noopener noreferrer" class="info-value">
+                            Visitar web
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if estacion.precio %}
+                    <div class="info-item">
+                        <span class="info-label">
+                            <i class="bi bi-tag"></i> Precio Referencia
+                        </span>
+                        <span class="info-value price">{{ estacion.precio }}€</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Tipos de Pista -->
+            <div class="content-section">
+                <h2 class="section-heading">Tipos de Pista</h2>
+                <a href="{% url 'skioffbounds:estacion_pistas' estacion.id %}" class="detail-cta">
+                    <i class="bi bi-flag"></i>
+                    Ver Tipos de Pista
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="detail-actions">
+            <a href="{% url 'skioffbounds:index' %}" class="action-button action-secondary">
+                <i class="bi bi-arrow-left"></i>
+                Volver al Inicio
+            </a>
+            <a href="{% url 'skioffbounds:localizaciones' %}" class="action-button action-primary">
+                <i class="bi bi-compass"></i>
+                Ver Otras Estaciones
+            </a>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -1,0 +1,18 @@
+/* ============================================
+   RESPONSIVE GENERAL
+   ============================================ */
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .navbar-title {
+        display: none;
+    }
+
+    .navbar-brand {
+        gap: 8px;
+    }
+
+    .listing-title i {
+        display: none;
+    }
+}

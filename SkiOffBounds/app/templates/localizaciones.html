@@ -1,18 +1,42 @@
 {% extends "base.html" %}
 {% block titulo %}Localizaciones - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<h2 class="main-title"><i class="bi bi-geo-alt"></i> Lista de Localizaciones</h2>
-<div class="cards-grid">
-  {% for loc in lista_localizaciones %}
-    <div class="card">
-      <h3 class="card-title">{{ loc.nombre }}</h3>
-      {% if loc.descripcion %}
-        <div class="card-subtitle"><i class="bi bi-info-circle"></i> {{ loc.descripcion }}</div>
-      {% endif %}
-      <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
-        <i class="bi bi-arrow-right"></i> Detalles
-      </a>
+<section class="estaciones-section">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="bi bi-map"></i>
+            Localizaciones
+        </h2>
+        <p class="section-subtitle">Explora todas nuestras regiones</p>
     </div>
-  {% endfor %}
-</div>
+
+    <div class="cards-grid">
+        {% for loc in lista_localizaciones %}
+        <div class="card">
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3 class="card-title">{{ loc.nombre }}</h3>
+                
+                {% if loc.descripcion %}
+                <p class="card-subtitle">{{ loc.descripcion }}</p>
+                {% endif %}
+
+                <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
+                    <i class="bi bi-arrow-right"></i>
+                    Ver Detalles
+                </a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="empty-state" style="grid-column: 1/-1;">
+            <div class="empty-icon">
+                <i class="bi bi-map"></i>
+            </div>
+            <h3>No hay localizaciones disponibles</h3>
+            <p>Intenta nuevamente más tarde.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

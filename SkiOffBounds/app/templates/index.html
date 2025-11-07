@@ -1,20 +1,50 @@
 {% extends "base.html" %}
-{% block titulo %}Inicio - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<h2 class="main-title">Estación destacada por cada localización</h2>
-<div class="cards-grid">
-{% for e in lista_estaciones %}
-  <div class="card">
-    <h3 class="card-title"><i class="bi bi-geo-alt"></i> {{ e.nombre }}</h3>
-    <div class="card-subtitle">{{ e.localizacion.nombre }}</div>
-    <div class="card-info">
-      <i class="bi bi-graph-up-arrow li-icon"></i>{{ e.km_pistas_totales }} km &mdash; <i class="bi bi-caret-up li-icon"></i>Altitud: {{ e.altitud_minima }}-{{ e.altitud_maxima }} m
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Descubre tu próxima aventura en las montañas</h1>
+        <p class="hero-subtitle">Explora las mejores estaciones de esquí del mundo</p>
+        <a href="#estaciones" class="hero-cta">Explorar Estaciones</a>
     </div>
-    <div class="card-info">
-      <i class="bi bi-cash-coin li-icon"></i><b>Precio</b> (ejemplo): {{ e.precio|default:'-' }} €
+</section>
+
+<section id="estaciones" class="estaciones-section">
+    <div class="section-header">
+        <h2 class="section-title">Estaciones Destacadas</h2>
+        <p class="section-subtitle">Por cada localización</p>
     </div>
-    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">Ver detalles</a>
-  </div>
-{% endfor %}
-</div>
+
+    <div class="cards-grid">
+        {% for e in lista_estaciones %}
+        <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
+            <div class="card-overlay"></div>
+            <div class="card-content">
+                <h3 class="card-title">{{ e.nombre }}</h3>
+                <p class="card-location">{{ e.localizacion.nombre }}</p>
+                
+                <div class="card-stats">
+                    <div class="stat">
+                        <i class="bi bi-graph-up"></i>
+                        <span>{{ e.km_pistas_totales }} km</span>
+                    </div>
+                    <div class="stat">
+                        <i class="bi bi-arrow-up"></i>
+                        <span>{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
+                    </div>
+                </div>
+
+                {% if e.precio %}
+                <div class="card-price">
+                    <span class="price-label">Desde</span>
+                    <span class="price-value">{{ e.precio }}€</span>
+                </div>
+                {% endif %}
+
+                <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">Ver Detalles</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}

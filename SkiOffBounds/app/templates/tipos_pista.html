@@ -1,21 +1,59 @@
 {% extends "base.html" %}
 {% block titulo %}Tipos de Pista - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<h2 class="main-title"><i class="bi bi-flag"></i> Tipos de pista</h2>
-<div class="cards-grid">
-  {% for tipo in lista_tipos %}
-    <div class="card">
-      <h3 class="card-title pista-{{ tipo.nombre|lower }}">
-        {{ tipo.get_nombre_display }}
-      </h3>
-      <div class="card-subtitle"><i class="bi bi-activity"></i> Dificultad: <b>{{ tipo.nivel_dificultad }}/5</b></div>
-      {% if tipo.descripcion %}
-        <div class="card-info">{{ tipo.descripcion }}</div>
-      {% endif %}
-      <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo.id %}" class="card-link">
-        <i class="bi bi-arrow-right"></i> Estaciones con este tipo
-      </a>
+<section class="listing-section">
+    <div class="listing-container">
+        <!-- Header -->
+        <div class="listing-header">
+            <h1 class="listing-title">
+                <i class="bi bi-flag"></i>
+                Tipos de Pista
+            </h1>
+            <p class="listing-subtitle">
+                Descubre los diferentes tipos de pistas según su dificultad
+            </p>
+        </div>
+
+        <!-- Tipos Grid -->
+        <div class="tipos-grid">
+            {% for tipo in lista_tipos %}
+            <article class="tipo-card pista-{{ tipo.nombre|lower }}">
+                <div class="tipo-header">
+                    <h3 class="tipo-title">{{ tipo.get_nombre_display }}</h3>
+                    <div class="tipo-level">
+                        <span class="level-label">Dificultad</span>
+                        <div class="level-bars">
+                            {% for i in "x"|rjust:"5" %}
+                                <span class="level-bar {% if forloop.counter <= tipo.nivel_dificultad %}active{% endif %}"></span>
+                            {% endfor %}
+                        </div>
+                        <span class="level-value">{{ tipo.nivel_dificultad }}/5</span>
+                    </div>
+                </div>
+
+                {% if tipo.descripcion %}
+                <div class="tipo-description">
+                    {{ tipo.descripcion }}
+                </div>
+                {% endif %}
+
+
+                <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo.id %}" class="tipo-cta">
+                    Ver Detalles
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+            {% empty %}
+            <div class="empty-state" style="grid-column: 1/-1;">
+                <div class="empty-icon">
+                    <i class="bi bi-flag"></i>
+                </div>
+                <h3>No hay tipos de pista disponibles</h3>
+                <p>Intenta nuevamente más tarde.</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-  {% endfor %}
-</div>
+</section>
 {% endblock %}

@@ -1,21 +1,74 @@
 {% extends "base.html" %}
-{% block titulo %}{{ tipo_pista.get_nombre_display }} - Detalles Tipo de Pista{% endblock %}
+{% block titulo %}{{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
+
 {% block contenido %}
-<div class="card" style="margin: 0 auto; max-width: 600px;">
-  <h2 class="card-title pista-{{ tipo_pista.nombre|lower }}">{{ tipo_pista.get_nombre_display }}</h2>
-  <ul class="info-list">
-    <li><i class="bi bi-lightning"></i> Dificultad: <b>{{ tipo_pista.nivel_dificultad }}/5</b></li>
-    {% if tipo_pista.descripcion %}
-    <li><i class="bi bi-chat-left-text"></i> {{ tipo_pista.descripcion }}</li>
-    {% endif %}
-  </ul>
-  <div style="margin-top:12px;">
-    <a href="{% url 'skioffbounds:tipo_pista_estaciones' tipo_pista.id %}" class="btn"><i class="bi bi-list-check"></i> Ver estaciones con este tipo</a>
-  </div>
-  <p style="margin:10px 0 0 0;">
-    <a href="{% url 'skioffbounds:tipos_pista' %}" class="card-link" style="background:none;color:#1976d2;">
-      <i class="bi bi-arrow-left"></i> Volver a listado de tipos
-    </a>
-  </p>
-</div>
+<section class="detail-section">
+    <div class="detail-container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="{% url 'skioffbounds:index' %}" class="breadcrumb-link">
+                <i class="bi bi-house"></i> Inicio
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="{% url 'skioffbounds:tipos_pista' %}" class="breadcrumb-link">
+                Tipos de Pista
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ tipo_pista.get_nombre_display }}</span>
+        </div>
+
+        <!-- Card Principal -->
+        <div class="tipo-detail-card pista-{{ tipo_pista.nombre|lower }}">
+            <div class="tipo-detail-header">
+                <h1 class="tipo-detail-title">{{ tipo_pista.get_nombre_display }}</h1>
+                <div class="tipo-detail-icon">
+                    {% if tipo_pista.nombre == 'verde' %}
+                        <i class="bi bi-circle-fill"></i>
+                    {% elif tipo_pista.nombre == 'azul' %}
+                        <i class="bi bi-square-fill"></i>
+                    {% elif tipo_pista.nombre == 'rojo' %}
+                        <i class="bi bi-diamond-fill"></i>
+                    {% elif tipo_pista.nombre == 'negro' %}
+                        <i class="bi bi-star-fill"></i>
+                    {% else %}
+                        <i class="bi bi-flag-fill"></i>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Dificultad -->
+            <div class="tipo-detail-difficulty">
+                <span class="difficulty-label">Nivel de Dificultad</span>
+                <div class="difficulty-content">
+                    <div class="difficulty-bars">
+                        {% for i in "x"|rjust:"5" %}
+                            <span class="difficulty-bar {% if forloop.counter <= tipo_pista.nivel_dificultad %}active{% endif %}"></span>
+                        {% endfor %}
+                    </div>
+                    <span class="difficulty-value">{{ tipo_pista.nivel_dificultad }}/5</span>
+                </div>
+            </div>
+
+            <!-- Descripción -->
+            {% if tipo_pista.descripcion %}
+            <div class="tipo-detail-description">
+                <h3 class="section-heading">Descripción</h3>
+                <p>{{ tipo_pista.descripcion }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Acciones -->
+            <div class="tipo-detail-actions">
+                <a href="{% url 'skioffbounds:tipo_pista_estaciones' tipo_pista.id %}" class="action-button action-primary">
+                    <i class="bi bi-list-check"></i>
+                    Ver Estaciones con este Tipo
+                </a>
+                <a href="{% url 'skioffbounds:tipos_pista' %}" class="action-button action-secondary">
+                    <i class="bi bi-arrow-left"></i>
+                    Volver a Tipos de Pista
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

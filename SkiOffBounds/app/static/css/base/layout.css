@@ -1,0 +1,53 @@
+/* ============================================
+   LAYOUT GENERAL
+   ============================================ */
+
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    min-height: calc(100vh - 200px);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Secciones */
+section {
+    padding: 60px 0;
+}
+
+section.listing-section,
+section.detail-section {
+    min-height: calc(100vh - 300px);
+}
+
+/* Grid de estaciones */
+.estaciones-section {
+    padding: 100px 0;
+}
+
+/* Responsive containers */
+@media (max-width: 1024px) {
+    .main-content,
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content,
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content,
+    .container {
+        padding: 0 15px;
+    }
+}

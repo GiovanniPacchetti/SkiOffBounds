@@ -1,0 +1,42 @@
+/* ============================================
+   TIPOGRAFÍA
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+}
+
+/* Títulos Playfair */
+.hero-title,
+.detail-title,
+.listing-title,
+.section-title,
+.card-title,
+.stat-value {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* Texto pequeño */
+.text-small {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Enlaces */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--text-primary);
+}
+
+/* Resaltado */
+strong, b {
+    font-weight: 600;
+}

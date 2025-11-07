@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
                 ('numero_remontes', models.IntegerField(default=0, help_text='Número total de remontes mecánicos', validators=[django.core.validators.MinValueValidator(0)])),
                 ('telefono', models.CharField(blank=True, max_length=20, null=True)),
                 ('web', models.URLField(blank=True, null=True)),
-                ('imagen_portada', models.URLField(blank=True, help_text='URL de la imagen principal', null=True)),
+                ('imagen_portada', models.ImageField(upload_to='portadas/',blank=True, help_text='Imagen Principal', null=True)),
                 ('fecha_creacion', models.DateTimeField(auto_now_add=True)),
                 ('fecha_actualizacion', models.DateTimeField(auto_now=True)),
                 ('localizacion', models.ForeignKey(help_text='Región donde se encuentra la estación', on_delete=django.db.models.deletion.PROTECT, related_name='estaciones', to='app.localizacion')),
