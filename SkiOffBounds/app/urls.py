@@ -21,4 +21,8 @@ urlpatterns = [
     path('tipos-pista/', views.index_tipos_pista, name='tipos_pista'),
     path('tipos-pista/<int:tipo_pista_id>/', views.show_tipo_pista, name='tipo_pista_detalle'),
     path('tipos-pista/<int:tipo_pista_id>/estaciones/', views.index_estaciones_por_tipo_pista, name='tipo_pista_estaciones'),
+
+    # Nuevas APIs AJAX
+    path('api/search/', views.search_estaciones_api, name='api_search'),
+    path('api/filter/', views.filtrar_estaciones_api, name='api_filter'),
 ]

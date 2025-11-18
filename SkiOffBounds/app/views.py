@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 from .models import Localizacion, TipoPista, Estacion, PistaEstacion
 from django.db.models import Max
+from django.http import JsonResponse
+from django.db.models import Q
 
 
 def index_estaciones(request):
@@ -16,8 +18,13 @@ def index_estaciones(request):
         if estacion:
             estaciones_destacadas.append(estacion)
     
-    context = {'lista_estaciones': estaciones_destacadas}
+    # IMPORTANTE: Pasar AMBAS variables al contexto
+    context = {
+        'lista_estaciones': estaciones_destacadas,
+        'localizaciones': localizaciones,  # ← AÑADIR ESTA LÍNEA
+    }
     return render(request, 'index.html', context)
+
 
 def lista_todas_estaciones(request):
     """
@@ -85,3 +92,50 @@ def index_estaciones_por_tipo_pista(request, tipo_pista_id):
     estaciones = tipo.estaciones.all()
     context = {'tipo_pista': tipo, 'estaciones': estaciones}
     return render(request, 'estaciones_por_tipo.html', context)
+
+
+def search_estaciones_api(request):
+    """API endpoint para búsqueda en tiempo real de estaciones"""
+    query = request.GET.get('q', '').strip()
+    
+    if len(query) < 2:
+        return JsonResponse([], safe=False)
+    
+    # Buscar en nombre de estación y localización
+    estaciones = Estacion.objects.filter(
+        Q(nombre__icontains=query) | 
+        Q(localizacion__nombre__icontains=query)
+    ).select_related('localizacion')[:8]
+    
+    data = [{
+        'id': e.id,
+        'nombre': e.nombre,
+        'localizacion': e.localizacion.nombre,
+        'km_pistas': e.km_pistas_totales,
+        'altitud_max': e.altitud_maxima,
+        'url': f'/home/estaciones/{e.id}/'
+    } for e in estaciones]
+    
+    return JsonResponse(data, safe=False)
+
+
+def filtrar_estaciones_api(request):
+    """API endpoint para filtrar estaciones por localización"""
+    localizacion_id = request.GET.get('loc', '')
+    
+    if localizacion_id:
+        estaciones = Estacion.objects.filter(
+            localizacion_id=localizacion_id
+        ).select_related('localizacion')
+    else:
+        estaciones = Estacion.objects.all().select_related('localizacion')
+    
+    data = [{
+        'id': e.id,
+        'nombre': e.nombre,
+        'localizacion': e.localizacion.nombre,
+        'km_pistas': e.km_pistas_totales,
+        'url': f'/home/estaciones/{e.id}/'
+    } for e in estaciones]
+    
+    return JsonResponse(data, safe=False)

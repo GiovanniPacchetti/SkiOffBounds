@@ -12,6 +12,7 @@
 @import url('components/cards.css');
 @import url('components/buttons.css');
 @import url('components/footer.css');
+@import url('components/search.css');
 
 /* PAGES */
 @import url('pages/hero.css');

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
 {% block titulo %}Localizaciones - SkiOffBounds{% endblock %}
+
+{% block extra_head %}
+<script src="{% static 'js/search.js' %}" defer></script>  {# ← AÑADIR ESTA LÍNEA #}
+{% endblock %}
 
 {% block contenido %}
 <section class="estaciones-section">
@@ -29,12 +34,12 @@
             </div>
         </div>
         {% empty %}
-        <div class="empty-state" style="grid-column: 1/-1;">
-            <div class="empty-icon">
+        <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+            <div class="empty-icon" style="font-size: 4em; color: #6c92ac; margin-bottom: 20px;">
                 <i class="bi bi-map"></i>
             </div>
             <h3>No hay localizaciones disponibles</h3>
-            <p>Intenta nuevamente más tarde.</p>
+            <p>Añade localizaciones desde el panel de administración.</p>
         </div>
         {% endfor %}
     </div>

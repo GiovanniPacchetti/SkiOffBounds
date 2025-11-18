@@ -1,6 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+<script src="{% static 'js/search.js' %}" defer></script>
+{% endblock %}
 
 {% block contenido %}
+<!-- Hero Section -->
 <section class="hero">
     <div class="hero-content">
         <h1 class="hero-title">Descubre tu próxima aventura en las montañas</h1>
@@ -9,13 +15,42 @@
     </div>
 </section>
 
+<!-- Search and Filter Section -->
+<section class="search-filter-section">
+    <div class="search-filter-container">
+        <!-- Buscador en tiempo real -->
+        <div class="search-box">
+            <i class="bi bi-search"></i>
+            <input 
+                type="text" 
+                id="search-estaciones" 
+                placeholder="Buscar estaciones..." 
+                autocomplete="off"
+            >
+            <div id="search-results" class="search-results"></div>
+        </div>
+        
+        <!-- Filtro por localización -->
+        <div class="filter-box">
+            <i class="bi bi-funnel"></i>
+            <select id="filter-localizacion" class="filter-select">
+                <option value="">Todas las localizaciones</option>
+                {% for loc in localizaciones %}
+                <option value="{{ loc.id }}">{{ loc.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</section>
+
+<!-- Estaciones Section -->
 <section id="estaciones" class="estaciones-section">
     <div class="section-header">
         <h2 class="section-title">Estaciones Destacadas</h2>
         <p class="section-subtitle">Por cada localización</p>
     </div>
 
-    <div class="cards-grid">
+    <div class="cards-grid" id="estaciones-container">
         {% for e in lista_estaciones %}
         <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
             <div class="card-overlay"></div>
@@ -41,7 +76,16 @@
                 </div>
                 {% endif %}
 
-                <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">Ver Detalles</a>
+                <div class="card-actions">
+                    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">Ver Detalles</a>
+                    <button 
+                        class="btn-favorito" 
+                        data-estacion-id="{{ e.id }}"
+                        title="Añadir a favoritos"
+                    >
+                        <i class="bi bi-star"></i>
+                    </button>
+                </div>
             </div>
         </div>
         {% endfor %}
