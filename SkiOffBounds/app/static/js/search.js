@@ -50,11 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
             item.href = est.url;
             item.innerHTML = `
                 <div class="search-item-content">
-                    <i class="bi bi-geo-alt-fill"></i>
                     <div class="search-item-info">
                         <strong>${est.nombre}</strong>
                         <small>${est.localizacion} • ${est.km_pistas} km</small>
                     </div>
+                    <i class="bi bi-geo-alt-fill"></i>
+
                 </div>`;
             searchResults.appendChild(item);
         });

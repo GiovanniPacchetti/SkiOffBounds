@@ -75,3 +75,56 @@
 .nav-link:hover::after {
     width: 100%;
 }
+
+/* ============================================
+   SELECTOR DE IDIOMA (Versión Fondo Blanco)
+   ============================================ */
+
+.nav-item-lang {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item-lang form {
+    margin: 0;
+}
+
+.nav-item-lang select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* Colores para fondo blanco */
+    background-color: #fff;      /* Fondo blanco */
+    border: 1px solid #d5e4ee;   /* Borde gris azulado suave */
+    color: #153155;              /* Texto Azul Oscuro */
+    
+    border-radius: 20px;
+    padding: 6px 30px 6px 15px;
+    font-family: inherit;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* FLECHA AZUL OSCURA (#153155) en Base64 */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMxNTMxNTUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cG9seWxpbmUgcG9pbnRzPSI2IDkgMTIgMTUgMTggOSIvPjwvc3ZnPg==');
+    
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+}
+
+.nav-item-lang select:hover,
+.nav-item-lang select:focus {
+    border-color: #3fa9f5;       /* Borde azul brillante al pasar el ratón */
+    background-color: #f5fafb;   /* Fondo ligeramente azulado */
+    outline: none;
+}
+
+/* Opciones del desplegable */
+.nav-item-lang option {
+    background-color: #fff;
+    color: #333;
+}

@@ -81,10 +81,6 @@
     text-transform: uppercase;
 }
 
-
-
-
-
 /* ============================================
    TIPOS DE PISTA PAGE
    ============================================ */
@@ -119,9 +115,10 @@
     background: linear-gradient(135deg, rgba(33, 150, 243, 0.02), rgba(33, 150, 243, 0.05));
 }
 
+/* ROJO CORREGIDO */
 .tipo-card.pista-roja {
-    border-color: #FF9800;
-    background: linear-gradient(135deg, rgba(255, 152, 0, 0.02), rgba(255, 152, 0, 0.05));
+    border-color: #F44336;
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.02), rgba(244, 67, 54, 0.05));
 }
 
 .tipo-card.pista-negra {
@@ -144,9 +141,10 @@
     box-shadow: 0 15px 35px rgba(33, 150, 243, 0.2);
 }
 
+/* ROJO CORREGIDO */
 .tipo-card.pista-roja:hover {
-    border-color: #FF9800;
-    box-shadow: 0 15px 35px rgba(255, 152, 0, 0.2);
+    border-color: #F44336; 
+    box-shadow: 0 15px 35px rgba(244, 67, 54, 0.2);
 }
 
 .tipo-card.pista-negra:hover {
@@ -163,7 +161,7 @@
 
 .tipo-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.66rem;
     font-weight: 700;
     margin-bottom: 15px;
     letter-spacing: -0.3px;
@@ -212,8 +210,9 @@
     background: #2196F3;
 }
 
+/* ROJO CORREGIDO */
 .tipo-card.pista-roja .level-bar.active {
-    background: #FF9800;
+    background: #F44336;
 }
 
 .tipo-card.pista-negra .level-bar.active {
@@ -256,7 +255,7 @@
 }
 
 .tipo-card.pista-roja .tipo-icon {
-    color: #FF9800;
+    color: #F44336;
 }
 
 .tipo-card.pista-negra .tipo-icon {
@@ -308,13 +307,14 @@
     color: var(--white);
 }
 
+/* ROJO CORREGIDO */
 .tipo-card.pista-roja .tipo-cta {
-    border-color: #FF9800;
-    color: #FF9800;
+    border-color: #F44336;
+    color: #F44336;
 }
 
 .tipo-card.pista-roja .tipo-cta:hover {
-    background: #FF9800;
+    background: #F44336;
     color: var(--white);
 }
 
