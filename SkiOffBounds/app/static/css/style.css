@@ -13,6 +13,9 @@
 @import url('components/buttons.css');
 @import url('components/footer.css');
 @import url('components/search.css');
+@import url('components/filters.css');
+@import url('components/animations.css');
+@import url('components/favorites.css');
 
 /* PAGES */
 @import url('pages/hero.css');

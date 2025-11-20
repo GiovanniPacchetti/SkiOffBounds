@@ -2,9 +2,11 @@
 {% load static %}
 {% load i18n %}  {# ← IMPORTANTE #}
 
-{% block extra_head %}
-<script src="{% static 'js/search.js' %}" defer></script>
+{% block extra_scripts %}
+    <script src="{% static 'js/search.js' %}" defer></script>
+    <script src="{% static 'js/filters.js' %}" defer></script>
 {% endblock %}
+
 
 {% block contenido %}
 <!-- Hero Section -->

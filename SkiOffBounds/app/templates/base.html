@@ -71,5 +71,11 @@
 
    
     <script src="{% url 'javascript-catalog' %}"></script>
+    <script src="{% static 'js/favorites.js' %}" defer></script>
+    <script src="{% static 'js/ui.js' %}" defer></script>
+    
+
+    {% block extra_scripts %}{% endblock %}
+
 </body>
 </html>

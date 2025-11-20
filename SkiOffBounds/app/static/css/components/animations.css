@@ -1,0 +1,65 @@
+/* ============================================
+   ANIMACIONES Y ESTADOS (animations.css)
+   ============================================ */
+
+/* Loading, Error & Empty States */
+.loading, .error, .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c92ac;
+    font-size: 1.2em;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.loading i, .error i, .no-results i {
+    font-size: 2.5em;
+    display: block;
+}
+
+.error { color: #d32f2f; }
+
+/* Animación de Spinner */
+.loading i { animation: spin 1s linear infinite; }
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Animación Fade In (Aparición suave) */
+.fade-in { animation: fadeIn 0.6s ease-in; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación al hacer Scroll */
+.card.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.cards-grid .card:nth-child(0) {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+/* Fallback: Cards visibles por defecto si no hay JS */
+.card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}

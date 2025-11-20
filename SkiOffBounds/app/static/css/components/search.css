@@ -1,8 +1,8 @@
 /* ============================================
-   BÚSQUEDA Y FILTROS AJAX
+   BÚSQUEDA (search.css)
    ============================================ */
 
-/* Search Filter Section */
+/* Contenedor principal (Compartido con filtros) */
 .search-filter-section {
     padding: 20px 0 30px 0;
     background: linear-gradient(135deg, #f5fafb 0%, #e8f4f8 100%);
@@ -18,7 +18,7 @@
     justify-content: center;
 }
 
-/* Search Box */
+/* Caja de Búsqueda */
 .search-box {
     position: relative;
     flex: 1;
@@ -58,7 +58,7 @@
     color: #9ca3af;
 }
 
-/* Search Results Dropdown */
+/* Desplegable de Resultados */
 .search-results {
     position: absolute;
     top: calc(100% + 10px);
@@ -74,19 +74,9 @@
     display: none;
 }
 
-.search-results::-webkit-scrollbar {
-    width: 8px;
-}
-
-.search-results::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-.search-results::-webkit-scrollbar-thumb {
-    background: #3fa9f5;
-    border-radius: 10px;
-}
+.search-results::-webkit-scrollbar { width: 8px; }
+.search-results::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.search-results::-webkit-scrollbar-thumb { background: #3fa9f5; border-radius: 10px; }
 
 .search-result-item {
     display: block;
@@ -97,18 +87,9 @@
     transition: background 0.2s;
 }
 
-.search-result-item:last-child {
-    border-bottom: none;
-    border-radius: 0 0 15px 15px;
-}
-
-.search-result-item:first-child {
-    border-radius: 15px 15px 0 0;
-}
-
-.search-result-item:hover {
-    background: #f5fafb;
-}
+.search-result-item:last-child { border-bottom: none; border-radius: 0 0 15px 15px; }
+.search-result-item:first-child { border-radius: 15px 15px 0 0; }
+.search-result-item:hover { background: #f5fafb; }
 
 .search-item-content {
     display: flex;
@@ -122,10 +103,7 @@
     flex-shrink: 0;
 }
 
-.search-item-info {
-    flex: 1;
-}
-
+.search-item-info { flex: 1; }
 .search-item-info strong {
     display: block;
     color: #153155;
@@ -133,15 +111,14 @@
     margin-bottom: 3px;
     font-weight: 600;
 }
-
 .search-item-info small {
     display: block;
     color: #6c92ac;
     font-size: 0.9em;
 }
 
-.search-no-results, 
-.search-error {
+/* Estados vacíos o error en búsqueda */
+.search-no-results, .search-error {
     padding: 20px;
     text-align: center;
     color: #6c92ac;
@@ -150,233 +127,23 @@
     align-items: center;
     gap: 8px;
 }
+.search-error { color: #d32f2f; }
+.search-no-results i, .search-error i { font-size: 1.5em; }
 
-.search-error {
-    color: #d32f2f;
-}
-
-.search-no-results i,
-.search-error i {
-    font-size: 1.5em;
-}
-
-/* Filter Box */
-.filter-box {
-    position: relative;
-    flex: 0 0 auto;
-}
-
-.filter-box i {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #2e66a0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.filter-select {
-    padding: 14px 20px 14px 50px;
-    border: 2px solid #d5e4ee;
-    border-radius: 30px;
-    font-size: 1.05em;
-    background: #fff;
-    cursor: pointer;
-    transition: all 0.3s;
-    min-width: 220px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232e66a0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    padding-right: 40px;
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: #3fa9f5;
-    box-shadow: 0 4px 16px rgba(63, 169, 245, 0.2);
-}
-
-/* Botón Favoritos */
-.card-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-top: 12px;
-}
-
-.btn-favorito {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: #153155;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-}
-
-.btn-favorito:hover {
-    background: rgba(255, 255, 255, 1);
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.btn-favorito.active {
-    background: #ffd700;
-    border-color: #ffd700;
-    color: #153155;
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
-}
-
-.btn-favorito i {
-    font-size: 1em;
-}
-
-/* Notificación */
-.notification {
-    position: fixed;
-    bottom: -100px;
-    right: 30px;
-    background: #153155;
-    color: #fff;
-    padding: 16px 24px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    z-index: 10000;
-    transition: bottom 0.3s ease;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.notification.show {
-    bottom: 30px;
-}
-
-/* Loading, Error & Empty States */
-.loading, 
-.error, 
-.no-results {
-    text-align: center;
-    padding: 60px 20px;
-    color: #6c92ac;
-    font-size: 1.2em;
-    grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.loading i, 
-.error i,
-.no-results i {
-    font-size: 2.5em;
-    display: block;
-}
-
-.error {
-    color: #d32f2f;
-}
-
-.loading i {
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Animación Fade In */
-.fade-in {
-    animation: fadeIn 0.6s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Scroll Animation for Cards */
-/* Cards con animación al scroll */
-.card.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.card.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Primera fila visible inmediatamente (primeras 3 cards en grid de 3 columnas) */
-.cards-grid .card:nth-child(-n+3) {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-
-/* Cards normales (sin animación) visibles por defecto */
-.card {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-
-/* Responsive */
+/* Responsive Búsqueda */
 @media (max-width: 768px) {
     .search-filter-container {
         flex-direction: column;
         padding: 0 15px;
     }
-    
-    .search-box, 
-    .filter-select {
-        max-width: 100%;
-        min-width: 100%;
-    }
-    
-    .notification {
-        right: 15px;
-        left: 15px;
-    }
-    
-    .search-results {
-        max-height: 300px;
-    }
+    .search-box { max-width: 100%; min-width: 100%; }
+    .search-results { max-height: 300px; }
 }
 
 @media (max-width: 480px) {
-    #search-estaciones,
-    .filter-select {
+    #search-estaciones {
         font-size: 0.95em;
         padding: 12px 18px 12px 45px;
     }
-    
-    .search-box i,
-    .filter-box i {
-        left: 15px;
-        font-size: 1.1em;
-    }
+    .search-box i { left: 15px; font-size: 1.1em; }
 }
