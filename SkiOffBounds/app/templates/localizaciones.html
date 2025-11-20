@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
-{% block titulo %}Localizaciones - SkiOffBounds{% endblock %}
+{% load i18n %}  {# ← IMPORTANTE #}
+
+{% block titulo %}{% trans "Localizaciones" %} - SkiOffBounds{% endblock %}
 
 {% block extra_head %}
-<script src="{% static 'js/search.js' %}" defer></script>  {# ← AÑADIR ESTA LÍNEA #}
+<script src="{% static 'js/search.js' %}" defer></script>
 {% endblock %}
 
 {% block contenido %}
@@ -11,9 +13,9 @@
     <div class="section-header">
         <h2 class="section-title">
             <i class="bi bi-map"></i>
-            Localizaciones
+            {% trans "Localizaciones" %}
         </h2>
-        <p class="section-subtitle">Explora todas nuestras regiones</p>
+        <p class="section-subtitle">{% trans "Explora todas nuestras regiones" %}</p>
     </div>
 
     <div class="cards-grid">
@@ -29,17 +31,17 @@
 
                 <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
                     <i class="bi bi-arrow-right"></i>
-                    Ver Detalles
+                    {% trans "Ver Detalles" %}
                 </a>
             </div>
         </div>
         {% empty %}
         <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
-            <div class="empty-icon" style="font-size: 4em; color: #6c92ac; margin-bottom: 20px;">
+            <div class="empty-icon" style="font-size: 4em; color: #6c92ac; margin-bottom: 20px;">
                 <i class="bi bi-map"></i>
             </div>
-            <h3>No hay localizaciones disponibles</h3>
-            <p>Añade localizaciones desde el panel de administración.</p>
+            <h3>{% trans "No hay localizaciones disponibles" %}</h3>
+            <p>{% trans "Añade localizaciones desde el panel de administración." %}</p>
         </div>
         {% endfor %}
     </div>

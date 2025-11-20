@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block titulo %}{{ estacion.nombre }} - SkiOffBounds{% endblock %}
 
 {% block contenido %}
@@ -7,7 +8,7 @@
         <!-- Breadcrumb -->
         <div class="breadcrumb">
             <a href="{% url 'skioffbounds:index' %}" class="breadcrumb-link">
-                <i class="bi bi-house"></i> Inicio
+                <i class="bi bi-house"></i> {% trans "Inicio" %}
             </a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">{{ estacion.nombre }}</span>
@@ -35,29 +36,28 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-content">
-                            <span class="stat-label">Pistas Totales</span>
+                            <span class="stat-label">{% trans "Pistas Totales" %}</span>
                             <span class="stat-value">{{ estacion.km_pistas_totales }} km</span>
                         </div>
                     </div>
 
                     <div class="stat-card">
                         <div class="stat-content">
-                            <span class="stat-label">Altitud</span>
+                            <span class="stat-label">{% trans "Altitud" %}</span>
                             <span class="stat-value">{{ estacion.altitud_minima }}-{{ estacion.altitud_maxima }} m</span>
                         </div>
                     </div>
 
                     <div class="stat-card">
-
                         <div class="stat-content">
-                            <span class="stat-label">Desnivel</span>
+                            <span class="stat-label">{% trans "Desnivel" %}</span>
                             <span class="stat-value">{{ estacion.desnivel }} m</span>
                         </div>
                     </div>
 
                     <div class="stat-card">
                         <div class="stat-content">
-                            <span class="stat-label">Remontes</span>
+                            <span class="stat-label">{% trans "Remontes" %}</span>
                             <span class="stat-value">{{ estacion.numero_remontes }}</span>
                         </div>
                     </div>
@@ -68,13 +68,13 @@
         <!-- Información Detallada -->
         <div class="detail-content">
             <div class="content-section">
-                <h2 class="section-heading">Información General</h2>
+                <h2 class="section-heading">{% trans "Información General" %}</h2>
                 
                 <div class="info-grid">
                     {% if estacion.telefono %}
                     <div class="info-item">
                         <span class="info-label">
-                            <i class="bi bi-telephone"></i> Teléfono
+                            <i class="bi bi-telephone"></i> {% trans "Teléfono" %}
                         </span>
                         <a href="tel:{{ estacion.telefono }}" class="info-value">
                             {{ estacion.telefono }}
@@ -85,10 +85,10 @@
                     {% if estacion.web %}
                     <div class="info-item">
                         <span class="info-label">
-                            <i class="bi bi-link-45deg"></i> Sitio Web
+                            <i class="bi bi-link-45deg"></i> {% trans "Sitio Web" %}
                         </span>
                         <a href="{{ estacion.web }}" target="_blank" rel="noopener noreferrer" class="info-value">
-                            Visitar web
+                            {% trans "Visitar web" %}
                             <i class="bi bi-arrow-up-right"></i>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                     {% if estacion.precio %}
                     <div class="info-item">
                         <span class="info-label">
-                            <i class="bi bi-tag"></i> Precio Referencia
+                            <i class="bi bi-tag"></i> {% trans "Precio Referencia" %}
                         </span>
                         <span class="info-value price">{{ estacion.precio }}€</span>
                     </div>
@@ -107,10 +107,10 @@
 
             <!-- Tipos de Pista -->
             <div class="content-section">
-                <h2 class="section-heading">Tipos de Pista</h2>
+                <h2 class="section-heading">{% trans "Tipos de Pista" %}</h2>
                 <a href="{% url 'skioffbounds:estacion_pistas' estacion.id %}" class="detail-cta">
                     <i class="bi bi-flag"></i>
-                    Ver Tipos de Pista
+                    {% trans "Ver Tipos de Pista" %}
                     <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -120,11 +120,11 @@
         <div class="detail-actions">
             <a href="{% url 'skioffbounds:index' %}" class="action-button action-secondary">
                 <i class="bi bi-arrow-left"></i>
-                Volver al Inicio
+                {% trans "Volver al Inicio" %}
             </a>
             <a href="{% url 'skioffbounds:localizaciones' %}" class="action-button action-primary">
                 <i class="bi bi-compass"></i>
-                Ver Otras Estaciones
+                {% trans "Ver Otras Estaciones" %}
             </a>
         </div>
     </div>

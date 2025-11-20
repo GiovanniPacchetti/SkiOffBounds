@@ -1,43 +1,31 @@
 {% extends "base.html" %}
-{% block titulo %}Estaciones con {{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans "Estaciones con" %} {{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
 
 {% block contenido %}
-<section class="listing-section">
-    <div class="listing-container">
-        <!-- Header -->
-        <div class="listing-header">
-            <div class="header-top">
-                <a href="{% url 'skioffbounds:tipos_pista' %}" class="back-link">
-                    <i class="bi bi-arrow-left"></i> Volver a Pistas
-                </a>
-            </div>
-
-            <h1 class="listing-title">
-                <i class="bi bi-flag"></i>
-                Pistas {{ tipo_pista.get_nombre_display }}
-            </h1>
-
-            <p class="listing-subtitle">
-                {{ estaciones.count }} estación{{ estaciones.count|pluralize }}
-            </p>
+<section class="list-section">
+    <div class="detail-container">
+        <div class="breadcrumb">
+            <a href="{% url 'skioffbounds:tipos_pista' %}" class="breadcrumb-link">
+                <i class="bi bi-arrow-left"></i> {% trans "Volver a Pistas" %}
+            </a>
         </div>
 
-        <!-- Cards Grid -->
+        <div class="section-header">
+            <h2 class="section-title">{% trans "Pistas" %} {{ tipo_pista.get_nombre_display }}</h2>
+            <p class="section-subtitle">{{ estaciones.count }} {% trans "estación" %}{{ estaciones.count|pluralize }}</p>
+        </div>
+
         <div class="cards-grid">
             {% for e in estaciones %}
-            <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
-                <div class="card-overlay"></div>
+            <div class="card">
                 <div class="card-content">
                     <h3 class="card-title">{{ e.nombre }}</h3>
+                    <p class="card-location"><i class="bi bi-geo-alt"></i> {{ e.localizacion.nombre }}</p>
                     
-                    <p class="card-location">
-                        <i class="bi bi-geo-alt"></i>
-                        {{ e.localizacion.nombre }}
-                    </p>
-
                     <div class="card-stats">
                         <div class="stat">
-                            <i class="bi bi-rulers"></i>
+                            <i class="bi bi-graph-up"></i>
                             <span>{{ e.km_pistas_totales }} km</span>
                         </div>
                         <div class="stat">
@@ -48,39 +36,36 @@
 
                     {% if e.precio %}
                     <div class="card-price">
-                        <span class="price-label">Desde</span>
+                        <span class="price-label">{% trans "Desde" %}</span>
                         <span class="price-value">{{ e.precio }}€</span>
                     </div>
                     {% endif %}
 
                     <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
-                        Ver Detalles
+                        {% trans "Ver Detalles" %} <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             {% empty %}
-            <div class="empty-state" style="grid-column: 1/-1;">
-                <div class="empty-icon">
-                    <i class="bi bi-flag"></i>
-                </div>
-                <h3>No hay estaciones disponibles</h3>
-                <p>No hay estaciones con pistas de tipo {{ tipo_pista.get_nombre_display }} actualmente.</p>
-                <a href="{% url 'skioffbounds:tipos_pista' %}" class="empty-cta">
-                    Explorar otros tipos de pista
+            <div class="empty-state">
+                <div class="empty-icon"><i class="bi bi-slash-circle"></i></div>
+                <h3>{% trans "No hay estaciones disponibles" %}</h3>
+                <p>{% trans "No hay estaciones con pistas de tipo" %} {{ tipo_pista.get_nombre_display }} {% trans "actualmente." %}</p>
+                <a href="{% url 'skioffbounds:tipos_pista' %}" class="action-button action-secondary">
+                    {% trans "Explorar otros tipos de pista" %}
                 </a>
             </div>
             {% endfor %}
         </div>
 
-        <!-- Footer Actions -->
-        <div class="listing-footer">
-            <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}" class="footer-link">
+        <div class="detail-actions">
+            <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}" class="action-button action-secondary">
                 <i class="bi bi-arrow-left"></i>
-                Volver a Información de Pista
+                {% trans "Volver a Información de Pista" %}
             </a>
-            <a href="{% url 'skioffbounds:index' %}" class="footer-link footer-primary">
+            <a href="{% url 'skioffbounds:index' %}" class="action-button action-primary">
                 <i class="bi bi-house"></i>
-                Ir al Inicio
+                {% trans "Ir al Inicio" %}
             </a>
         </div>
     </div>

@@ -3,6 +3,9 @@ from .models import Localizacion, TipoPista, Estacion, PistaEstacion
 from django.db.models import Max
 from django.http import JsonResponse
 from django.db.models import Q
+from django.urls import reverse
+from django.utils.translation import gettext as _ 
+
 
 
 def index_estaciones(request):

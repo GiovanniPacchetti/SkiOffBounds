@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+{% load static %}
+{% load i18n %}  {# ← IMPORTANTE: Cargar i18n arriba del todo #}
+<html lang="{{ LANGUAGE_CODE|default:'es' }}">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{% static 'assets/images/faviconNoBg.ico' %}">
@@ -20,9 +21,27 @@
                 <span class="navbar-title">SkiOffBounds</span>
             </a>
             <ul class="navbar-menu">
-                <li><a href="{% url 'skioffbounds:index' %}" class="nav-link">Inicio</a></li>
-                <li><a href="{% url 'skioffbounds:localizaciones' %}" class="nav-link">Destinos</a></li>
-                <li><a href="{% url 'skioffbounds:tipos_pista' %}" class="nav-link">Pistas</a></li>
+                <li><a href="{% url 'skioffbounds:index' %}" class="nav-link">{% trans "Inicio" %}</a></li>
+                <li><a href="{% url 'skioffbounds:localizaciones' %}" class="nav-link">{% trans "Destinos" %}</a></li>
+                <li><a href="{% url 'skioffbounds:tipos_pista' %}" class="nav-link">{% trans "Pistas" %}</a></li>
+                
+                <!-- Selector de Idioma -->
+                <li class="nav-item-lang">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.path }}">
+                        <select name="language" onchange="this.form.submit()" class="lang-select">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                    {{ language.code|upper }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
@@ -35,20 +54,22 @@
         <div class="footer-container">
             <div class="footer-col">
                 <h3 class="footer-title">SkiOffBounds</h3>
-                <p class="footer-text">La guía definitiva de estaciones de esquí.</p>
+                <p class="footer-text">{% trans "La guía definitiva de estaciones de esquí." %}</p>
             </div>
             <div class="footer-col footer-right">
-                <p class="footer-text">&copy; 2025 SkiOffBounds. Todos los derechos reservados.</p>
+                <p class="footer-text">&copy; 2025 SkiOffBounds. {% trans "Todos los derechos reservados." %}</p>
             </div>
         </div>
-
-            <div>
-        <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer">
-            <img style="border:0; width: 88px; height: 31px;"
-                src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-                alt="¡CSS Válido!" />
-        </a>
-            </div>
+        <div>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer">
+                <img style="border:0; width: 88px; height: 31px;"
+                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="¡CSS Válido!" />
+            </a>
+        </div>
     </footer>
+
+   
+    <script src="{% url 'javascript-catalog' %}"></script>
 </body>
 </html>

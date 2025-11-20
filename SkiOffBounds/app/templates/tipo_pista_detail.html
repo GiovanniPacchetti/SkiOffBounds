@@ -1,73 +1,73 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% block titulo %}{{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
 
 {% block contenido %}
 <section class="detail-section">
     <div class="detail-container">
-        <!-- Breadcrumb -->
         <div class="breadcrumb">
             <a href="{% url 'skioffbounds:index' %}" class="breadcrumb-link">
-                <i class="bi bi-house"></i> Inicio
+                <i class="bi bi-house"></i> {% trans "Inicio" %}
             </a>
             <span class="breadcrumb-separator">/</span>
             <a href="{% url 'skioffbounds:tipos_pista' %}" class="breadcrumb-link">
-                Tipos de Pista
+                {% trans "Tipos de Pista" %}
             </a>
             <span class="breadcrumb-separator">/</span>
             <span class="breadcrumb-current">{{ tipo_pista.get_nombre_display }}</span>
         </div>
 
-        <!-- Card Principal -->
-        <div class="tipo-detail-card pista-{{ tipo_pista.nombre|lower }}">
-            <div class="tipo-detail-header">
-                <h1 class="tipo-detail-title">{{ tipo_pista.get_nombre_display }}</h1>
-                <div class="tipo-detail-icon">
-                    {% if tipo_pista.nombre == 'verde' %}
-                        <i class="bi bi-circle-fill"></i>
-                    {% elif tipo_pista.nombre == 'azul' %}
-                        <i class="bi bi-square-fill"></i>
-                    {% elif tipo_pista.nombre == 'rojo' %}
-                        <i class="bi bi-diamond-fill"></i>
-                    {% elif tipo_pista.nombre == 'negro' %}
-                        <i class="bi bi-star-fill"></i>
-                    {% else %}
-                        <i class="bi bi-flag-fill"></i>
-                    {% endif %}
-                </div>
+        <div class="detail-header pista-{{ tipo_pista.nombre|lower }}-theme">
+            <div class="detail-icon">
+                {% if tipo_pista.nombre == 'verde' %}
+                    <i class="bi bi-circle-fill"></i>
+                {% elif tipo_pista.nombre == 'azul' %}
+                    <i class="bi bi-square-fill"></i>
+                {% elif tipo_pista.nombre == 'rojo' %}
+                    <i class="bi bi-diamond-fill"></i>
+                {% elif tipo_pista.nombre == 'negro' %}
+                    <i class="bi bi-triangle-fill"></i>
+                {% else %}
+                    <i class="bi bi-flag-fill"></i>
+                {% endif %}
             </div>
+            <h1 class="detail-title">{{ tipo_pista.get_nombre_display }}</h1>
+        </div>
 
-            <!-- Dificultad -->
-            <div class="tipo-detail-difficulty">
-                <span class="difficulty-label">Nivel de Dificultad</span>
-                <div class="difficulty-content">
-                    <div class="difficulty-bars">
+        <div class="detail-content">
+            <div class="content-section">
+                <h2 class="section-heading">{% trans "Nivel de Dificultad" %}</h2>
+                <div class="level-display">
+                    <div class="level-bars large">
                         {% for i in "x"|rjust:"5" %}
-                            <span class="difficulty-bar {% if forloop.counter <= tipo_pista.nivel_dificultad %}active{% endif %}"></span>
+                            <span class="level-bar {% if forloop.counter <= tipo_pista.nivel_dificultad %}active{% endif %}"></span>
                         {% endfor %}
                     </div>
-                    <span class="difficulty-value">{{ tipo_pista.nivel_dificultad }}/5</span>
+                    <span class="level-text">{{ tipo_pista.nivel_dificultad }}/5</span>
                 </div>
             </div>
 
-            <!-- Descripción -->
             {% if tipo_pista.descripcion %}
-            <div class="tipo-detail-description">
-                <h3 class="section-heading">Descripción</h3>
-                <p>{{ tipo_pista.descripcion }}</p>
+            <div class="content-section">
+                <h2 class="section-heading">{% trans "Descripción" %}</h2>
+                <p class="detail-description">{{ tipo_pista.descripcion }}</p>
             </div>
             {% endif %}
 
-            <!-- Acciones -->
-            <div class="tipo-detail-actions">
-                <a href="{% url 'skioffbounds:tipo_pista_estaciones' tipo_pista.id %}" class="action-button action-primary">
-                    <i class="bi bi-list-check"></i>
-                    Ver Estaciones con este Tipo
-                </a>
-                <a href="{% url 'skioffbounds:tipos_pista' %}" class="action-button action-secondary">
-                    <i class="bi bi-arrow-left"></i>
-                    Volver a Tipos de Pista
+            <div class="content-section">
+                <a href="{% url 'skioffbounds:estaciones_por_tipo_pista' tipo_pista.id %}" class="detail-cta">
+                    <i class="bi bi-search"></i>
+                    {% trans "Ver Estaciones con este Tipo" %}
+                    <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
+        </div>
+
+        <div class="detail-actions">
+            <a href="{% url 'skioffbounds:tipos_pista' %}" class="action-button action-secondary">
+                <i class="bi bi-arrow-left"></i>
+                {% trans "Volver a Tipos de Pista" %}
+            </a>
         </div>
     </div>
 </section>

@@ -1,67 +1,58 @@
 {% extends "base.html" %}
-{% block titulo %}Estaciones en {{ localizacion.nombre }} - SkiOffBounds{% endblock %}
+{% load i18n %}
+{% block titulo %}{% trans "Estaciones en" %} {{ localizacion.nombre }} - SkiOffBounds{% endblock %}
 
 {% block contenido %}
-<section class="listing-section">
-    <div class="listing-container">
-        <!-- Header -->
-        <div class="listing-header">
-            <div class="header-top">
-                <a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}" class="back-link">
-                    <i class="bi bi-arrow-left"></i> Volver a {{ localizacion.nombre }}
-                </a>
-            </div>
-
-            <h1 class="listing-title">
-                <i class="bi bi-geo-alt"></i>
-                Estaciones en {{ localizacion.nombre }}
-            </h1>
-
-            <p class="listing-subtitle">
-                {{ estaciones.count }} estaciones
-            </p>
+<section class="estaciones-section">
+    <div class="detail-container">
+        <div class="breadcrumb">
+            <a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}" class="breadcrumb-link">
+                <i class="bi bi-arrow-left"></i> {% trans "Volver a" %} {{ localizacion.nombre }}
+            </a>
         </div>
 
-        <!-- Cards Grid -->
+        <div class="section-header">
+            <h2 class="section-title">{% trans "Estaciones en" %} {{ localizacion.nombre }}</h2>
+            <p class="section-subtitle">{{ estaciones.count }} {% trans "estaciones" %}</p>
+        </div>
+
         <div class="cards-grid">
             {% for e in estaciones %}
-            <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
-                <div class="card-overlay"></div>
+            <div class="card">
                 <div class="card-content">
                     <h3 class="card-title">{{ e.nombre }}</h3>
                     
                     <div class="card-stats">
                         <div class="stat">
-                            <i class="bi bi-rulers"></i>
+                            <i class="bi bi-graph-up"></i>
                             <span>{{ e.km_pistas_totales }} km</span>
                         </div>
                         <div class="stat">
                             <i class="bi bi-flag"></i>
-                            <span>{{ e.tipos_pista.count }} tipo{{ e.tipos_pista.count|pluralize }}</span>
+                            <span>{{ e.tipos_pista.count }} {% trans "tipo" %}{{ e.tipos_pista.count|pluralize }}</span>
                         </div>
                     </div>
 
                     {% if e.altitud_minima and e.altitud_maxima %}
-                    <div class="card-altitude">
-                        <i class="bi bi-arrow-up"></i>
-                        <span>{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-value">{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
+                        </div>
                     </div>
                     {% endif %}
 
                     <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
-                        Ver Detalles
+                        {% trans "Ver Detalles" %} <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
             {% empty %}
-            <div class="empty-state" style="grid-column: 1/-1;">
-                <div class="empty-icon">
-                    <i class="bi bi-inbox"></i>
-                </div>
-                <h3>No hay estaciones disponibles</h3>
-                <p>En {{ localizacion.nombre }} no hay estaciones registradas actualmente.</p>
-                <a href="{% url 'skioffbounds:localizaciones' %}" class="empty-cta">
-                    Explorar otras localizaciones
+            <div class="empty-state">
+                <div class="empty-icon"><i class="bi bi-snow2"></i></div>
+                <h3>{% trans "No hay estaciones disponibles" %}</h3>
+                <p>{% trans "En" %} {{ localizacion.nombre }} {% trans "no hay estaciones registradas actualmente." %}</p>
+                <a href="{% url 'skioffbounds:localizaciones' %}" class="action-button action-secondary">
+                    {% trans "Explorar otras localizaciones" %}
                 </a>
             </div>
             {% endfor %}

@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                     .catch(error => {
                         console.error('Error en búsqueda:', error);
-                        searchResults.innerHTML = '<div class="search-error"><i class="bi bi-exclamation-triangle"></i> Error al buscar</div>';
+                        // TRADUCCIÓN: gettext
+                        const errorMsg = gettext('Error al buscar');
+                        searchResults.innerHTML = `<div class="search-error"><i class="bi bi-exclamation-triangle"></i> ${errorMsg}</div>`;
                         searchResults.style.display = 'block';
                     });
             }, 300);
@@ -50,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const locId = this.value;
             const container = document.getElementById('estaciones-container');
             
-            container.innerHTML = '<div class="loading"><i class="bi bi-hourglass-split"></i> Cargando estaciones...</div>';
+            // TRADUCCIÓN: gettext
+            const loadingMsg = gettext('Cargando estaciones...');
+            container.innerHTML = `<div class="loading"><i class="bi bi-hourglass-split"></i> ${loadingMsg}</div>`;
             
             fetch(`/home/api/filter/?loc=${locId}`)
                 .then(response => response.json())
@@ -59,7 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error('Error al filtrar:', error);
-                    container.innerHTML = '<div class="error"><i class="bi bi-x-circle"></i> Error al cargar estaciones</div>';
+                    // TRADUCCIÓN: gettext
+                    const errorMsg = gettext('Error al cargar estaciones');
+                    container.innerHTML = `<div class="error"><i class="bi bi-x-circle"></i> ${errorMsg}</div>`;
                 });
         });
     }
@@ -78,7 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResults.innerHTML = '';
         
         if (estaciones.length === 0) {
-            searchResults.innerHTML = '<div class="search-no-results"><i class="bi bi-info-circle"></i> No se encontraron resultados</div>';
+            // TRADUCCIÓN: gettext
+            const noResultsMsg = gettext('No se encontraron resultados');
+            searchResults.innerHTML = `<div class="search-no-results"><i class="bi bi-info-circle"></i> ${noResultsMsg}</div>`;
             searchResults.style.display = 'block';
             return;
         }
@@ -107,10 +115,16 @@ document.addEventListener('DOMContentLoaded', function() {
         container.innerHTML = '';
         
         if (estaciones.length === 0) {
-            container.innerHTML = '<p class="no-results"><i class="bi bi-inbox"></i> No hay estaciones en esta localización</p>';
+            // TRADUCCIÓN: gettext
+            const noStationsMsg = gettext('No hay estaciones en esta localización');
+            container.innerHTML = `<p class="no-results"><i class="bi bi-inbox"></i> ${noStationsMsg}</p>`;
             return;
         }
         
+        // Textos traducibles para usar dentro del bucle si fuera necesario
+        const detailsText = gettext('Ver Detalles');
+        const addFavText = gettext('Añadir a favoritos');
+
         estaciones.forEach(est => {
             const card = document.createElement('div');
             card.className = 'card fade-in';
@@ -128,8 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     
                     <div class="card-actions">
-                        <a href="${est.url}" class="card-link">Ver Detalles</a>
-                        <button class="btn-favorito" data-estacion-id="${est.id}" title="Añadir a favoritos">
+                        <a href="${est.url}" class="card-link">${detailsText}</a>
+                        <button class="btn-favorito" data-estacion-id="${est.id}" title="${addFavText}">
                             <i class="bi bi-star"></i>
                         </button>
                     </div>
@@ -142,24 +156,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // ========== ANIMACIÓN DE CARDS AL SCROLL ==========
-    // Primera fila visible, resto con animación
     const cardsGrid = document.querySelector('.cards-grid');
     
     if (cardsGrid) {
         const cards = cardsGrid.querySelectorAll('.card');
         
-        // Calcular cuántas cards caben en la primera fila
         function getCardsPerRow() {
-            if (window.innerWidth > 1024) return 3;  // Desktop: 3 columnas
-            if (window.innerWidth > 768) return 2;   // Tablet: 2 columnas
-            return 1;                                 // Mobile: 1 columna
+            if (window.innerWidth > 1024) return 3;
+            if (window.innerWidth > 768) return 2;
+            return 1;
         }
         
         function updateCardAnimations() {
             const cardsPerRow = getCardsPerRow();
             
             cards.forEach((card, index) => {
-                // Primera fila visible, resto con animación
                 if (index >= cardsPerRow) {
                     card.classList.add('animate-on-scroll');
                 } else {
@@ -167,18 +178,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Trigger scroll event para animar cards ya visibles
             window.dispatchEvent(new Event('scroll'));
         }
         
-        // Aplicar al cargar
         updateCardAnimations();
-        
-        // Actualizar al cambiar tamaño de ventana
         window.addEventListener('resize', updateCardAnimations);
     }
     
-    // Inicializar favoritos al cargar
     actualizarIconosFavoritos();
 });
 
@@ -194,14 +200,16 @@ function toggleFavorito(estacionId) {
             btn.classList.add('active');
             btn.innerHTML = '<i class="bi bi-star-fill"></i>';
         }
-        mostrarNotificacion('⭐ Añadido a favoritos');
+        // TRADUCCIÓN: gettext
+        mostrarNotificacion(`⭐ ${gettext('Añadido a favoritos')}`);
     } else {
         favoritos.splice(index, 1);
         if (btn) {
             btn.classList.remove('active');
             btn.innerHTML = '<i class="bi bi-star"></i>';
         }
-        mostrarNotificacion('Eliminado de favoritos');
+        // TRADUCCIÓN: gettext
+        mostrarNotificacion(gettext('Eliminado de favoritos'));
     }
     
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
@@ -234,9 +242,7 @@ function mostrarNotificacion(mensaje) {
     }, 2000);
 }
 
-// ========== ANIMACIÓN AL SCROLL ==========
 window.addEventListener('scroll', function() {
-    // Solo animar cards que tengan la clase 'animate-on-scroll'
     const cards = document.querySelectorAll('.card.animate-on-scroll');
     cards.forEach(card => {
         const cardTop = card.getBoundingClientRect().top;
