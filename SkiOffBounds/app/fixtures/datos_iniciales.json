@@ -1,0 +1,748 @@
+[
+{
+    "model": "app.localizacion",
+    "pk": 1,
+    "fields": {
+        "nombre": "Pirineo Catalán",
+        "descripcion": "Estaciones de esquí en el Pirineo de Cataluña",
+        "latitud": "42.583300",
+        "longitud": "1.416700"
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 2,
+    "fields": {
+        "nombre": "Pirineo Aragonés",
+        "descripcion": "Estaciones de esquí en el Pirineo de Aragón",
+        "latitud": "42.750000",
+        "longitud": "-0.333300"
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 3,
+    "fields": {
+        "nombre": "Cordillera Cantábrica",
+        "descripcion": "Estaciones de esquí en la Cordillera Cantábrica",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 4,
+    "fields": {
+        "nombre": "Andorra",
+        "descripcion": "Estaciones de esquí en Andorra",
+        "latitud": "42.546200",
+        "longitud": "1.601500"
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 5,
+    "fields": {
+        "nombre": "Prineo Francés",
+        "descripcion": "",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 6,
+    "fields": {
+        "nombre": "Alpes Franceses",
+        "descripcion": "Las majestuosas montañas de los Alpes en Francia con estaciones mundialmente conocidas",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 7,
+    "fields": {
+        "nombre": "Alpes Suizos",
+        "descripcion": "El corazón de los Alpes con estaciones tradicionales Swiss y paisajes increíbles.",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 8,
+    "fields": {
+        "nombre": "Sierra Nevada",
+        "descripcion": "Estación de esquí en la cordillera penibética de España, famosa por su nieve y clima soleado.",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.localizacion",
+    "pk": 9,
+    "fields": {
+        "nombre": "Pirineo Navarro",
+        "descripcion": "Zona menos conocida del Pirineo con estaciones acogedoras y naturaleza exuberante.",
+        "latitud": null,
+        "longitud": null
+    }
+},
+{
+    "model": "app.tipopista",
+    "pk": 1,
+    "fields": {
+        "nombre": "verde",
+        "descripcion": "Pistas para principiantes",
+        "nivel_dificultad": 1
+    }
+},
+{
+    "model": "app.tipopista",
+    "pk": 2,
+    "fields": {
+        "nombre": "azul",
+        "descripcion": "Pistas fáciles",
+        "nivel_dificultad": 2
+    }
+},
+{
+    "model": "app.tipopista",
+    "pk": 3,
+    "fields": {
+        "nombre": "roja",
+        "descripcion": "Pistas intermedias",
+        "nivel_dificultad": 3
+    }
+},
+{
+    "model": "app.tipopista",
+    "pk": 4,
+    "fields": {
+        "nombre": "negra",
+        "descripcion": "Pistas difíciles",
+        "nivel_dificultad": 4
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 1,
+    "fields": {
+        "localizacion": 1,
+        "nombre": "Baqueira Beret",
+        "descripcion": "La estación más grande de España",
+        "latitud": "42.700000",
+        "longitud": "0.933300",
+        "km_pistas_totales": "160.00",
+        "altitud_minima": 1500,
+        "altitud_maxima": 2510,
+        "numero_remontes": 35,
+        "telefono": "973645025",
+        "web": "https://www.baqueira.es",
+        "imagen_portada": "portadas/estacion-esqui-pirineo-catalan-baqueira-beret-c-atudem.jpg_604889389.webp",
+        "fecha_creacion": "2025-10-27T12:44:55.204Z",
+        "fecha_actualizacion": "2025-11-07T08:38:44.400Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 2,
+    "fields": {
+        "localizacion": 1,
+        "nombre": "La Molina",
+        "descripcion": "Estación familiar en el Pirineo Catalán",
+        "latitud": "42.348000",
+        "longitud": "1.945500",
+        "km_pistas_totales": "71.00",
+        "altitud_minima": 1600,
+        "altitud_maxima": 2537,
+        "numero_remontes": 18,
+        "telefono": "972892031",
+        "web": null,
+        "imagen_portada": "portadas/img_blog_post_masella_esqui_pirineo_catalan_710x300.webp",
+        "fecha_creacion": "2025-10-27T12:45:01.737Z",
+        "fecha_actualizacion": "2025-11-07T08:45:34.127Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 3,
+    "fields": {
+        "localizacion": 1,
+        "nombre": "Boí Taüll",
+        "descripcion": null,
+        "latitud": "42.530000",
+        "longitud": "0.950000",
+        "km_pistas_totales": "45.50",
+        "altitud_minima": 2020,
+        "altitud_maxima": 2751,
+        "numero_remontes": 10,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "",
+        "fecha_creacion": "2025-10-27T12:45:04.569Z",
+        "fecha_actualizacion": "2025-10-27T12:45:04.569Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 4,
+    "fields": {
+        "localizacion": 2,
+        "nombre": "Formigal",
+        "descripcion": "Una de las mayores estaciones del Pirineo",
+        "latitud": "42.774300",
+        "longitud": "-0.376900",
+        "km_pistas_totales": "137.00",
+        "altitud_minima": 1500,
+        "altitud_maxima": 2250,
+        "numero_remontes": 23,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/forrmigal.webp",
+        "fecha_creacion": "2025-10-27T12:45:16.332Z",
+        "fecha_actualizacion": "2025-11-07T08:40:22.506Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 5,
+    "fields": {
+        "localizacion": 2,
+        "nombre": "Astún",
+        "descripcion": "",
+        "latitud": "42.783300",
+        "longitud": "-0.516700",
+        "km_pistas_totales": "50.00",
+        "altitud_minima": 1658,
+        "altitud_maxima": 2300,
+        "numero_remontes": 13,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/ski-ressort-of-grandvalira-andorra_41qqeZa.webp",
+        "fecha_creacion": "2025-10-27T12:45:19.139Z",
+        "fecha_actualizacion": "2025-11-07T08:46:57.880Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 6,
+    "fields": {
+        "localizacion": 2,
+        "nombre": "Candanchú",
+        "descripcion": "",
+        "latitud": "42.783300",
+        "longitud": "-0.533300",
+        "km_pistas_totales": "51.00",
+        "altitud_minima": 1530,
+        "altitud_maxima": 2400,
+        "numero_remontes": 26,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/estacion-esqui-pirineo-catalan-baqueira-beret-c-atudem_EMZIH96.jpg_604889389.webp",
+        "fecha_creacion": "2025-10-27T12:45:23.308Z",
+        "fecha_actualizacion": "2025-11-07T08:46:36.690Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 7,
+    "fields": {
+        "localizacion": 3,
+        "nombre": "Alto Campoo",
+        "descripcion": "",
+        "latitud": "43.016700",
+        "longitud": "-4.366700",
+        "km_pistas_totales": "27.80",
+        "altitud_minima": 1650,
+        "altitud_maxima": 2125,
+        "numero_remontes": 13,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/estacion-de-esqui-sierra-nevada-granada_VmskBR4.webp",
+        "fecha_creacion": "2025-10-27T12:45:28.426Z",
+        "fecha_actualizacion": "2025-11-07T08:47:09.771Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 8,
+    "fields": {
+        "localizacion": 3,
+        "nombre": "San Isidro",
+        "descripcion": "",
+        "latitud": "43.050000",
+        "longitud": "-5.383300",
+        "km_pistas_totales": "27.50",
+        "altitud_minima": 1500,
+        "altitud_maxima": 2100,
+        "numero_remontes": 11,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/estacion-esqui-pirineo-catalan-baqueira-beret-c-atudem_0ClD5tL.jpg_604889389.webp",
+        "fecha_creacion": "2025-10-27T12:45:32.560Z",
+        "fecha_actualizacion": "2025-11-07T08:47:24.660Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 9,
+    "fields": {
+        "localizacion": 4,
+        "nombre": "Grandvalira",
+        "descripcion": "La estación más grande de los Pirineos",
+        "latitud": "42.539400",
+        "longitud": "1.733200",
+        "km_pistas_totales": "210.00",
+        "altitud_minima": 1710,
+        "altitud_maxima": 2640,
+        "numero_remontes": 67,
+        "telefono": null,
+        "web": "https://www.grandvalira.com/es",
+        "imagen_portada": "portadas/ski-ressort-of-grandvalira-andorra.webp",
+        "fecha_creacion": "2025-10-27T12:46:00.145Z",
+        "fecha_actualizacion": "2025-11-07T08:40:02.064Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 10,
+    "fields": {
+        "localizacion": 4,
+        "nombre": "Vallnord",
+        "descripcion": "",
+        "latitud": "42.572000",
+        "longitud": "1.487500",
+        "km_pistas_totales": "93.00",
+        "altitud_minima": 1550,
+        "altitud_maxima": 2560,
+        "numero_remontes": 45,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/vallnord-2.webp",
+        "fecha_creacion": "2025-10-27T12:46:06.355Z",
+        "fecha_actualizacion": "2025-11-07T08:44:31.432Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 11,
+    "fields": {
+        "localizacion": 5,
+        "nombre": "Grand Tourmalet",
+        "descripcion": "",
+        "latitud": "42.910000",
+        "longitud": "0.180000",
+        "km_pistas_totales": "100.00",
+        "altitud_minima": 1400,
+        "altitud_maxima": 2500,
+        "numero_remontes": 0,
+        "telefono": null,
+        "web": null,
+        "imagen_portada": "portadas/pic-du-midi-grand-tourmalet-grupoasdon.webp",
+        "fecha_creacion": "2025-10-27T14:50:56.980Z",
+        "fecha_actualizacion": "2025-11-07T08:43:50.552Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 12,
+    "fields": {
+        "localizacion": 6,
+        "nombre": "Chamonix Mont-Blanc",
+        "descripcion": "Estación situada al pie del Mont Blanc, conocida por su entorno alpino impresionante y variedad de pistas.",
+        "latitud": "45.923700",
+        "longitud": "6.869400",
+        "km_pistas_totales": "120.00",
+        "altitud_minima": 1035,
+        "altitud_maxima": 3842,
+        "numero_remontes": 45,
+        "telefono": "+33 4 50 53 22 22",
+        "web": "https://www.chamonix.com",
+        "imagen_portada": "portadas/wonderful-view-of-alps-chamonix-mont-blanc.webp",
+        "fecha_creacion": "2025-11-06T23:44:32.184Z",
+        "fecha_actualizacion": "2025-11-07T08:41:59.812Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 13,
+    "fields": {
+        "localizacion": 7,
+        "nombre": "Zermatt",
+        "descripcion": "Estación icónica con vistas al Matterhorn, famosa por sus pistas y esquí de alta montaña.",
+        "latitud": "46.020700",
+        "longitud": "7.749100",
+        "km_pistas_totales": "130.00",
+        "altitud_minima": 1620,
+        "altitud_maxima": 3899,
+        "numero_remontes": 40,
+        "telefono": "+41 27 966 30 00",
+        "web": "https://www.zermatt.ch",
+        "imagen_portada": "portadas/zermatt-village-with-view-of-matterhorn-in-the-swiss-alps.webp",
+        "fecha_creacion": "2025-11-06T23:46:09.138Z",
+        "fecha_actualizacion": "2025-11-07T08:40:56.965Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 14,
+    "fields": {
+        "localizacion": 8,
+        "nombre": "Sierra Nevada",
+        "descripcion": "Famosa estación de la península Ibérica, conocida por su nieve y clima soleado.",
+        "latitud": "37.090200",
+        "longitud": "-3.358600",
+        "km_pistas_totales": "106.00",
+        "altitud_minima": 2100,
+        "altitud_maxima": 3300,
+        "numero_remontes": 32,
+        "telefono": "+34 958 24 60 00",
+        "web": "https://sierranevada.es",
+        "imagen_portada": "portadas/estacion-de-esqui-sierra-nevada-granada.webp",
+        "fecha_creacion": "2025-11-06T23:47:18.927Z",
+        "fecha_actualizacion": "2025-11-07T08:43:16.128Z"
+    }
+},
+{
+    "model": "app.estacion",
+    "pk": 15,
+    "fields": {
+        "localizacion": 9,
+        "nombre": "Astún Pyrenees",
+        "descripcion": "Estación acogedora del Pirineo Navarro, ideal para esquiadores de todos los niveles.",
+        "latitud": "42.794200",
+        "longitud": "-0.559400",
+        "km_pistas_totales": "60.00",
+        "altitud_minima": 1700,
+        "altitud_maxima": 2300,
+        "numero_remontes": 18,
+        "telefono": "+34 974 487 481",
+        "web": "https://www.astun.com",
+        "imagen_portada": "portadas/astun.webp",
+        "fecha_creacion": "2025-11-06T23:48:15.968Z",
+        "fecha_actualizacion": "2025-11-07T08:46:09.854Z"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 1,
+    "fields": {
+        "estacion": 1,
+        "tipo_pista": 1,
+        "cantidad": 15,
+        "km_totales": "18.50"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 2,
+    "fields": {
+        "estacion": 1,
+        "tipo_pista": 2,
+        "cantidad": 36,
+        "km_totales": "52.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 3,
+    "fields": {
+        "estacion": 1,
+        "tipo_pista": 3,
+        "cantidad": 43,
+        "km_totales": "68.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 4,
+    "fields": {
+        "estacion": 1,
+        "tipo_pista": 4,
+        "cantidad": 12,
+        "km_totales": "21.50"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 5,
+    "fields": {
+        "estacion": 2,
+        "tipo_pista": 1,
+        "cantidad": 11,
+        "km_totales": "10.50"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 6,
+    "fields": {
+        "estacion": 2,
+        "tipo_pista": 2,
+        "cantidad": 17,
+        "km_totales": "25.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 7,
+    "fields": {
+        "estacion": 2,
+        "tipo_pista": 3,
+        "cantidad": 23,
+        "km_totales": "30.50"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 8,
+    "fields": {
+        "estacion": 2,
+        "tipo_pista": 4,
+        "cantidad": 6,
+        "km_totales": "5.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 9,
+    "fields": {
+        "estacion": 4,
+        "tipo_pista": 1,
+        "cantidad": 10,
+        "km_totales": "12.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 10,
+    "fields": {
+        "estacion": 4,
+        "tipo_pista": 2,
+        "cantidad": 30,
+        "km_totales": "45.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 11,
+    "fields": {
+        "estacion": 4,
+        "tipo_pista": 3,
+        "cantidad": 35,
+        "km_totales": "60.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 12,
+    "fields": {
+        "estacion": 4,
+        "tipo_pista": 4,
+        "cantidad": 15,
+        "km_totales": "20.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 13,
+    "fields": {
+        "estacion": 9,
+        "tipo_pista": 1,
+        "cantidad": 28,
+        "km_totales": "34.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 14,
+    "fields": {
+        "estacion": 9,
+        "tipo_pista": 2,
+        "cantidad": 46,
+        "km_totales": "81.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 15,
+    "fields": {
+        "estacion": 9,
+        "tipo_pista": 3,
+        "cantidad": 55,
+        "km_totales": "75.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 16,
+    "fields": {
+        "estacion": 9,
+        "tipo_pista": 4,
+        "cantidad": 10,
+        "km_totales": "20.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 17,
+    "fields": {
+        "estacion": 11,
+        "tipo_pista": 2,
+        "cantidad": 24,
+        "km_totales": "58.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 18,
+    "fields": {
+        "estacion": 12,
+        "tipo_pista": 1,
+        "cantidad": 12,
+        "km_totales": "15.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 19,
+    "fields": {
+        "estacion": 12,
+        "tipo_pista": 2,
+        "cantidad": 24,
+        "km_totales": "35.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 20,
+    "fields": {
+        "estacion": 12,
+        "tipo_pista": 3,
+        "cantidad": 36,
+        "km_totales": "56.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 21,
+    "fields": {
+        "estacion": 12,
+        "tipo_pista": 4,
+        "cantidad": 15,
+        "km_totales": "18.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 22,
+    "fields": {
+        "estacion": 13,
+        "tipo_pista": 1,
+        "cantidad": 10,
+        "km_totales": "12.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 23,
+    "fields": {
+        "estacion": 13,
+        "tipo_pista": 2,
+        "cantidad": 30,
+        "km_totales": "40.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 24,
+    "fields": {
+        "estacion": 13,
+        "tipo_pista": 3,
+        "cantidad": 28,
+        "km_totales": "48.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 25,
+    "fields": {
+        "estacion": 13,
+        "tipo_pista": 4,
+        "cantidad": 20,
+        "km_totales": "25.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 26,
+    "fields": {
+        "estacion": 14,
+        "tipo_pista": 1,
+        "cantidad": 20,
+        "km_totales": "18.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 27,
+    "fields": {
+        "estacion": 14,
+        "tipo_pista": 2,
+        "cantidad": 25,
+        "km_totales": "35.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 28,
+    "fields": {
+        "estacion": 14,
+        "tipo_pista": 3,
+        "cantidad": 20,
+        "km_totales": "32.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 29,
+    "fields": {
+        "estacion": 14,
+        "tipo_pista": 4,
+        "cantidad": 10,
+        "km_totales": "10.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 30,
+    "fields": {
+        "estacion": 15,
+        "tipo_pista": 1,
+        "cantidad": 8,
+        "km_totales": "9.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 31,
+    "fields": {
+        "estacion": 15,
+        "tipo_pista": 2,
+        "cantidad": 15,
+        "km_totales": "17.00"
+    }
+},
+{
+    "model": "app.pistaestacion",
+    "pk": 32,
+    "fields": {
+        "estacion": 15,
+        "tipo_pista": 3,
+        "cantidad": 10,
+        "km_totales": "10.00"
+    }
+}
+]
