@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load i18n %}  {# ← IMPORTANTE #}
+{% load i18n %}
 
 {% block titulo %}{% trans "Localizaciones" %} - SkiOffBounds{% endblock %}
 
@@ -10,6 +10,8 @@
 
 {% block contenido %}
 <section class="estaciones-section">
+    
+    <!-- HEADER -->
     <div class="section-header">
         <h2 class="section-title">
             <i class="bi bi-map"></i>
@@ -18,15 +20,17 @@
         <p class="section-subtitle">{% trans "Explora todas nuestras regiones" %}</p>
     </div>
 
+    <!-- GRID -->
     <div class="cards-grid">
         {% for loc in lista_localizaciones %}
-        <div class="card">
+        <div class="card animate-on-scroll"> <!-- Añadida clase de animación si la tienes -->
             <div class="card-overlay"></div>
+            
             <div class="card-content">
                 <h3 class="card-title">{{ loc.nombre }}</h3>
                 
                 {% if loc.descripcion %}
-                <p class="card-subtitle">{{ loc.descripcion }}</p>
+                    <p class="card-subtitle">{{ loc.descripcion }}</p>
                 {% endif %}
 
                 <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
@@ -36,8 +40,10 @@
             </div>
         </div>
         {% empty %}
-        <div class="empty-state" style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
-            <div class="empty-icon" style="font-size: 4em; color: #6c92ac; margin-bottom: 20px;">
+        
+        <!-- EMPTY STATE -->
+        <div class="empty-state">
+            <div class="empty-icon">
                 <i class="bi bi-map"></i>
             </div>
             <h3>{% trans "No hay localizaciones disponibles" %}</h3>

@@ -1,43 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const cardsGrid = document.querySelector('.cards-grid');
     
-    if (cardsGrid) {
-        const cards = cardsGrid.querySelectorAll('.card');
-        
-        function updateCardAnimations() {
-            cards.forEach((card, index) => {
-                
-                if (index >= 0) {
-                    card.classList.add('animate-on-scroll');
-                    card.classList.remove('visible'); // Forzamos que empiece invisible si no está en pantalla
-                } else {
-                    // El índice 0 (la primera carta) siempre visible y sin animación de scroll
-                    card.classList.remove('animate-on-scroll');
-                    card.classList.add('visible'); 
-                }
-            });
-            
-            // Chequeamos inmediatamente por si las segundas ya están en pantalla
-            checkScrollVisibility();
-        }
-        
-        function checkScrollVisibility() {
-            const animatedCards = document.querySelectorAll('.card.animate-on-scroll');
-            const triggerBottom = window.innerHeight * 0.85;
+    // 1. Seleccionamos todas las cards
+    const cards = document.querySelectorAll('.cards-grid .card');
 
-            animatedCards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
-                if (cardTop < triggerBottom) {
-                    card.classList.add('visible');
-                }
-            });
-        }
+    // 2. Configuramos el "Ojo" (IntersectionObserver)
+    const observerOptions = {
+        threshold: 0.15, // Se activa cuando el 15% de la tarjeta es visible
+        rootMargin: "0px 0px -50px 0px" // Un pequeño margen para que no salga pegado al borde
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Si la tarjeta entra en pantalla
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Dejamos de observarla para ahorrar recursos (ya se animó una vez)
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    // 3. Asignamos la clase inicial y activamos el observador
+    cards.forEach((card, index) => {
+        // Añadimos la clase base CSS (opacity: 0)
+        card.classList.add('animate-on-scroll');
         
-        // Inicializar
-        updateCardAnimations();
-        
-        // Listeners
-        // Ya no necesitamos 'resize' para recalcular filas, pero está bien dejarlo por si acaso
-        window.addEventListener('scroll', checkScrollVisibility);
-    }
+        // Le decimos al observador que vigile esta carta
+        observer.observe(card);
+    });
 });

@@ -137,39 +137,43 @@
 
 
 /* ============================================
-   ESTADO EN VIVO (AJAX)
+   ESTADO EN VIVO (AJAX) - ADAPTADO A MODO OSCURO
    ============================================ */
 
 .live-status {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px dashed #e0e0e0;
+    /* Línea divisoria blanca semitransparente */
+    border-top: 1px dashed rgba(255, 255, 255, 0.3); 
     min-height: 40px;
     font-size: 0.95em;
 }
 
 .status-badge {
-    background: #f0f2f5;
+    /* Fondo semitransparente en lugar de gris sólido */
+    background: rgba(255, 255, 255, 0.2); 
     padding: 6px 12px;
     border-radius: 20px;
-    color: #555;
+    color: #ffffff; /* Texto blanco */
     font-weight: 500;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 6px;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px); /* Efecto vidrio */
 }
 
 .status-badge:hover {
-    background: #e4e6eb;
-    color: #153155;
-    border-color: #d5e4ee;
+    background: #ffffff;
+    color: var(--accent, #153155); /* Texto color acento al hover */
+    border-color: #ffffff;
 }
 
 .status-details {
     animation: fadeIn 0.4s ease;
+    color: #fff; /* Texto de detalles blanco */
 }
 
 .status-row {
@@ -179,12 +183,12 @@
     margin-bottom: 6px;
 }
 
-/* Colores de estado */
-.text-success { color: #4CAF50; font-weight: 700; } /* Abierta */
-.text-danger { color: #F44336; font-weight: 700; }  /* Cerrada */
-.text-warning { color: #FF9800; font-weight: 700; } /* Parcial */
+/* Colores de estado más brillantes para fondo oscuro */
+.text-success { color: #69f0ae !important; font-weight: 700; text-shadow: 0 0 5px rgba(0,0,0,0.5); } /* Verde Neón */
+.text-danger { color: #ff5252 !important; font-weight: 700; text-shadow: 0 0 5px rgba(0,0,0,0.5); }  /* Rojo Claro */
+.text-warning { color: #ffd740 !important; font-weight: 700; } /* Amarillo */
 
-/* Animación de carga (rotación) */
+/* Animación de carga */
 .spin { animation: spin 1s linear infinite; }
 
 @keyframes spin {

@@ -327,3 +327,136 @@
     background: #1a1a1a;
     color: var(--white);
 }
+
+
+/* ============================================
+   TARJETAS DE LOCALIZACIONES (Diseño Final + Animación)
+   ============================================ */
+
+/* Contenedor Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* --- Estilo de la Tarjeta --- */
+.cards-grid .card {
+    position: relative;
+    min-height: 400px; /* Altura fija generosa */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    
+    /* Fondo obligatorio */
+    background-size: cover;
+    background-position: center;
+    
+    /* ANIMACIÓN SUAVE INTEGRADA */
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1.000), 
+                transform 1s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    will-change: transform, opacity;
+}
+
+/* Clase para activar la animación (JS) */
+.cards-grid .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retardos en cascada para efecto elegante */
+.cards-grid .card:nth-child(1) { transition-delay: 0.1s; }
+.cards-grid .card:nth-child(2) { transition-delay: 0.2s; }
+.cards-grid .card:nth-child(3) { transition-delay: 0.3s; }
+.cards-grid .card:nth-child(4) { transition-delay: 0.4s; }
+
+/* --- Overlay Oscuro --- */
+.cards-grid .card .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+    transition: background 0.5s ease;
+}
+
+.cards-grid .card:hover .card-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.9) 100%);
+}
+
+/* --- Contenido Interno --- */
+.cards-grid .card .card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Texto arriba */
+}
+
+/* Títulos dentro de la card (Blancos) */
+.cards-grid .card .card-title {
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff !important; /* Forzamos blanco */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+    
+    min-height: 2.4em; /* Reserva espacio para 2 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Subtítulos dentro de la card (Blancos) */
+.cards-grid .card .card-subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95) !important;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    
+    min-height: 4.5em; /* Reserva espacio para 3 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Botón (Blanco -> Rojo) */
+.cards-grid .card .card-link {
+    margin-top: auto; /* Pegado al fondo */
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;
+    
+    background-color: #D32F2F; /* Rojo */
+    color: #ffffff !important; /* Texto Blanco */
+    border: 2px solid #D32F2F;
+    
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cards-grid .card .card-link:hover {
+    background-color: #ffffff; /* Blanco */
+    color: #D32F2F !important; /* Texto Rojo */
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
