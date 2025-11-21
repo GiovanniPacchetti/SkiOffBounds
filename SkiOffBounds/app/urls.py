@@ -11,7 +11,8 @@ urlpatterns = [
     
     path('estaciones/<int:estacion_id>/', views.show_estacion, name='estacion_detalle'),
     path('estaciones/<int:estacion_id>/pistas/', views.index_pistas_por_estacion, name='estacion_pistas'),
-    
+    path('api/estacion/<int:estacion_id>/estado/', views.api_estado_estacion, name='api_estado'),
+
     # URLs para Localizaciones
     path('localizaciones/', views.index_localizaciones, name='localizaciones'),
     path('localizaciones/<int:localizacion_id>/', views.show_localizacion, name='localizacion_detalle'),

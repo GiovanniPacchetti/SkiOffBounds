@@ -142,3 +142,47 @@ def filtrar_estaciones_api(request):
     } for e in estaciones]
     
     return JsonResponse(data, safe=False)
+
+import random
+from django.http import JsonResponse
+
+def api_estado_estacion(request, estacion_id):
+    # Definimos las opciones traduciéndolas al momento
+    estados_posibles = [
+        # (código_interno, texto_traducible)
+        ('open', _('Abierta')),
+        ('closed', _('Cerrada')),
+        ('partial', _('Parcial'))
+    ]
+    
+    climas_posibles = [
+        ('sunny', _('Soleado'), 'bi-sun'),
+        ('cloudy', _('Nublado'), 'bi-cloud'),
+        ('snow', _('Nevando'), 'bi-cloud-snow'),
+        ('windy', _('Viento fuerte'), 'bi-wind')
+    ]
+    
+    # Selección aleatoria
+    estado_seleccionado = random.choice(estados_posibles)
+    clima_seleccionado = random.choice(climas_posibles)
+    
+    estado_texto = estado_seleccionado[1] # El texto ya traducido (Ej: "Open" o "Abierta")
+    clima_texto = clima_seleccionado[1]
+    icono = clima_seleccionado[2]
+    
+    # Lógica simple: Si hace mucho viento, cerramos
+    if clima_seleccionado[0] == 'windy':
+        estado_texto = _('Cerrada') # Usamos la traducción de "Cerrada"
+    
+    temp = random.randint(-10, 5)
+    espesor = random.randint(20, 200)
+    
+    data = {
+        'estado': estado_texto,          # Ya va traducido al idioma actual del usuario
+        'temperatura': f"{temp}ºC",
+        'espesor': f"{espesor} cm",
+        'clima': clima_texto,            # Ya va traducido
+        'icono_clima': icono
+    }
+    
+    return JsonResponse(data)
