@@ -128,3 +128,115 @@
     background-color: #fff;
     color: #333;
 }
+
+
+/* =========================================
+   SELECTOR DE IDIOMA CUSTOM (Minimalista & Alineado)
+   ========================================= */
+
+.nav-item-lang {
+    position: relative;
+    margin-left: 25px; /* Un poco más de separación del menú */
+    
+    /* ESTO ES LO QUE FALTABA PARA LA ALINEACIÓN VERTICAL */
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.custom-lang-dropdown {
+    position: relative;
+    cursor: pointer;
+    font-family: inherit;
+    line-height: 1; /* Evita alturas extrañas heredadas */
+}
+
+/* Botón visible (Píldora con Borde) */
+.selected-lang {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px; /* Un poco más ancho para que respire */
+    border-radius: 20px;
+    
+    /* RECUPERAMOS EL BORDE AQUÍ: */
+    background: #fff;              /* Fondo blanco explícito */
+    border: 1px solid #d5e4ee;     /* El borde gris azulado suave que tenías antes */
+    
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #153155;                /* Tu azul oscuro corporativo */
+}
+
+/* Efecto Hover mejorado */
+.selected-lang:hover {
+    border-color: #3fa9f5;         /* Borde azul brillante al pasar el ratón */
+    background: #f5fafb;           /* Fondo ligeramente azulado */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Pequeña sombra para dar volumen */
+}
+
+.arrow-icon {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+    margin-top: 1px; /* Ajuste óptico minúsculo */
+}
+
+/* Lista desplegable flotante */
+.lang-options {
+    position: absolute;
+    top: calc(100% + 10px); /* Posición exacta debajo del botón */
+    right: 0;
+    background: white;
+    min-width: 160px;
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+}
+
+/* Estado Abierto */
+.custom-lang-dropdown.open .lang-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-lang-dropdown.open .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Opciones de la lista */
+.lang-options li {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    color: #444;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.lang-options li:hover {
+    background: #f5f5f5;
+    color: #D32F2F;
+}
+
+.lang-options li.active {
+    background: #fff5f5;
+    color: #D32F2F;
+    font-weight: 600;
+}
+
+.lang-flag { margin-right: 10px; font-size: 1.1rem; }
+.lang-name { flex-grow: 1; }
+.check-icon { font-size: 0.9rem; }

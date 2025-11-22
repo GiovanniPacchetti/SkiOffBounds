@@ -25,23 +25,50 @@
                 <li><a href="{% url 'skioffbounds:localizaciones' %}" class="nav-link">{% trans "Destinos" %}</a></li>
                 <li><a href="{% url 'skioffbounds:tipos_pista' %}" class="nav-link">{% trans "Pistas" %}</a></li>
                 
-                <!-- Selector de Idioma -->
+                <!-- Selector de Idioma Custom (Minimalista) -->
                 <li class="nav-item-lang">
-                    <form action="{% url 'set_language' %}" method="post">
+                    
+                    <!-- FORMULARIO REAL DE DJANGO (OCULTO PERO FUNCIONAL) -->
+                    <form action="{% url 'set_language' %}" method="post" id="lang-form-hidden" style="display: none;">
                         {% csrf_token %}
                         <input name="next" type="hidden" value="{{ request.path }}">
-                        <select name="language" onchange="this.form.submit()" class="lang-select">
+                        <select name="language" id="django-lang-select">
                             {% get_current_language as LANGUAGE_CODE %}
                             {% get_available_languages as LANGUAGES %}
                             {% get_language_info_list for LANGUAGES as languages %}
                             {% for language in languages %}
-                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
                                     {{ language.code|upper }}
                                 </option>
                             {% endfor %}
                         </select>
                     </form>
+
+                    <!-- NUESTRO DROPDOWN VISUAL (BONITO) -->
+                    <div class="custom-lang-dropdown" id="langDropdown">
+                        <!-- Botón visible -->
+                        <div class="selected-lang">
+                            <span>{{ LANGUAGE_CODE|upper }}</span>
+                            <i class="bi bi-chevron-down arrow-icon"></i>
+                        </div>
+                        
+                        <!-- Lista desplegable -->
+                        <ul class="lang-options">
+                            {% for language in languages %}
+                            <li data-code="{{ language.code }}" class="{% if language.code == LANGUAGE_CODE %}active{% endif %}">
+                                <span class="lang-flag">
+                                    {% if language.code == 'es' %}🇪🇸{% elif language.code == 'en' %}🇬🇧{% endif %}
+                                </span>
+                                <span class="lang-name">{{ language.name_local|capfirst }}</span>
+                                {% if language.code == LANGUAGE_CODE %}
+                                <i class="bi bi-check-lg check-icon"></i>
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </li>
+
             </ul>
         </nav>
     </header>
@@ -73,6 +100,7 @@
     <script src="{% url 'javascript-catalog' %}"></script>
     <script src="{% static 'js/favorites.js' %}" defer></script>
     <script src="{% static 'js/ui.js' %}" defer></script>
+    <script src="{% static 'js/language.js' %}" defer></script>
     
 {% block extra_scripts %}
     <script src="{% static 'js/search.js' %}" defer></script>
