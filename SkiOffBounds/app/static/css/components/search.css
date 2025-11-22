@@ -16,6 +16,7 @@
     padding: 0 20px;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center; 
 }
 
 /* Caja de Búsqueda */
@@ -38,8 +39,10 @@
 }
 
 #search-estaciones {
-    width: 100%;
-    padding: 14px 20px 14px 50px;
+    width: 100%;/* FORZAMOS ALTURA FIJA */
+    height: 52px; 
+    /* Quitamos padding vertical para que line-height centre el texto */
+    padding: 0 20px 0 50px;
     border: 2px solid #d5e4ee;
     border-radius: 30px;
     font-size: 1.05em;

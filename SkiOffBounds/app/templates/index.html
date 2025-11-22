@@ -30,14 +30,34 @@
         </div>
         
         <div class="filter-box">
-            <i class="bi bi-funnel"></i>
-            <select id="filter-localizacion" class="filter-select">
-                <option value="">{% trans "Todas las localizaciones" %}</option>
-                {% for loc in localizaciones %}
-                <option value="{{ loc.id }}">{{ loc.nombre }}</option>
-                {% endfor %}
-            </select>
+    <!-- SELECT REAL (OCULTO, PERO FUNCIONAL PARA TU JS DE FILTROS) -->
+    <select id="filter-localizacion" class="filter-select" style="display: none;">
+        <option value="">{% trans "Todas las localizaciones" %}</option>
+        {% for loc in localizaciones %}
+        <option value="{{ loc.id }}">{{ loc.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <!-- SELECTOR CUSTOM (VISUAL) -->
+    <div class="custom-filter-dropdown" id="customFilterDropdown">
+        <div class="filter-selected">
+            <i class="bi bi-funnel-fill filter-icon"></i>
+            <span id="filter-selected-text">{% trans "Todas las localizaciones" %}</span>
+            <i class="bi bi-chevron-down arrow-icon"></i>
         </div>
+        
+        <ul class="filter-options">
+            <!-- Opción por defecto -->
+            <li data-value="" class="active">{% trans "Todas las localizaciones" %}</li>
+            
+            <!-- Opciones dinámicas -->
+            {% for loc in localizaciones %}
+            <li data-value="{{ loc.id }}">{{ loc.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
     </div>
 </section>
 

@@ -1,54 +1,168 @@
 /* ============================================
-   FILTROS (filters.css)
+   SELECTOR DE FILTRO CUSTOM (Localizaciones)
    ============================================ */
 
 .filter-box {
     position: relative;
-    flex: 0 0 auto;
+    flex: 0 0 auto; /* Mantiene su tamaño natural en desktop */
 }
 
-.filter-box i {
+/* Contenedor del Dropdown */
+.custom-filter-dropdown {
+    position: relative;
+    min-width: 250px; /* Anchura base cómoda en PC */
+    font-family: inherit;
+    z-index: 50;
+}
+
+/* Botón Principal del Filtro (La "caja" visible) */
+.filter-selected {
+    background: #fff;
+    border: 2px solid #d5e4ee;
+    border-radius: 30px;
+    height: 52px;
+    padding: 0 20px 0 50px; /* Padding lateral solo */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative; /* Para posicionar el icono del embudo */
+}
+
+.filter-selected:hover {
+    border-color: #3fa9f5;
+    box-shadow: 0 4px 12px rgba(63, 169, 245, 0.15);
+}
+
+/* Icono del Embudo (Posicionamiento absoluto para que quede fijo a la izquierda) */
+.filter-icon {
     position: absolute;
     left: 18px;
     top: 50%;
     transform: translateY(-50%);
     color: #2e66a0;
+    font-size: 1.1rem;
     pointer-events: none;
-    z-index: 1;
 }
 
-.filter-select {
-    padding: 14px 20px 14px 50px;
-    border: 2px solid #d5e4ee;
-    border-radius: 30px;
+/* Texto del Filtro */
+.filter-selected span {
+    flex-grow: 1;
+    margin-right: 10px;
+    font-weight: 600;
+    color: #153155;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 1.05em;
-    background: #fff;
+}
+
+/* Flecha */
+.arrow-icon {
+    color: #6c92ac;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+}
+
+/* Lista Desplegable */
+.filter-options {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    
+    max-height: 300px;
+    overflow-y: auto;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrollbar */
+.filter-options::-webkit-scrollbar { width: 6px; }
+.filter-options::-webkit-scrollbar-thumb { background: #ddd; border-radius: 10px; }
+
+/* Estado Abierto */
+.custom-filter-dropdown.open .filter-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.custom-filter-dropdown.open .arrow-icon { transform: rotate(180deg); }
+
+/* Opciones Individuales */
+.filter-options li {
+    padding: 12px 20px;
     cursor: pointer;
-    transition: all 0.3s;
-    min-width: 220px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232e66a0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    padding-right: 40px;
+    color: #555;
+    transition: background 0.2s;
+    font-size: 0.95rem;
 }
 
-.filter-select:focus {
-    outline: none;
-    border-color: #3fa9f5;
-    box-shadow: 0 4px 16px rgba(63, 169, 245, 0.2);
+.filter-options li:hover {
+    background: #f5fbfd;
+    color: #3fa9f5;
 }
 
-/* Responsive Filtros */
+.filter-options li.active {
+    background: #f0f9ff;
+    color: #153155;
+    font-weight: 700;
+}
+
+/* ============================================
+   LÓGICA DE APERTURA HACIA ARRIBA (Smart Positioning)
+   ============================================ */
+
+/* Cuando tiene la clase .open-up, se posiciona pegado ABAJO del botón */
+.custom-filter-dropdown.open-up .filter-options {
+    top: auto;                /* Anulamos el top original */
+    bottom: calc(100% + 10px);/* Lo pegamos encima del botón */
+    
+    /* Cambiamos la animación para que venga de abajo */
+    transform: translateY(10px); 
+}
+
+/* Estado abierto hacia arriba */
+.custom-filter-dropdown.open-up.open .filter-options {
+    transform: translateY(0);
+}
+
+
+/* ============================================
+   RESPONSIVE (Móvil y Tablet)
+   ============================================ */
+
 @media (max-width: 768px) {
-    .filter-select { max-width: 100%; min-width: 100%; }
-}
-
-@media (max-width: 480px) {
-    .filter-select {
-        font-size: 0.95em;
-        padding: 12px 18px 12px 45px;
+    .filter-box {
+        width: 100%;     /* Ocupa todo el ancho del contenedor */
+        flex: 1 1 100%;  /* Flex-grow para llenar espacio */
     }
-    .filter-box i { left: 15px; font-size: 1.1em; }
+
+    .custom-filter-dropdown {
+        min-width: 100%; /* Fuerza el ancho completo */
+        width: 100%;
+    }
+
+    /* Ajuste de paddings para móviles */
+    .filter-selected {
+        padding: 12px 20px 12px 45px;
+    }
+    
+    .filter-icon {
+        left: 15px; /* Un poco más pegado al borde en pantallas estrechas */
+    }
 }
