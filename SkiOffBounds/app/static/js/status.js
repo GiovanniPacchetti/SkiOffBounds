@@ -1,7 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Función global para inicializar el estado (se puede llamar varias veces)
+window.inicializarEstadoEnVivo = function() {
     const badges = document.querySelectorAll('.live-status');
 
     badges.forEach(container => {
+        // ¡IMPORTANTE! Si ya lo hemos inicializado, nos lo saltamos
+        if (container.dataset.init === "true") return;
+        
+        // Marcamos como inicializado
+        container.dataset.init = "true";
+
         const badge = container.querySelector('.status-badge');
         const details = container.querySelector('.status-details');
         const id = container.dataset.id;
@@ -11,19 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Si ya tenemos datos cargados, no volver a pedir
             if (container.classList.contains('loaded')) return;
 
-            // status.js
-            const loadingText = gettext('Cargando...'); // Asegúrate de tener cargado el catálogo JS
+            const loadingText = gettext('Cargando...'); 
             badge.innerHTML = `<i class="bi bi-arrow-repeat spin"></i> ${loadingText}`;
 
             fetch(`/home/api/estacion/${id}/estado/`)
                 .then(response => response.json())
                 .then(data => {
-                    // Definir color según estado
-                    let colorClass = 'text-success'; // Verde
-                    if (data.estado === 'Cerrada') colorClass = 'text-danger'; // Rojo
-                    if (data.estado === 'Parcial') colorClass = 'text-warning'; // Naranja
+                    let colorClass = 'text-success'; 
+                    if (data.estado === 'Cerrada') colorClass = 'text-danger'; 
+                    if (data.estado === 'Parcial') colorClass = 'text-warning'; 
 
-                    // Inyectar HTML
                     details.innerHTML = `
                         <div class="status-row ${colorClass}">
                             <strong>${data.estado}</strong>
@@ -34,17 +38,19 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                     `;
                     
-                    // Mostrar detalles y ocultar botón inicial
                     badge.style.display = 'none';
                     details.style.display = 'block';
                     details.classList.add('fade-in');
                     
-                    // Marcar como cargado para no repetir la petición
                     container.classList.add('loaded');
                 })
                 .catch(error => {
+                    console.error(error);
                     badge.innerHTML = '<i class="bi bi-x-circle"></i> Error';
                 });
         });
     });
-});
+};
+
+// Ejecutar automáticamente al cargar la página por primera vez
+document.addEventListener('DOMContentLoaded', window.inicializarEstadoEnVivo);

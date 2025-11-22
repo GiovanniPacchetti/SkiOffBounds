@@ -30,7 +30,7 @@
         </div>
         
         <div class="filter-box">
-    <!-- SELECT REAL (OCULTO, PERO FUNCIONAL PARA TU JS DE FILTROS) -->
+    <!-- SELECT REAL (OCULTO) -->
     <select id="filter-localizacion" class="filter-select" style="display: none;">
         <option value="">{% trans "Todas las localizaciones" %}</option>
         {% for loc in localizaciones %}
@@ -38,8 +38,11 @@
         {% endfor %}
     </select>
 
-    <!-- SELECTOR CUSTOM (VISUAL) -->
-    <div class="custom-filter-dropdown" id="customFilterDropdown">
+    <!-- DROPDOWN BONITO -->
+    <div class="custom-filter-dropdown"
+         id="customFilterDropdown"
+         data-api-url="{% url 'skioffbounds:api_filter' %}">
+         
         <div class="filter-selected">
             <i class="bi bi-funnel-fill filter-icon"></i>
             <span id="filter-selected-text">{% trans "Todas las localizaciones" %}</span>
@@ -47,16 +50,14 @@
         </div>
         
         <ul class="filter-options">
-            <!-- Opción por defecto -->
             <li data-value="" class="active">{% trans "Todas las localizaciones" %}</li>
-            
-            <!-- Opciones dinámicas -->
             {% for loc in localizaciones %}
             <li data-value="{{ loc.id }}">{{ loc.nombre }}</li>
             {% endfor %}
         </ul>
     </div>
 </div>
+
 
     </div>
 </section>

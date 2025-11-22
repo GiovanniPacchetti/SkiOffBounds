@@ -133,13 +133,28 @@ def filtrar_estaciones_api(request):
     else:
         estaciones = Estacion.objects.all().select_related('localizacion')
     
-    data = [{
-        'id': e.id,
-        'nombre': e.nombre,
-        'localizacion': e.localizacion.nombre,
-        'km_pistas': e.km_pistas_totales,
-        'url': f'/home/estaciones/{e.id}/'
-    } for e in estaciones]
+    data = []
+    for e in estaciones:
+        item = {
+            'id': e.id,
+            'nombre': e.nombre,
+            # AQUÍ ESTÁ LA CLAVE 1: Usamos 'localizacion' (simple)
+            'localizacion': e.localizacion.nombre, 
+            'km_pistas': e.km_pistas_totales,
+            # AQUÍ ESTÁ LA CLAVE 2: Enviamos las altitudes
+            'altitud_min': e.altitud_minima,
+            'altitud_max': e.altitud_maxima,
+            # Nota: No enviamos precio porque no lo tienes en el modelo
+            'url': f'/home/estaciones/{e.id}/' # O usar reverse()
+        }
+
+        # Imagen de portada (Manejo de errores si no hay imagen)
+        if e.imagen_portada:
+            item['imagen_url'] = e.imagen_portada.url
+        else:
+            item['imagen_url'] = None
+            
+        data.append(item)
     
     return JsonResponse(data, safe=False)
 
