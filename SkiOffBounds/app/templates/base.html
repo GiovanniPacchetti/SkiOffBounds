@@ -74,8 +74,11 @@
     <script src="{% static 'js/favorites.js' %}" defer></script>
     <script src="{% static 'js/ui.js' %}" defer></script>
     
-
-    {% block extra_scripts %}{% endblock %}
+{% block extra_scripts %}
+    <script src="{% static 'js/search.js' %}" defer></script>
+    <script src="{% static 'js/filters.js' %}" defer></script>
+    <script src="{% static 'js/status.js' %}" defer></script>
+{% endblock %}
 
 </body>
 </html>

@@ -25,6 +25,14 @@ class Localizacion(models.Model):
         null=True,
         verbose_name=_("Longitud")
     )
+
+    imagen_portada = models.ImageField(
+        upload_to='portadas/',
+        blank=True, 
+        help_text=_('Imagen Principal'), 
+        null=True,
+        verbose_name=_("Imagen de portada")
+    )
     
     class Meta:
         verbose_name = _("Localización")

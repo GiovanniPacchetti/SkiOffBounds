@@ -1,28 +1,44 @@
 {% extends "base.html" %}
 {% load i18n %}
+
 {% block titulo %}{% trans "Estaciones con" %} {{ tipo_pista.get_nombre_display }} - SkiOffBounds{% endblock %}
 
 {% block contenido %}
 <section class="list-section">
     <div class="detail-container">
+        
+        <!-- BREADCRUMB -->
         <div class="breadcrumb">
             <a href="{% url 'skioffbounds:tipos_pista' %}" class="breadcrumb-link">
-                <i class="bi bi-arrow-left"></i> {% trans "Volver a Pistas" %}
+                <i class="bi bi-arrow-left"></i> {% trans "Volver a Tipos de Pista" %}
             </a>
         </div>
 
+        <!-- HEADER -->
         <div class="section-header">
             <h2 class="section-title">{% trans "Pistas" %} {{ tipo_pista.get_nombre_display }}</h2>
             <p class="section-subtitle">{{ estaciones.count }} {% trans "estación" %}{{ estaciones.count|pluralize }}</p>
         </div>
 
+        <!-- GRID -->
         <div class="cards-grid">
             {% for e in estaciones %}
-            <div class="card">
+            
+            <!-- CARD PREMIUM -->
+            <div class="card animate-on-scroll" 
+                 {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
+                
+                <div class="card-overlay"></div> <!-- Capa oscura -->
+                
                 <div class="card-content">
                     <h3 class="card-title">{{ e.nombre }}</h3>
-                    <p class="card-location"><i class="bi bi-geo-alt"></i> {{ e.localizacion.nombre }}</p>
                     
+                    <!-- Localización (Importante aquí para saber dónde está la estación) -->
+                    <p class="card-location">
+                        <i class="bi bi-geo-alt"></i> {{ e.localizacion.nombre }}
+                    </p>
+                    
+                    <!-- STATS -->
                     <div class="card-stats">
                         <div class="stat">
                             <i class="bi bi-graph-up"></i>
@@ -34,6 +50,7 @@
                         </div>
                     </div>
 
+                    <!-- PRECIO -->
                     {% if e.precio %}
                     <div class="card-price">
                         <span class="price-label">{% trans "Desde" %}</span>
@@ -41,12 +58,28 @@
                     </div>
                     {% endif %}
 
-                    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
-                        {% trans "Ver Detalles" %} <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <!-- ACCIONES -->
+                    <div class="card-actions">
+                        <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
+                            {% trans "Ver Detalles" %}
+                        </a>
+                        <button class="btn-favorito" data-estacion-id="{{ e.id }}" title="{% trans 'Añadir a favoritos' %}">
+                            <i class="bi bi-star"></i>
+                        </button>
+                    </div>
+
+                    <!-- LIVE STATUS (Consistencia con el Index) -->
+                    <div class="live-status" data-id="{{ e.id }}">
+                        <span class="status-badge pending">
+                            <i class="bi bi-activity"></i> {% trans "Consultar estado" %}
+                        </span>
+                        <div class="status-details" style="display: none;"></div>
+                    </div>
                 </div>
             </div>
             {% empty %}
+            
+            <!-- EMPTY STATE -->
             <div class="empty-state">
                 <div class="empty-icon"><i class="bi bi-slash-circle"></i></div>
                 <h3>{% trans "No hay estaciones disponibles" %}</h3>
@@ -58,7 +91,8 @@
             {% endfor %}
         </div>
 
-        <div class="detail-actions">
+        <!-- BOTONES DE NAVEGACIÓN INFERIOR -->
+        <div class="detail-actions" style="margin-top: 3rem;">
             <a href="{% url 'skioffbounds:tipo_pista_detalle' tipo_pista.id %}" class="action-button action-secondary">
                 <i class="bi bi-arrow-left"></i>
                 {% trans "Volver a Información de Pista" %}

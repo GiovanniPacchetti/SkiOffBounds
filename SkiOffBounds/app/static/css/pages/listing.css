@@ -412,7 +412,7 @@
     
     min-height: 2.4em; /* Reserva espacio para 2 líneas */
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -428,7 +428,7 @@
     
     min-height: 4.5em; /* Reserva espacio para 3 líneas */
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    
     -webkit-box-orient: vertical;
     overflow: hidden;
 }

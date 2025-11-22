@@ -13,12 +13,18 @@
     position: relative;
     height: 420px;
     background: var(--gray-light);
-    background-image: url('https://imgs.search.brave.com/PYdVM-UVDpo3WbvM8YYeoYAUdZdVD3b1oC9W7yB9LkQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cGhvdG9zLXByZW1p/dW0vdnVlLWFscGVz/LWRlcHVpcy1wcmVt/aWVyZS1tb250YWdu/ZS1ncmluZGVsd2Fs/ZC1zdWlzc2VfODg4/NzUwLTU2LmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDAmcT04/MA');
+     /* Imagen por defecto si la variable --bg-image no está definida */
+    background-image: var(--bg-image, url('https://imgs.search.brave.com/PYdVM-UVDpo3WbvM8YYeoYAUdZdVD3b1oC9W7yB9LkQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cGhvdG9zLXByZW1p/dW0vdnVlLWFscGVz/LWRlcHVpcy1wcmVt/aWVyZS1tb250YWdu/ZS1ncmluZGVsd2Fs/ZC1zdWlzc2VfODg4/NzUwLTU2LmpwZz9z/ZW10PWFpc19oeWJy/aWQmdz03NDAmcT04/MA'));
+    /* Resto de propiedades para que se vea bien */
+    background-size: cover;
+    background-position: center;
+
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 
 .card::before {
     content: '';

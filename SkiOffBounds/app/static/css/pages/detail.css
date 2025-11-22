@@ -365,3 +365,159 @@
     text-align: center;
 }
 
+
+
+/* =========================================
+   LOCATION DETAIL PAGE STYLES
+   (Añadido para la vista de detalle de región)
+   ========================================= */
+
+/* --- HERO BANNER --- */
+.location-hero {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay Degradado "Premium" */
+.location-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Degradado oscuro para leer texto blanco */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(21, 49, 85, 0.9));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    width: 100%;
+    color: white;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Etiquetas / Badges */
+.hero-badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-badge {
+    background: rgba(211, 47, 47, 0.9); /* Rojo Marca */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- LAYOUT DE CONTENIDO (GRID) --- */
+.detail-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 66% Contenido - 33% Sidebar */
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Responsive: Una sola columna en móvil */
+@media (max-width: 768px) {
+    .detail-content-grid {
+        grid-template-columns: 1fr;
+    }
+    .location-hero {
+        height: 250px;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+}
+
+/* --- SIDEBAR & INFO CARDS --- */
+.sidebar-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    
+    /* Efecto Sticky: Se queda fija al hacer scroll */
+    position: sticky;
+    top: 2rem; 
+}
+
+.sidebar-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    font-size: 1.25rem;
+    color: #153155;
+    font-weight: 700;
+}
+
+/* Ítems de información (Icono + Texto) */
+.info-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0f4f8; /* Gris azulado muy claro */
+    color: #153155;       /* Azul oscuro corporativo */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.info-text h4 {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-text p {
+    margin: 0;
+    font-weight: 600;
+    color: #153155;
+    font-size: 1.1rem;
+}
+
+/* Mapa Simulado (Placeholder visual) */
+.map-preview {
+    background: #eee;
+    height: 150px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    color: #999;
+    border: 2px dashed #ddd;
+    font-size: 0.9rem;
+}

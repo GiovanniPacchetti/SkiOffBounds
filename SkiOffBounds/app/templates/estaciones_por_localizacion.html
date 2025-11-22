@@ -5,48 +5,76 @@
 {% block contenido %}
 <section class="estaciones-section">
     <div class="detail-container">
+        <!-- BREADCRUMB -->
         <div class="breadcrumb">
-            <a href="{% url 'skioffbounds:localizacion_detalle' localizacion.id %}" class="breadcrumb-link">
-                <i class="bi bi-arrow-left"></i> {% trans "Volver a" %} {{ localizacion.nombre }}
+            <a href="{% url 'skioffbounds:localizaciones' %}" class="breadcrumb-link"> <!-- Corregido a lista de localizaciones para evitar bucle -->
+                <i class="bi bi-arrow-left"></i> {% trans "Volver a Localizaciones" %}
             </a>
         </div>
 
+        <!-- HEADER -->
         <div class="section-header">
             <h2 class="section-title">{% trans "Estaciones en" %} {{ localizacion.nombre }}</h2>
             <p class="section-subtitle">{{ estaciones.count }} {% trans "estaciones" %}</p>
         </div>
 
+        <!-- GRID -->
         <div class="cards-grid">
             {% for e in estaciones %}
-            <div class="card">
+            
+            <!-- AQUI EL CAMBIO: Background Image y Overlay -->
+            <div class="card" {% if e.imagen_portada %}style="--bg-image: url('{{ e.imagen_portada.url }}');"{% endif %}>
+                
+                <div class="card-overlay"></div> <!-- Capa oscura necesaria -->
+                
                 <div class="card-content">
                     <h3 class="card-title">{{ e.nombre }}</h3>
                     
+                    <!-- STATS GRID (Igual que en Index) -->
                     <div class="card-stats">
                         <div class="stat">
                             <i class="bi bi-graph-up"></i>
                             <span>{{ e.km_pistas_totales }} km</span>
                         </div>
                         <div class="stat">
-                            <i class="bi bi-flag"></i>
-                            <span>{{ e.tipos_pista.count }} {% trans "tipo" %}{{ e.tipos_pista.count|pluralize }}</span>
+                            <i class="bi bi-arrow-up"></i>
+                            <!-- Asumo que tienes estos campos, si no, usa los que tenías antes -->
+                            <span>{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
                         </div>
                     </div>
 
-                    {% if e.altitud_minima and e.altitud_maxima %}
-                    <div class="stat-card">
-                        <div class="stat-content">
-                            <span class="stat-value">{{ e.altitud_minima }}-{{ e.altitud_maxima }} m</span>
-                        </div>
+                    <!-- PRECIO (Opcional, si quieres mostrarlo también aquí) -->
+                    {% if e.precio %}
+                    <div class="card-price">
+                        <span class="price-label">{% trans "Desde" %}</span>
+                        <span class="price-value">{{ e.precio }}€</span>
                     </div>
                     {% endif %}
 
-                    <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
-                        {% trans "Ver Detalles" %} <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <!-- BOTONES Y ACCIONES -->
+                    <div class="card-actions">
+                        <a href="{% url 'skioffbounds:estacion_detalle' e.id %}" class="card-link">
+                            {% trans "Ver Detalles" %}
+                        </a>
+                        <!-- Botón favorito si lo usas -->
+                        <button class="btn-favorito" data-estacion-id="{{ e.id }}" title="{% trans 'Añadir a favoritos' %}">
+                            <i class="bi bi-star"></i>
+                        </button>
+                    </div>
+
+                    <!-- LIVE STATUS (Si quieres mantener la funcionalidad AJAX también aquí) -->
+                    <div class="live-status" data-id="{{ e.id }}">
+                        <span class="status-badge pending">
+                            <i class="bi bi-activity"></i> {% trans "Consultar estado" %}
+                        </span>
+                        <div class="status-details" style="display: none;"></div>
+                    </div>
+
                 </div>
             </div>
             {% empty %}
+            
+            <!-- EMPTY STATE -->
             <div class="empty-state">
                 <div class="empty-icon"><i class="bi bi-snow2"></i></div>
                 <h3>{% trans "No hay estaciones disponibles" %}</h3>

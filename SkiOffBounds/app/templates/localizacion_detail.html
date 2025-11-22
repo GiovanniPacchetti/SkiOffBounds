@@ -18,6 +18,12 @@
         </div>
 
         <div class="detail-header">
+            
+            {% if localizacion.imagen_portada %}
+            <div class="detail-image">
+                <img src="{{ localizacion.imagen_portada.url }}" alt="{{ localizacion.nombre }}" class="image-full">
+            </div>
+            {% endif %}
             <div class="detail-info" style="width: 100%;">
                 <h1 class="detail-title">{{ localizacion.nombre }}</h1>
                 

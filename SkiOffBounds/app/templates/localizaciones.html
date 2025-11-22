@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block contenido %}
-<section class="estaciones-section">
+<section class="estaciones-section"> <!-- Usamos la misma clase para mantener espaciados -->
     
     <!-- HEADER -->
     <div class="section-header">
@@ -23,7 +23,11 @@
     <!-- GRID -->
     <div class="cards-grid">
         {% for loc in lista_localizaciones %}
-        <div class="card animate-on-scroll"> <!-- Añadida clase de animación si la tienes -->
+        
+    
+        <div class="card animate-on-scroll" 
+             {% if loc.imagen_portada %}style="--bg-image: url('{{ loc.imagen_portada.url }}');"{% endif %}>
+            
             <div class="card-overlay"></div>
             
             <div class="card-content">
@@ -33,7 +37,8 @@
                     <p class="card-subtitle">{{ loc.descripcion }}</p>
                 {% endif %}
 
-                <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link">
+                <!-- Alineamos el botón abajo como en el diseño Premium -->
+                <a href="{% url 'skioffbounds:localizacion_detalle' loc.id %}" class="card-link" style="margin-top: auto;">
                     <i class="bi bi-arrow-right"></i>
                     {% trans "Ver Detalles" %}
                 </a>
