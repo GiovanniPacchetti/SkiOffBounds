@@ -128,4 +128,15 @@ if 'RENDER' in os.environ:
     # Archivos estáticos (CSS/JS/Imágenes)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    # Le decimos a Render: "La carpeta media también tiene cosas estáticas que quiero servir"
+    WHITENOISE_ROOT = os.path.join(BASE_DIR, 'media') 
+    
+    # Esta línea mágica hace que si WhiteNoise no encuentra el archivo en static,
+    # mire en la carpeta definida arriba (media)
+    WHITENOISE_USE_FINDERS = True
+    
+    # OPCIONAL: Si las imágenes siguen sin cargar, a veces hay que añadir media a STATICFILES_DIRS temporalmente
+    if os.path.exists(os.path.join(BASE_DIR, 'media')):
+         STATICFILES_DIRS.append(os.path.join(BASE_DIR, 'media'))
 

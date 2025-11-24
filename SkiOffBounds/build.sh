@@ -12,4 +12,4 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 
 # (OPCIONAL PERO RECOMENDADO) Cargar datos iniciales si la base de datos está vacía
-python manage.py loaddata datos_iniciales.json
+#python manage.py loaddata datos_iniciales.json
