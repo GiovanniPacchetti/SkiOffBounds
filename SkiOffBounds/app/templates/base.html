@@ -77,24 +77,56 @@
         {% block contenido %}{% endblock %}
     </main>
 
-    <footer class="footer">
+        <footer class="footer">
         <div class="footer-container">
-            <div class="footer-col">
-                <h3 class="footer-title">SkiOffBounds</h3>
-                <p class="footer-text">{% trans "La guía definitiva de estaciones de esquí." %}</p>
+            
+            <!-- COLUMNA 1: MARCA Y DESCRIPCIÓN -->
+            <div class="footer-brand-col">
+                <a href="{% url 'skioffbounds:index' %}" class="footer-logo">
+                    
+                    <span>SkiOffBounds</span>
+                </a>
+                <p class="footer-desc">{% trans "Tu guía premium para descubrir las mejores estaciones de esquí de Europa. Encuentra tu próxima aventura." %}</p>
+                
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                </div>
             </div>
-            <div class="footer-col footer-right">
-                <p class="footer-text">&copy; 2025 SkiOffBounds. {% trans "Todos los derechos reservados." %}</p>
+
+            <!-- COLUMNA 2: EXPLORAR -->
+            <div class="footer-links-col">
+                <h4>{% trans "Explorar" %}</h4>
+                <ul>
+                    <li><a href="{% url 'skioffbounds:index' %}">{% trans "Inicio" %}</a></li>
+                    <li><a href="{% url 'skioffbounds:localizaciones' %}">{% trans "Destinos" %}</a></li>
+                    <li><a href="{% url 'skioffbounds:tipos_pista' %}">{% trans "Tipos de Pista" %}</a></li>
+                </ul>
             </div>
-        </div>
-        <div>
-            <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer">
-                <img style="border:0; width: 88px; height: 31px;"
-                    src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
-                    alt="¡CSS Válido!" />
-            </a>
+
+                        <!-- COLUMNA 3: AUTORÍA / CRÉDITOS -->
+            <div class="footer-links-col">
+                <h4>{% trans "Proyecto" %}</h4>
+                <ul>
+                    <li style="color: #888; font-size: 0.95rem;">{% trans "Ingeniería Web" %}</li>
+                    <li style="color: #888; font-size: 0.95rem;">{% trans "Curso 2024/2025" %}</li>
+                                    </ul>
+            </div>
+
+
+            <!-- COLUMNA 4: VALIDACIÓN (Tu icono W3C) -->
+            <div class="footer-validator-col">
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" rel="noopener noreferrer" class="w3c-badge">
+                    <img style="border:0; width: 88px; height: 31px;"
+                        src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                        alt="¡CSS Válido!" />
+                </a>
+                <p class="copyright-text">&copy; 2025 SkiOffBounds. <br>{% trans "Todos los derechos reservados." %}</p>
+            </div>
         </div>
     </footer>
+
 
    
     <script src="{% url 'javascript-catalog' %}"></script>

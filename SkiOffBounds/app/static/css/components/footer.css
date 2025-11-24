@@ -1,45 +1,159 @@
 /* ============================================
-   FOOTER
+   FOOTER PREMIUM
    ============================================ */
-
 .footer {
-    background: var(--gray-dark);
-    color: var(--white);
-    padding: 60px 40px;
-    margin-top: 100px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #111; /* Casi negro para contraste elegante */
+    color: #fff;
+    padding: 80px 0 40px;
+    margin-top: 120px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .footer-container {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* La primera col es doble de ancha */
+    gap: 60px;
 }
 
-.footer-col {
+/* Columna de Marca */
+.footer-brand-col {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
-.footer-title {
-    font-size: 1.2rem;
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
-.footer-text {
+.footer-desc {
+    color: #888;
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.8;
-    font-weight: 300;
+    line-height: 1.6;
+    max-width: 300px;
 }
 
-.footer-right {
+/* Redes Sociales */
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.footer-socials a:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Columnas de Enlaces */
+.footer-links-col h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.footer-links-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links-col ul li a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links-col ul li a:hover {
+    color: #fff;
+    padding-left: 5px; /* Pequeño desplazamiento al hover */
+}
+
+/* Columna Validador y Copyright */
+.footer-validator-col {
+    display: flex;
+    flex-direction: column;
     align-items: flex-end;
+    justify-content: space-between;
     text-align: right;
 }
 
+.w3c-badge img {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.w3c-badge:hover img {
+    opacity: 1;
+}
+
+.copyright-text {
+    color: #555;
+    font-size: 0.85rem;
+    margin-top: auto; /* Empuja hacia abajo si hay espacio */
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr; /* 2x2 */
+        gap: 40px;
+    }
+    .footer-validator-col {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Todo en una columna */
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-brand-col {
+        align-items: center;
+    }
+    
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-validator-col {
+        align-items: center;
+        text-align: center;
+    }
+}
