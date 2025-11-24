@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-20 18:14+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-11-24 19:20+0100\n"
+"PO-Revision-Date: 2025-11-24 19:25+0100\n"
+"Last-Translator: SkiOffBounds Team <admin@skioffbounds.com>\n"
+"Language-Team: English <en@skioffbounds.com>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,209 +29,230 @@ msgstr "English"
 msgid "Ej: Pirineo Catalán, Pirineo Aragonés, Cordillera Cantábrica"
 msgstr "Ex: Catalan Pyrenees, Aragonese Pyrenees, Cantabrian Mountains"
 
-#: .\app\models.py:11 .\app\models.py:56 .\app\models.py:98
-#: .\app\templates\localizacion_detail.html:26
+#: .\app\models.py:11 .\app\models.py:64 .\app\models.py:106
+#: .\app\templates\localizacion_detail.html:32
 #: .\app\templates\tipo_pista_detail.html:52
 msgid "Descripción"
 msgstr "Description"
 
-#: .\app\models.py:19 .\app\models.py:104
+#: .\app\models.py:19 .\app\models.py:112
 msgid "Latitud"
 msgstr "Latitude"
 
-#: .\app\models.py:26 .\app\models.py:110
+#: .\app\models.py:26 .\app\models.py:118
 msgid "Longitud"
 msgstr "Longitude"
 
-#: .\app\models.py:30 .\app\models.py:81
+#: .\app\models.py:32 .\app\models.py:152
+msgid "Imagen Principal"
+msgstr "Main Image"
+
+#: .\app\models.py:34 .\app\models.py:154
+msgid "Imagen de portada"
+msgstr "Cover image"
+
+#: .\app\models.py:38 .\app\models.py:89
 msgid "Localización"
 msgstr "Location"
 
-#: .\app\models.py:31 .\app\templates\localizacion_detail.html:14
-#: .\app\templates\localizaciones.html:5 .\app\templates\localizaciones.html:16
+#: .\app\models.py:39 .\app\templates\localizacion_detail.html:14
+#: .\app\templates\localizaciones.html:5 .\app\templates\localizaciones.html:18
 msgid "Localizaciones"
 msgstr "Locations"
 
-#: .\app\models.py:40
+#: .\app\models.py:48
 msgid "Verde - Principiante"
 msgstr "Green - Beginner"
 
-#: .\app\models.py:41
+#: .\app\models.py:49
 msgid "Azul - Fácil"
 msgstr "Blue - Easy"
 
-#: .\app\models.py:42
+#: .\app\models.py:50
 msgid "Roja - Intermedia"
 msgstr "Red - Intermediate"
 
-#: .\app\models.py:43
+#: .\app\models.py:51
 msgid "Negra - Difícil"
 msgstr "Black - Difficult"
 
-#: .\app\models.py:50
+#: .\app\models.py:58
 msgid "Color / Tipo"
 msgstr "Color / Type"
 
-#: .\app\models.py:55
+#: .\app\models.py:63
 msgid "Características y nivel de dificultad"
 msgstr "Features and difficulty level"
 
-#: .\app\models.py:61
+#: .\app\models.py:69
 msgid "Nivel de dificultad del 1 (más fácil) al 5 (más difícil)"
 msgstr "Difficulty level from 1 (easiest) to 5 (hardest)"
 
-#: .\app\models.py:62
+#: .\app\models.py:70
 msgid "Nivel de dificultad"
 msgstr "Difficulty level"
 
-#: .\app\models.py:66
+#: .\app\models.py:74
 msgid "Tipo de Pista"
 msgstr "Slope Type"
 
-#: .\app\models.py:67 .\app\templates\estacion_detail.html:110
+#: .\app\models.py:75 .\app\templates\base.html:104
+#: .\app\templates\estacion_detail.html:110
 #: .\app\templates\tipo_pista_detail.html:14 .\app\templates\tipos_pista.html:3
 msgid "Tipos de Pista"
 msgstr "Slope Types"
 
-#: .\app\models.py:80
+#: .\app\models.py:88
 msgid "Región donde se encuentra la estación"
 msgstr "Region where the resort is located"
 
-#: .\app\models.py:88
+#: .\app\models.py:96
 msgid "Tipos de pistas disponibles"
 msgstr "Available slope types"
 
-#: .\app\models.py:89
+#: .\app\models.py:97
 msgid "Tipos de pista"
 msgstr "Slope types"
 
-#: .\app\models.py:95
+#: .\app\models.py:103
 msgid "Ej: Baqueira Beret, Formigal"
 msgstr "Ex: Baqueira Beret, Formigal"
 
-#: .\app\models.py:96
+#: .\app\models.py:104
 msgid "Nombre"
 msgstr "Name"
 
-#: .\app\models.py:103
+#: .\app\models.py:111
 msgid "Latitud en formato decimal"
 msgstr "Latitude in decimal format"
 
-#: .\app\models.py:109
+#: .\app\models.py:117
 msgid "Longitud en formato decimal"
 msgstr "Longitude in decimal format"
 
-#: .\app\models.py:118
+#: .\app\models.py:126
 msgid "Kilómetros totales de pistas"
 msgstr "Total kilometers of slopes"
 
-#: .\app\models.py:119
+#: .\app\models.py:127
 msgid "Km de pistas totales"
 msgstr "Total km of slopes"
 
-#: .\app\models.py:123
+#: .\app\models.py:131
 msgid "Altitud mínima en metros"
 msgstr "Minimum altitude in meters"
 
-#: .\app\models.py:124
+#: .\app\models.py:132
 msgid "Altitud mínima"
 msgstr "Minimum altitude"
 
-#: .\app\models.py:128
+#: .\app\models.py:136
 msgid "Altitud máxima en metros"
 msgstr "Maximum altitude in meters"
 
-#: .\app\models.py:129
+#: .\app\models.py:137
 msgid "Altitud máxima"
 msgstr "Maximum altitude"
 
-#: .\app\models.py:134
+#: .\app\models.py:142
 msgid "Número total de remontes mecánicos"
 msgstr "Total number of mechanical lifts"
 
-#: .\app\models.py:135
+#: .\app\models.py:143
 msgid "Número de remontes"
 msgstr "Number of lifts"
 
-#: .\app\models.py:139 .\app\templates\estacion_detail.html:77
+#: .\app\models.py:147 .\app\templates\estacion_detail.html:77
 msgid "Teléfono"
 msgstr "Phone"
 
-#: .\app\models.py:140 .\app\templates\estacion_detail.html:88
+#: .\app\models.py:148 .\app\templates\estacion_detail.html:88
 msgid "Sitio Web"
 msgstr "Website"
 
-#: .\app\models.py:144
-msgid "Imagen Principal"
-msgstr "Main Image"
-
-#: .\app\models.py:146
-msgid "Imagen de portada"
-msgstr "Cover image"
-
-#: .\app\models.py:149
+#: .\app\models.py:157
 msgid "Fecha de creación"
 msgstr "Creation date"
 
-#: .\app\models.py:150
+#: .\app\models.py:158
 msgid "Última actualización"
 msgstr "Last update"
 
-#: .\app\models.py:153 .\app\models.py:170
+#: .\app\models.py:161 .\app\models.py:178
 msgid "Estación"
 msgstr "Resort"
 
-#: .\app\models.py:154
+#: .\app\models.py:162
 msgid "Estaciones"
 msgstr "Resorts"
 
-#: .\app\models.py:176
+#: .\app\models.py:184
 msgid "Tipo de pista"
 msgstr "Slope type"
 
-#: .\app\models.py:182
+#: .\app\models.py:190
 msgid "Número de pistas de este tipo"
 msgstr "Number of slopes of this type"
 
-#: .\app\models.py:183
+#: .\app\models.py:191
 msgid "Cantidad"
 msgstr "Quantity"
 
-#: .\app\models.py:190
+#: .\app\models.py:198
 msgid "Kilómetros totales de este tipo de pista"
 msgstr "Total kilometers of this slope type"
 
-#: .\app\models.py:191
+#: .\app\models.py:199
 msgid "Km totales"
 msgstr "Total km"
 
-#: .\app\models.py:195
+#: .\app\models.py:203
 msgid "Pista por Estación"
 msgstr "Slope per Resort"
 
-#: .\app\models.py:196
+#: .\app\models.py:204
 msgid "Pistas por Estación"
 msgstr "Slopes per Resort"
 
-#: .\app\templates\base.html:24 .\app\templates\estacion_detail.html:11
+#: .\app\templates\base.html:24 .\app\templates\base.html:102
+#: .\app\templates\estacion_detail.html:11
 #: .\app\templates\localizacion_detail.html:10
 #: .\app\templates\tipo_pista_detail.html:10
 msgid "Inicio"
 msgstr "Home"
 
-#: .\app\templates\base.html:25
+#: .\app\templates\base.html:25 .\app\templates\base.html:103
 msgid "Destinos"
 msgstr "Destinations"
 
-#: .\app\templates\base.html:26 .\app\templates\estaciones_por_tipo.html:15
+#: .\app\templates\base.html:26 .\app\templates\estaciones_por_tipo.html:19
 msgid "Pistas"
 msgstr "Slopes"
 
-#: .\app\templates\base.html:57
-msgid "La guía definitiva de estaciones de esquí."
-msgstr "The ultimate guide to ski resorts."
+#: .\app\templates\base.html:89
+msgid ""
+"Tu guía premium para descubrir las mejores estaciones de esquí de Europa. "
+"Encuentra tu próxima aventura."
+msgstr ""
+"Your premium guide to discover the best ski resorts in Europe. Find your next adventure."
 
-#: .\app\templates\base.html:60
+#: .\app\templates\base.html:100
+msgid "Explorar"
+msgstr "Explore"
+
+#: .\app\templates\base.html:110
+msgid "Proyecto"
+msgstr "Project"
+
+#: .\app\templates\base.html:112
+msgid "Ingeniería Web"
+msgstr "Web Engineering"
+
+#: .\app\templates\base.html:113
+msgid "Curso 2024/2025"
+msgstr "Course 2024/2025"
+
+#: .\app\templates\base.html:125
 msgid "Todos los derechos reservados."
 msgstr "All rights reserved."
 
@@ -277,139 +297,140 @@ msgid "Ver Otras Estaciones"
 msgstr "View Other Resorts"
 
 #: .\app\templates\estaciones_por_localizacion.html:3
-#: .\app\templates\estaciones_por_localizacion.html:15
+#: .\app\templates\estaciones_por_localizacion.html:17
 msgid "Estaciones en"
 msgstr "Resorts in"
 
-#: .\app\templates\estaciones_por_localizacion.html:10
-#: .\app\templates\pistas_estacion.html:10
-msgid "Volver a"
-msgstr "Back to"
-
-#: .\app\templates\estaciones_por_localizacion.html:16
-msgid "estaciones"
-msgstr "resorts"
-
-#: .\app\templates\estaciones_por_localizacion.html:32
-msgid "tipo"
-msgstr "type"
-
-#: .\app\templates\estaciones_por_localizacion.html:45
-#: .\app\templates\estaciones_por_tipo.html:45 .\app\templates\index.html:76
-#: .\app\templates\localizaciones.html:34 .\app\templates\tipos_pista.html:37
-msgid "Ver Detalles"
-msgstr "View Details"
-
-#: .\app\templates\estaciones_por_localizacion.html:52
-#: .\app\templates\estaciones_por_tipo.html:52
-msgid "No hay estaciones disponibles"
-msgstr "No resorts available"
-
-#: .\app\templates\estaciones_por_localizacion.html:53
-msgid "En"
-msgstr "In"
-
-#: .\app\templates\estaciones_por_localizacion.html:53
-msgid "no hay estaciones registradas actualmente."
-msgstr "there are no resorts registered currently."
-
-#: .\app\templates\estaciones_por_localizacion.html:55
-msgid "Explorar otras localizaciones"
-msgstr "Explore other locations"
-
-#: .\app\templates\estaciones_por_tipo.html:3
-msgid "Estaciones con"
-msgstr "Resorts with"
-
-#: .\app\templates\estaciones_por_tipo.html:10
-msgid "Volver a Pistas"
-msgstr "Back to Slopes"
-
-#: .\app\templates\estaciones_por_tipo.html:16
-msgid "estación"
-msgstr "resort"
-
-#: .\app\templates\estaciones_por_tipo.html:39 .\app\templates\index.html:70
-msgid "Desde"
-msgstr "From"
-
-#: .\app\templates\estaciones_por_tipo.html:53
-msgid "No hay estaciones con pistas de tipo"
-msgstr "No resorts with slope type"
-
-#: .\app\templates\estaciones_por_tipo.html:53
-msgid "actualmente."
-msgstr "currently."
-
-#: .\app\templates\estaciones_por_tipo.html:55
-msgid "Explorar otros tipos de pista"
-msgstr "Explore other slope types"
-
-#: .\app\templates\estaciones_por_tipo.html:64
-msgid "Volver a Información de Pista"
-msgstr "Back to Slope Information"
-
-#: .\app\templates\estaciones_por_tipo.html:68
-msgid "Ir al Inicio"
-msgstr "Go to Home"
-
-#: .\app\templates\index.html:13
-msgid "Descubre tu próxima aventura en las montañas"
-msgstr "Discover your next mountain adventure"
-
-#: .\app\templates\index.html:14
-msgid "Explora las mejores estaciones de esquí del mundo"
-msgstr "Explore the best ski resorts in the world"
-
-#: .\app\templates\index.html:15
-msgid "Explorar Estaciones"
-msgstr "Explore Resorts"
-
-#: .\app\templates\index.html:25
-msgid "Buscar estaciones..."
-msgstr "Search resorts..."
-
-#: .\app\templates\index.html:32
-msgid "Todas las localizaciones"
-msgstr "All locations"
-
-#: .\app\templates\index.html:44
-msgid "Estaciones Destacadas"
-msgstr "Featured Resorts"
-
-#: .\app\templates\index.html:45
-msgid "Por cada localización"
-msgstr "For each location"
-
-#: .\app\templates\index.html:77
-msgid "Añadir a favoritos"
-msgstr "Add to favorites"
-
-#: .\app\templates\localizacion_detail.html:33
-msgid "Ubicación"
-msgstr "Location"
-
-#: .\app\templates\localizacion_detail.html:35
-msgid "Coordenadas"
-msgstr "Coordinates"
-
-#: .\app\templates\localizacion_detail.html:44
-msgid "Ver Estaciones en"
-msgstr "View Resorts in"
-
-#: .\app\templates\localizacion_detail.html:54
+#: .\app\templates\estaciones_por_localizacion.html:11
+#: .\app\templates\localizacion_detail.html:60
 msgid "Volver a Localizaciones"
 msgstr "Back to Locations"
 
-#: .\app\templates\localizaciones.html:18
+#: .\app\templates\estaciones_por_localizacion.html:18
+msgid "estaciones"
+msgstr "resorts"
+
+#: .\app\templates\estaciones_por_localizacion.html:49
+#: .\app\templates\estaciones_por_tipo.html:56 .\app\templates\index.html:94
+msgid "Desde"
+msgstr "From"
+
+#: .\app\templates\estaciones_por_localizacion.html:57
+#: .\app\templates\estaciones_por_tipo.html:64 .\app\templates\index.html:100
+#: .\app\templates\localizaciones.html:43 .\app\templates\tipos_pista.html:37
+msgid "Ver Detalles"
+msgstr "View Details"
+
+#: .\app\templates\estaciones_por_localizacion.html:60
+#: .\app\templates\estaciones_por_tipo.html:66 .\app\templates\index.html:101
+msgid "Añadir a favoritos"
+msgstr "Add to favorites"
+
+#: .\app\templates\estaciones_por_localizacion.html:68
+#: .\app\templates\estaciones_por_tipo.html:74 .\app\templates\index.html:108
+msgid "Consultar estado"
+msgstr "Check status"
+
+#: .\app\templates\estaciones_por_localizacion.html:80
+#: .\app\templates\estaciones_por_tipo.html:85
+msgid "No hay estaciones disponibles"
+msgstr "No resorts available"
+
+#: .\app\templates\estaciones_por_localizacion.html:81
+msgid "En"
+msgstr "In"
+
+#: .\app\templates\estaciones_por_localizacion.html:81
+msgid "no hay estaciones registradas actualmente."
+msgstr "there are no resorts registered currently."
+
+#: .\app\templates\estaciones_por_localizacion.html:83
+msgid "Explorar otras localizaciones"
+msgstr "Explore other locations"
+
+#: .\app\templates\estaciones_por_tipo.html:4
+msgid "Estaciones con"
+msgstr "Resorts with"
+
+#: .\app\templates\estaciones_por_tipo.html:13
+#: .\app\templates\tipo_pista_detail.html:69
+msgid "Volver a Tipos de Pista"
+msgstr "Back to Slope Types"
+
+#: .\app\templates\estaciones_por_tipo.html:20
+msgid "estación"
+msgstr "resort"
+
+#: .\app\templates\estaciones_por_tipo.html:86
+msgid "No hay estaciones con pistas de tipo"
+msgstr "No resorts with slope type"
+
+#: .\app\templates\estaciones_por_tipo.html:86
+msgid "actualmente."
+msgstr "currently."
+
+#: .\app\templates\estaciones_por_tipo.html:88
+msgid "Explorar otros tipos de pista"
+msgstr "Explore other slope types"
+
+#: .\app\templates\estaciones_por_tipo.html:98
+msgid "Volver a Información de Pista"
+msgstr "Back to Slope Information"
+
+#: .\app\templates\estaciones_por_tipo.html:102
+msgid "Ir al Inicio"
+msgstr "Go to Home"
+
+#: .\app\templates\index.html:16
+msgid "Descubre tu próxima aventura en las montañas"
+msgstr "Discover your next mountain adventure"
+
+#: .\app\templates\index.html:17
+msgid "Explora las mejores estaciones de esquí del mundo"
+msgstr "Explore the best ski resorts in the world"
+
+#: .\app\templates\index.html:18
+msgid "Explorar Estaciones"
+msgstr "Explore Resorts"
+
+#: .\app\templates\index.html:28
+msgid "Buscar estaciones..."
+msgstr "Search resorts..."
+
+#: .\app\templates\index.html:35 .\app\templates\index.html:48
+#: .\app\templates\index.html:53
+msgid "Todas las localizaciones"
+msgstr "All locations"
+
+#: .\app\templates\index.html:68
+msgid "Estaciones Destacadas"
+msgstr "Featured Resorts"
+
+#: .\app\templates\index.html:69
+msgid "Por cada localización"
+msgstr "For each location"
+
+#: .\app\templates\localizacion_detail.html:39
+msgid "Ubicación"
+msgstr "Location"
+
+#: .\app\templates\localizacion_detail.html:41
+msgid "Coordenadas"
+msgstr "Coordinates"
+
+#: .\app\templates\localizacion_detail.html:50
+msgid "Ver Estaciones en"
+msgstr "View Resorts in"
+
+#: .\app\templates\localizaciones.html:20
 msgid "Explora todas nuestras regiones"
 msgstr "Explore all our regions"
 
-#: .\app\templates\localizaciones.html:43
+#: .\app\templates\localizaciones.html:54
 msgid "No hay localizaciones disponibles"
 msgstr "No locations available"
 
-#: .\app\templates\localizaciones.html:44
+#: .\app\templates\localizaciones.html:55
 msgid "Añade localizaciones desde el panel de administración."
 msgstr "Add locations from the admin panel."
 
@@ -417,6 +438,10 @@ msgstr "Add locations from the admin panel."
 #: .\app\templates\pistas_estacion.html:15
 msgid "Tipos de Pistas"
 msgstr "Slope Types"
+
+#: .\app\templates\pistas_estacion.html:10
+msgid "Volver a"
+msgstr "Back to"
 
 #: .\app\templates\pistas_estacion.html:16
 msgid "en"
@@ -446,10 +471,6 @@ msgstr "Difficulty Level"
 msgid "Ver Estaciones con este Tipo"
 msgstr "View Resorts with this Type"
 
-#: .\app\templates\tipo_pista_detail.html:69
-msgid "Volver a Tipos de Pista"
-msgstr "Back to Slope Types"
-
 #: .\app\templates\tipos_pista.html:10
 msgid "Niveles de Dificultad"
 msgstr "Difficulty Levels"
@@ -469,3 +490,40 @@ msgstr "No slope types available"
 #: .\app\templates\tipos_pista.html:47
 msgid "Intenta nuevamente más tarde."
 msgstr "Try again later."
+
+#: .\app\views.py:168
+msgid "Abierta"
+msgstr "Open"
+
+#: .\app\views.py:169 .\app\views.py:190
+msgid "Cerrada"
+msgstr "Closed"
+
+#: .\app\views.py:170
+msgid "Parcial"
+msgstr "Partial"
+
+#: .\app\views.py:174
+msgid "Soleado"
+msgstr "Sunny"
+
+#: .\app\views.py:175
+msgid "Nublado"
+msgstr "Cloudy"
+
+#: .\app\views.py:176
+msgid "Nevando"
+msgstr "Snowing"
+
+#: .\app\views.py:177
+msgid "Viento fuerte"
+msgstr "Strong wind"
+
+#~ msgid "La guía definitiva de estaciones de esquí."
+#~ msgstr "The ultimate guide to ski resorts."
+
+#~ msgid "tipo"
+#~ msgstr "type"
+
+#~ msgid "Volver a Pistas"
+#~ msgstr "Back to Slopes"

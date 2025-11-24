@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-20 18:16+0100\n"
+"POT-Creation-Date: 2025-11-24 19:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\app\static\js\search.js:29
-msgid "Error al buscar"
-msgstr "Search error"
-
-#: .\app\static\js\search.js:56
-msgid "Cargando estaciones..."
-msgstr "Loading resorts..."
-
-#: .\app\static\js\search.js:67
-msgid "Error al cargar estaciones"
-msgstr "Error loading resorts"
-
-#: .\app\static\js\search.js:88
-msgid "No se encontraron resultados"
-msgstr "No results found"
-
-#: .\app\static\js\search.js:119
-msgid "No hay estaciones en esta localización"
-msgstr "No resorts in this location"
-
-#: .\app\static\js\search.js:125
-msgid "Ver Detalles"
-msgstr "View Details"
-
-#: .\app\static\js\search.js:126
-msgid "Añadir a favoritos"
-msgstr "Add to favorites"
-
-#: .\app\static\js\search.js:204
+#: .\app\static\js\favorites.js:25
 msgid "Añadido a favoritos"
 msgstr "Added to favorites"
 
-#: .\app\static\js\search.js:212
+#: .\app\static\js\favorites.js:28
 msgid "Eliminado de favoritos"
 msgstr "Removed from favorites"
+
+#: .\app\static\js\search.js:23
+msgid "Error al buscar"
+msgstr "Search error"
+
+#: .\app\static\js\search.js:41
+msgid "No se encontraron resultados"
+msgstr "No results found"
+
+#: .\app\static\js\status.js:21
+#, fuzzy
+#| msgid "Cargando estaciones..."
+msgid "Cargando..."
+msgstr "Loading resorts..."
+
+#~ msgid "Error al cargar estaciones"
+#~ msgstr "Error loading resorts"
+
+#~ msgid "No hay estaciones en esta localización"
+#~ msgstr "No resorts in this location"
+
+#~ msgid "Ver Detalles"
+#~ msgstr "View Details"
+
+#~ msgid "Añadir a favoritos"
+#~ msgstr "Add to favorites"
