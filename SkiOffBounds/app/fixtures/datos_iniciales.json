@@ -6,7 +6,8 @@
         "nombre": "Pirineo Catalán",
         "descripcion": "Estaciones de esquí en el Pirineo de Cataluña",
         "latitud": "42.583300",
-        "longitud": "1.416700"
+        "longitud": "1.416700",
+        "imagen_portada": "portadas/catalan-bien_TAPj2G4.webp"
     }
 },
 {
@@ -16,7 +17,8 @@
         "nombre": "Pirineo Aragonés",
         "descripcion": "Estaciones de esquí en el Pirineo de Aragón",
         "latitud": "42.750000",
-        "longitud": "-0.333300"
+        "longitud": "-0.333300",
+        "imagen_portada": "portadas/79619arres-shutterstock1892375329_Tyqbwu3.webp"
     }
 },
 {
@@ -25,8 +27,9 @@
     "fields": {
         "nombre": "Cordillera Cantábrica",
         "descripcion": "Estaciones de esquí en la Cordillera Cantábrica",
-        "latitud": null,
-        "longitud": null
+        "latitud": "43.050000",
+        "longitud": "-5.200000",
+        "imagen_portada": "portadas/Skimo-cordillera-cantábrica-10_1Nv8AN1.jpg"
     }
 },
 {
@@ -36,7 +39,8 @@
         "nombre": "Andorra",
         "descripcion": "Estaciones de esquí en Andorra",
         "latitud": "42.546200",
-        "longitud": "1.601500"
+        "longitud": "1.601500",
+        "imagen_portada": "portadas/andorra-portada_6tjEI0E.jpg"
     }
 },
 {
@@ -44,9 +48,10 @@
     "pk": 5,
     "fields": {
         "nombre": "Prineo Francés",
-        "descripcion": "",
-        "latitud": null,
-        "longitud": null
+        "descripcion": "La esencia auténtica de los Pirineos, donde pueblos de piedra y pizarra conviven con vastos dominios esquiables y puertos de montaña legendarios",
+        "latitud": "42.816900",
+        "longitud": "0.321900",
+        "imagen_portada": "portadas/20170819100512-esqui-de-fondo-en-el-pirineo-frances-val-dazun-y-pont-despagne_nbpsWcb.webp"
     }
 },
 {
@@ -55,8 +60,9 @@
     "fields": {
         "nombre": "Alpes Franceses",
         "descripcion": "Las majestuosas montañas de los Alpes en Francia con estaciones mundialmente conocidas",
-        "latitud": null,
-        "longitud": null
+        "latitud": "45.298000",
+        "longitud": "6.582300",
+        "imagen_portada": "portadas/neve-nos-Alpes-Franceses_Q7W73Zt.webp"
     }
 },
 {
@@ -65,8 +71,9 @@
     "fields": {
         "nombre": "Alpes Suizos",
         "descripcion": "El corazón de los Alpes con estaciones tradicionales Swiss y paisajes increíbles.",
-        "latitud": null,
-        "longitud": null
+        "latitud": "46.498400",
+        "longitud": "9.838800",
+        "imagen_portada": "portadas/alpes-suizos_KdfW0Tp.webp"
     }
 },
 {
@@ -75,8 +82,9 @@
     "fields": {
         "nombre": "Sierra Nevada",
         "descripcion": "Estación de esquí en la cordillera penibética de España, famosa por su nieve y clima soleado.",
-        "latitud": null,
-        "longitud": null
+        "latitud": "37.095300",
+        "longitud": "-3.399700",
+        "imagen_portada": "portadas/961181-Sierra-Nevada-desde-Granada_NdOpJGK.webp"
     }
 },
 {
@@ -85,8 +93,9 @@
     "fields": {
         "nombre": "Pirineo Navarro",
         "descripcion": "Zona menos conocida del Pirineo con estaciones acogedoras y naturaleza exuberante.",
-        "latitud": null,
-        "longitud": null
+        "latitud": "42.905600",
+        "longitud": "-1.090000",
+        "imagen_portada": "portadas/pirineo-navarro_gCk2PMt.webp"
     }
 },
 {
@@ -159,10 +168,10 @@
         "altitud_maxima": 2537,
         "numero_remontes": 18,
         "telefono": "972892031",
-        "web": null,
+        "web": "https://pirineu365.cat/es/lamolina/inicio/",
         "imagen_portada": "portadas/img_blog_post_masella_esqui_pirineo_catalan_710x300.webp",
         "fecha_creacion": "2025-10-27T12:45:01.737Z",
-        "fecha_actualizacion": "2025-11-07T08:45:34.127Z"
+        "fecha_actualizacion": "2025-11-24T12:02:39.544Z"
     }
 },
 {
@@ -171,18 +180,18 @@
     "fields": {
         "localizacion": 1,
         "nombre": "Boí Taüll",
-        "descripcion": null,
+        "descripcion": "La estación más alta del Pirineo catalán, conocida por su orientación norte que garantiza nieve de excelente calidad y sus espectaculares vistas al Parque Nacional de Aigüestortes",
         "latitud": "42.530000",
         "longitud": "0.950000",
         "km_pistas_totales": "45.50",
         "altitud_minima": 2020,
         "altitud_maxima": 2751,
         "numero_remontes": 10,
-        "telefono": null,
-        "web": null,
-        "imagen_portada": "",
+        "telefono": "973 29 70 85",
+        "web": "https://www.boitaullresort.com/",
+        "imagen_portada": "portadas/boi_taull1.jpg",
         "fecha_creacion": "2025-10-27T12:45:04.569Z",
-        "fecha_actualizacion": "2025-10-27T12:45:04.569Z"
+        "fecha_actualizacion": "2025-11-24T12:08:24.568Z"
     }
 },
 {
@@ -199,10 +208,10 @@
         "altitud_maxima": 2250,
         "numero_remontes": 23,
         "telefono": null,
-        "web": null,
+        "web": "https://www.formigal-panticosa.com/",
         "imagen_portada": "portadas/forrmigal.webp",
         "fecha_creacion": "2025-10-27T12:45:16.332Z",
-        "fecha_actualizacion": "2025-11-07T08:40:22.506Z"
+        "fecha_actualizacion": "2025-11-24T11:51:43.362Z"
     }
 },
 {
@@ -211,18 +220,18 @@
     "fields": {
         "localizacion": 2,
         "nombre": "Astún",
-        "descripcion": "",
+        "descripcion": "Una moderna estación en el Valle del Aragón famosa por su forma de embudo, que garantiza que casi todas las pistas confluyan en la gran plataforma central.",
         "latitud": "42.783300",
         "longitud": "-0.516700",
         "km_pistas_totales": "50.00",
         "altitud_minima": 1658,
         "altitud_maxima": 2300,
         "numero_remontes": 13,
-        "telefono": null,
-        "web": null,
+        "telefono": "974 374 374",
+        "web": "https://astun.com/",
         "imagen_portada": "portadas/ski-ressort-of-grandvalira-andorra_41qqeZa.webp",
         "fecha_creacion": "2025-10-27T12:45:19.139Z",
-        "fecha_actualizacion": "2025-11-07T08:46:57.880Z"
+        "fecha_actualizacion": "2025-11-24T12:06:13.216Z"
     }
 },
 {
@@ -231,7 +240,7 @@
     "fields": {
         "localizacion": 2,
         "nombre": "Candanchú",
-        "descripcion": "",
+        "descripcion": "La estación decana de España, conocida por su carácter alpino, sus pistas difíciles y su famosa zona de \"El Tobazo\"",
         "latitud": "42.783300",
         "longitud": "-0.533300",
         "km_pistas_totales": "51.00",
@@ -239,10 +248,10 @@
         "altitud_maxima": 2400,
         "numero_remontes": 26,
         "telefono": null,
-        "web": null,
+        "web": "https://www.candanchu.com/",
         "imagen_portada": "portadas/estacion-esqui-pirineo-catalan-baqueira-beret-c-atudem_EMZIH96.jpg_604889389.webp",
         "fecha_creacion": "2025-10-27T12:45:23.308Z",
-        "fecha_actualizacion": "2025-11-07T08:46:36.690Z"
+        "fecha_actualizacion": "2025-11-24T12:04:22.263Z"
     }
 },
 {
@@ -251,18 +260,18 @@
     "fields": {
         "localizacion": 3,
         "nombre": "Alto Campoo",
-        "descripcion": "",
+        "descripcion": "La estación de referencia en Cantabria, ideal para familias y principiantes, que ofrece unas vistas impresionantes hacia el mar Cantábrico desde sus cumbres.",
         "latitud": "43.016700",
         "longitud": "-4.366700",
         "km_pistas_totales": "27.80",
         "altitud_minima": 1650,
         "altitud_maxima": 2125,
         "numero_remontes": 13,
-        "telefono": null,
-        "web": null,
+        "telefono": "942 77 92 23",
+        "web": "https://altocampoo.com/",
         "imagen_portada": "portadas/estacion-de-esqui-sierra-nevada-granada_VmskBR4.webp",
         "fecha_creacion": "2025-10-27T12:45:28.426Z",
-        "fecha_actualizacion": "2025-11-07T08:47:09.771Z"
+        "fecha_actualizacion": "2025-11-24T12:09:29.453Z"
     }
 },
 {
@@ -271,18 +280,18 @@
     "fields": {
         "localizacion": 3,
         "nombre": "San Isidro",
-        "descripcion": "",
+        "descripcion": "La estación leonesa más importante de la Cordillera Cantábrica, que ofrece un esquí variado con cuatro sectores conectados y unas condiciones de nieve a menudo superiores a la media de la zona",
         "latitud": "43.050000",
         "longitud": "-5.383300",
         "km_pistas_totales": "27.50",
         "altitud_minima": 1500,
         "altitud_maxima": 2100,
         "numero_remontes": 11,
-        "telefono": null,
-        "web": null,
+        "telefono": "987 73 11 15",
+        "web": "https://www.san-isidro.net/",
         "imagen_portada": "portadas/estacion-esqui-pirineo-catalan-baqueira-beret-c-atudem_0ClD5tL.jpg_604889389.webp",
         "fecha_creacion": "2025-10-27T12:45:32.560Z",
-        "fecha_actualizacion": "2025-11-07T08:47:24.660Z"
+        "fecha_actualizacion": "2025-11-24T12:10:46.367Z"
     }
 },
 {
@@ -298,11 +307,11 @@
         "altitud_minima": 1710,
         "altitud_maxima": 2640,
         "numero_remontes": 67,
-        "telefono": null,
+        "telefono": "+376 891 810",
         "web": "https://www.grandvalira.com/es",
         "imagen_portada": "portadas/ski-ressort-of-grandvalira-andorra.webp",
         "fecha_creacion": "2025-10-27T12:46:00.145Z",
-        "fecha_actualizacion": "2025-11-07T08:40:02.064Z"
+        "fecha_actualizacion": "2025-11-24T11:46:08.903Z"
     }
 },
 {
@@ -311,18 +320,18 @@
     "fields": {
         "localizacion": 4,
         "nombre": "Vallnord",
-        "descripcion": "",
+        "descripcion": "El destino ideal en Andorra que combina el esquí familiar de Pal Arinsal con el freeride salvaje de Ordino Arcalís",
         "latitud": "42.572000",
         "longitud": "1.487500",
         "km_pistas_totales": "93.00",
         "altitud_minima": 1550,
         "altitud_maxima": 2560,
         "numero_remontes": 45,
-        "telefono": null,
-        "web": null,
+        "telefono": "+376 891 815",
+        "web": "https://www.palarinsal.com/",
         "imagen_portada": "portadas/vallnord-2.webp",
         "fecha_creacion": "2025-10-27T12:46:06.355Z",
-        "fecha_actualizacion": "2025-11-07T08:44:31.432Z"
+        "fecha_actualizacion": "2025-11-24T12:02:05.154Z"
     }
 },
 {
@@ -331,7 +340,7 @@
     "fields": {
         "localizacion": 5,
         "nombre": "Grand Tourmalet",
-        "descripcion": "",
+        "descripcion": "El dominio esquiable más grande de los Pirineos franceses, que une tradición y modernidad bajo la imponente mirada del Pic du Midi",
         "latitud": "42.910000",
         "longitud": "0.180000",
         "km_pistas_totales": "100.00",
@@ -342,7 +351,7 @@
         "web": null,
         "imagen_portada": "portadas/pic-du-midi-grand-tourmalet-grupoasdon.webp",
         "fecha_creacion": "2025-10-27T14:50:56.980Z",
-        "fecha_actualizacion": "2025-11-07T08:43:50.552Z"
+        "fecha_actualizacion": "2025-11-24T11:59:48.984Z"
     }
 },
 {
@@ -422,7 +431,7 @@
         "web": "https://www.astun.com",
         "imagen_portada": "portadas/astun.webp",
         "fecha_creacion": "2025-11-06T23:48:15.968Z",
-        "fecha_actualizacion": "2025-11-07T08:46:09.854Z"
+        "fecha_actualizacion": "2025-11-24T12:02:44.926Z"
     }
 },
 {
