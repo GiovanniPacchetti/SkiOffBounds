@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # ← Añadido para i18n, debe ir después de SessionMiddleware
     'django.middleware.common.CommonMiddleware',
@@ -108,4 +109,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+import dj_database_url
+import os
+
+# Configuración para Render
+if 'RENDER' in os.environ:
+    # Conectar base de datos de Render
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
+    }
+    
+    # Seguridad
+    DEBUG = False
+    ALLOWED_HOSTS = ['*']  # Acepta cualquier dominio temporal de Render
+    
+    # Archivos estáticos (CSS/JS/Imágenes)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
