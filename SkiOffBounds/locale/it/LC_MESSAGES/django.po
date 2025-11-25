@@ -1,0 +1,537 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-25 15:24+0100\n"
+"PO-Revision-Date: 2025-11-25 15:30+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian <it@li.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\SkiOffBounds\settings.py:83
+msgid "Español"
+msgstr "Spagnolo"
+
+#: .\SkiOffBounds\settings.py:84
+msgid "English"
+msgstr "Inglese"
+
+#: .\SkiOffBounds\settings.py:85
+msgid "Français"
+msgstr "Francese"
+
+#: .\SkiOffBounds\settings.py:86
+msgid "Italiano"
+msgstr "Italiano"
+
+#: .\SkiOffBounds\settings.py:87
+msgid "Deutsch"
+msgstr "Tedesco"
+
+#: .\SkiOffBounds\settings.py:88
+msgid "Euskera"
+msgstr "Basco"
+
+#: .\app\models.py:9
+msgid "Ej: Pirineo Catalán, Pirineo Aragonés, Cordillera Cantábrica"
+msgstr "Es: Pirenei Catalani, Pirenei Aragonesi, Cordigliera Cantabrica"
+
+#: .\app\models.py:11 .\app\models.py:64 .\app\models.py:106
+#: .\app\templates\localizacion_detail.html:32
+#: .\app\templates\tipo_pista_detail.html:52
+msgid "Descripción"
+msgstr "Descrizione"
+
+#: .\app\models.py:19 .\app\models.py:112
+msgid "Latitud"
+msgstr "Latitudine"
+
+#: .\app\models.py:26 .\app\models.py:118
+msgid "Longitud"
+msgstr "Longitudine"
+
+#: .\app\models.py:32 .\app\models.py:152
+msgid "Imagen Principal"
+msgstr "Immagine Principale"
+
+#: .\app\models.py:34 .\app\models.py:154
+msgid "Imagen de portada"
+msgstr "Immagine di copertina"
+
+#: .\app\models.py:38 .\app\models.py:89
+msgid "Localización"
+msgstr "Località"
+
+#: .\app\models.py:39 .\app\templates\localizacion_detail.html:14
+#: .\app\templates\localizaciones.html:5 .\app\templates\localizaciones.html:18
+msgid "Localizaciones"
+msgstr "Località"
+
+#: .\app\models.py:48
+msgid "Verde - Principiante"
+msgstr "Verde - Principiante"
+
+#: .\app\models.py:49
+msgid "Azul - Fácil"
+msgstr "Blu - Facile"
+
+#: .\app\models.py:50
+msgid "Roja - Intermedia"
+msgstr "Rossa - Intermedia"
+
+#: .\app\models.py:51
+msgid "Negra - Difícil"
+msgstr "Nera - Difficile"
+
+#: .\app\models.py:58
+msgid "Color / Tipo"
+msgstr "Colore / Tipo"
+
+#: .\app\models.py:63
+msgid "Características y nivel de dificultad"
+msgstr "Caratteristiche e livello di difficoltà"
+
+#: .\app\models.py:69
+msgid "Nivel de dificultad del 1 (más fácil) al 5 (más difícil)"
+msgstr "Livello di difficoltà da 1 (più facile) a 5 (più difficile)"
+
+#: .\app\models.py:70
+msgid "Nivel de dificultad"
+msgstr "Livello di difficoltà"
+
+#: .\app\models.py:74
+msgid "Tipo de Pista"
+msgstr "Tipo di Pista"
+
+#: .\app\models.py:75 .\app\templates\base.html:104
+#: .\app\templates\estacion_detail.html:110
+#: .\app\templates\tipo_pista_detail.html:14 .\app\templates\tipos_pista.html:3
+msgid "Tipos de Pista"
+msgstr "Tipi di Pista"
+
+#: .\app\models.py:88
+msgid "Región donde se encuentra la estación"
+msgstr "Regione dove si trova la stazione"
+
+#: .\app\models.py:96
+msgid "Tipos de pistas disponibles"
+msgstr "Tipi di piste disponibili"
+
+#: .\app\models.py:97
+msgid "Tipos de pista"
+msgstr "Tipi di pista"
+
+#: .\app\models.py:103
+msgid "Ej: Baqueira Beret, Formigal"
+msgstr "Es: Baqueira Beret, Formigal"
+
+#: .\app\models.py:104
+msgid "Nombre"
+msgstr "Nome"
+
+#: .\app\models.py:111
+msgid "Latitud en formato decimal"
+msgstr "Latitudine in formato decimale"
+
+#: .\app\models.py:117
+msgid "Longitud en formato decimal"
+msgstr "Longitudine in formato decimale"
+
+#: .\app\models.py:126
+msgid "Kilómetros totales de pistas"
+msgstr "Chilometri totali di piste"
+
+#: .\app\models.py:127
+msgid "Km de pistas totales"
+msgstr "Km di piste totali"
+
+#: .\app\models.py:131
+msgid "Altitud mínima en metros"
+msgstr "Altitudine minima in metri"
+
+#: .\app\models.py:132
+msgid "Altitud mínima"
+msgstr "Altitudine minima"
+
+#: .\app\models.py:136
+msgid "Altitud máxima en metros"
+msgstr "Altitudine massima in metri"
+
+#: .\app\models.py:137
+msgid "Altitud máxima"
+msgstr "Altitudine massima"
+
+#: .\app\models.py:142
+msgid "Número total de remontes mecánicos"
+msgstr "Numero totale di impianti di risalita"
+
+#: .\app\models.py:143
+msgid "Número de remontes"
+msgstr "Numero di impianti"
+
+#: .\app\models.py:147 .\app\templates\estacion_detail.html:77
+msgid "Teléfono"
+msgstr "Telefono"
+
+#: .\app\models.py:148 .\app\templates\estacion_detail.html:88
+msgid "Sitio Web"
+msgstr "Sito Web"
+
+#: .\app\models.py:157
+msgid "Fecha de creación"
+msgstr "Data di creazione"
+
+#: .\app\models.py:158
+msgid "Última actualización"
+msgstr "Ultimo aggiornamento"
+
+#: .\app\models.py:161 .\app\models.py:178
+msgid "Estación"
+msgstr "Stazione"
+
+#: .\app\models.py:162
+msgid "Estaciones"
+msgstr "Stazioni"
+
+#: .\app\models.py:184
+msgid "Tipo de pista"
+msgstr "Tipo di pista"
+
+#: .\app\models.py:190
+msgid "Número de pistas de este tipo"
+msgstr "Numero di piste di questo tipo"
+
+#: .\app\models.py:191
+msgid "Cantidad"
+msgstr "Quantità"
+
+#: .\app\models.py:198
+msgid "Kilómetros totales de este tipo de pista"
+msgstr "Chilometri totali di questo tipo di pista"
+
+#: .\app\models.py:199
+msgid "Km totales"
+msgstr "Km totali"
+
+#: .\app\models.py:203
+msgid "Pista por Estación"
+msgstr "Pista per Stazione"
+
+#: .\app\models.py:204
+msgid "Pistas por Estación"
+msgstr "Piste per Stazione"
+
+#: .\app\templates\base.html:24 .\app\templates\base.html:102
+#: .\app\templates\estacion_detail.html:11
+#: .\app\templates\localizacion_detail.html:10
+#: .\app\templates\tipo_pista_detail.html:10
+msgid "Inicio"
+msgstr "Home"
+
+#: .\app\templates\base.html:25 .\app\templates\base.html:103
+msgid "Destinos"
+msgstr "Destinazioni"
+
+#: .\app\templates\base.html:26 .\app\templates\estaciones_por_tipo.html:19
+msgid "Pistas"
+msgstr "Piste"
+
+#: .\app\templates\base.html:89
+msgid ""
+"Tu guía premium para descubrir las mejores estaciones de esquí de Europa. "
+"Encuentra tu próxima aventura."
+msgstr ""
+"La tua guida premium per scoprire le migliori stazioni sciistiche d'Europa. "
+"Trova la tua prossima avventura."
+
+#: .\app\templates\base.html:100
+msgid "Explorar"
+msgstr "Esplora"
+
+#: .\app\templates\base.html:110
+msgid "Proyecto"
+msgstr "Progetto"
+
+#: .\app\templates\base.html:112
+msgid "Ingeniería Web"
+msgstr "Ingegneria Web"
+
+#: .\app\templates\base.html:113
+msgid "Curso 2024/2025"
+msgstr "Corso 2024/2025"
+
+#: .\app\templates\base.html:125
+msgid "Todos los derechos reservados."
+msgstr "Tutti i diritti riservati."
+
+#: .\app\templates\estacion_detail.html:39
+msgid "Pistas Totales"
+msgstr "Piste Totali"
+
+#: .\app\templates\estacion_detail.html:46
+msgid "Altitud"
+msgstr "Altitudine"
+
+#: .\app\templates\estacion_detail.html:53
+msgid "Desnivel"
+msgstr "Dislivello"
+
+#: .\app\templates\estacion_detail.html:60
+msgid "Remontes"
+msgstr "Impianti"
+
+#: .\app\templates\estacion_detail.html:71
+msgid "Información General"
+msgstr "Informazioni Generali"
+
+#: .\app\templates\estacion_detail.html:91
+msgid "Visitar web"
+msgstr "Visita il sito"
+
+#: .\app\templates\estacion_detail.html:100
+msgid "Precio Referencia"
+msgstr "Prezzo di Riferimento"
+
+#: .\app\templates\estacion_detail.html:113
+msgid "Ver Tipos de Pista"
+msgstr "Vedi Tipi di Pista"
+
+#: .\app\templates\estacion_detail.html:123
+msgid "Volver al Inicio"
+msgstr "Torna alla Home"
+
+#: .\app\templates\estacion_detail.html:127
+msgid "Ver Otras Estaciones"
+msgstr "Vedi Altre Stazioni"
+
+#: .\app\templates\estaciones_por_localizacion.html:3
+#: .\app\templates\estaciones_por_localizacion.html:17
+msgid "Estaciones en"
+msgstr "Stazioni in"
+
+#: .\app\templates\estaciones_por_localizacion.html:11
+#: .\app\templates\localizacion_detail.html:60
+msgid "Volver a Localizaciones"
+msgstr "Torna alle Località"
+
+#: .\app\templates\estaciones_por_localizacion.html:18
+msgid "estaciones"
+msgstr "stazioni"
+
+#: .\app\templates\estaciones_por_localizacion.html:49
+#: .\app\templates\estaciones_por_tipo.html:56 .\app\templates\index.html:94
+msgid "Desde"
+msgstr "Da"
+
+#: .\app\templates\estaciones_por_localizacion.html:57
+#: .\app\templates\estaciones_por_tipo.html:64 .\app\templates\index.html:100
+#: .\app\templates\localizaciones.html:43 .\app\templates\tipos_pista.html:37
+msgid "Ver Detalles"
+msgstr "Vedi Dettagli"
+
+#: .\app\templates\estaciones_por_localizacion.html:60
+#: .\app\templates\estaciones_por_tipo.html:66 .\app\templates\index.html:101
+msgid "Añadir a favoritos"
+msgstr "Aggiungi ai preferiti"
+
+#: .\app\templates\estaciones_por_localizacion.html:68
+#: .\app\templates\estaciones_por_tipo.html:74 .\app\templates\index.html:108
+msgid "Consultar estado"
+msgstr "Consulta stato"
+
+#: .\app\templates\estaciones_por_localizacion.html:80
+#: .\app\templates\estaciones_por_tipo.html:85
+msgid "No hay estaciones disponibles"
+msgstr "Nessuna stazione disponibile"
+
+#: .\app\templates\estaciones_por_localizacion.html:81
+msgid "En"
+msgstr "In"
+
+#: .\app\templates\estaciones_por_localizacion.html:81
+msgid "no hay estaciones registradas actualmente."
+msgstr "non ci sono stazioni registrate attualmente."
+
+#: .\app\templates\estaciones_por_localizacion.html:83
+msgid "Explorar otras localizaciones"
+msgstr "Esplora altre località"
+
+#: .\app\templates\estaciones_por_tipo.html:4
+msgid "Estaciones con"
+msgstr "Stazioni con"
+
+#: .\app\templates\estaciones_por_tipo.html:13
+#: .\app\templates\tipo_pista_detail.html:69
+msgid "Volver a Tipos de Pista"
+msgstr "Torna ai Tipi di Pista"
+
+#: .\app\templates\estaciones_por_tipo.html:20
+msgid "estación"
+msgstr "stazione"
+
+#: .\app\templates\estaciones_por_tipo.html:86
+msgid "No hay estaciones con pistas de tipo"
+msgstr "Nessuna stazione con piste di tipo"
+
+#: .\app\templates\estaciones_por_tipo.html:86
+msgid "actualmente."
+msgstr "attualmente."
+
+#: .\app\templates\estaciones_por_tipo.html:88
+msgid "Explorar otros tipos de pista"
+msgstr "Esplora altri tipi di pista"
+
+#: .\app\templates\estaciones_por_tipo.html:98
+msgid "Volver a Información de Pista"
+msgstr "Torna alle Informazioni Pista"
+
+#: .\app\templates\estaciones_por_tipo.html:102
+msgid "Ir al Inicio"
+msgstr "Vai alla Home"
+
+#: .\app\templates\index.html:16
+msgid "Descubre tu próxima aventura en las montañas"
+msgstr "Scopri la tua prossima avventura in montagna"
+
+#: .\app\templates\index.html:17
+msgid "Explora las mejores estaciones de esquí del mundo"
+msgstr "Esplora le migliori stazioni sciistiche del mondo"
+
+#: .\app\templates\index.html:18
+msgid "Explorar Estaciones"
+msgstr "Esplora Stazioni"
+
+#: .\app\templates\index.html:28
+msgid "Buscar estaciones..."
+msgstr "Cerca stazioni..."
+
+#: .\app\templates\index.html:35 .\app\templates\index.html:48
+#: .\app\templates\index.html:53
+msgid "Todas las localizaciones"
+msgstr "Tutte le località"
+
+#: .\app\templates\index.html:68
+msgid "Estaciones Destacadas"
+msgstr "Stazioni in Evidenza"
+
+#: .\app\templates\index.html:69
+msgid "Por cada localización"
+msgstr "Per ogni località"
+
+#: .\app\templates\localizacion_detail.html:39
+msgid "Ubicación"
+msgstr "Posizione"
+
+#: .\app\templates\localizacion_detail.html:41
+msgid "Coordenadas"
+msgstr "Coordinate"
+
+#: .\app\templates\localizacion_detail.html:50
+msgid "Ver Estaciones en"
+msgstr "Vedi Stazioni in"
+
+#: .\app\templates\localizaciones.html:20
+msgid "Explora todas nuestras regiones"
+msgstr "Esplora tutte le nostre regioni"
+
+#: .\app\templates\localizaciones.html:54
+msgid "No hay localizaciones disponibles"
+msgstr "Nessuna località disponibile"
+
+#: .\app\templates\localizaciones.html:55
+msgid "Añade localizaciones desde el panel de administración."
+msgstr "Aggiungi località dal pannello di amministrazione."
+
+#: .\app\templates\pistas_estacion.html:3
+#: .\app\templates\pistas_estacion.html:15
+msgid "Tipos de Pistas"
+msgstr "Tipi di Piste"
+
+#: .\app\templates\pistas_estacion.html:10
+msgid "Volver a"
+msgstr "Torna a"
+
+#: .\app\templates\pistas_estacion.html:16
+msgid "en"
+msgstr "in"
+
+#: .\app\templates\pistas_estacion.html:26
+msgid "pistas"
+msgstr "piste"
+
+#: .\app\templates\pistas_estacion.html:31
+msgid "Ver detalles"
+msgstr "Vedi dettagli"
+
+#: .\app\templates\pistas_estacion.html:40
+msgid "No hay pistas registradas"
+msgstr "Nessuna pista registrata"
+
+#: .\app\templates\pistas_estacion.html:41
+msgid "aún no tiene tipos de pistas registrados."
+msgstr "non ha ancora tipi di piste registrati."
+
+#: .\app\templates\tipo_pista_detail.html:39
+msgid "Nivel de Dificultad"
+msgstr "Livello di Difficoltà"
+
+#: .\app\templates\tipo_pista_detail.html:60
+msgid "Ver Estaciones con este Tipo"
+msgstr "Vedi Stazioni con questo Tipo"
+
+#: .\app\templates\tipos_pista.html:10
+msgid "Niveles de Dificultad"
+msgstr "Livelli di Difficoltà"
+
+#: .\app\templates\tipos_pista.html:12
+msgid "Encuentra las pistas ideales para tu nivel"
+msgstr "Trova le piste ideali per il tuo livello"
+
+#: .\app\templates\tipos_pista.html:21
+msgid "Dificultad"
+msgstr "Difficoltà"
+
+#: .\app\templates\tipos_pista.html:46
+msgid "No hay tipos de pista disponibles"
+msgstr "Nessun tipo di pista disponibile"
+
+#: .\app\templates\tipos_pista.html:47
+msgid "Intenta nuevamente más tarde."
+msgstr "Riprova più tardi."
+
+#: .\app\views.py:168
+msgid "Abierta"
+msgstr "Aperta"
+
+#: .\app\views.py:169 .\app\views.py:194
+msgid "Cerrada"
+msgstr "Chiusa"
+
+#: .\app\views.py:170
+msgid "Parcial"
+msgstr "Parziale"
+
+#: .\app\views.py:174
+msgid "Soleado"
+msgstr "Soleggiato"
+
+#: .\app\views.py:175
+msgid "Nublado"
+msgstr "Nuvoloso"
+
+#: .\app\views.py:176
+msgid "Nevando"
+msgstr "Nevicando"
+
+#: .\app\views.py:177
+msgid "Viento fuerte"
+msgstr "Vento forte"

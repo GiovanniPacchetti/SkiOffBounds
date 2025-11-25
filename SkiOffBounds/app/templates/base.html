@@ -57,7 +57,21 @@
                             {% for language in languages %}
                             <li data-code="{{ language.code }}" class="{% if language.code == LANGUAGE_CODE %}active{% endif %}">
                                 <span class="lang-flag">
-                                    {% if language.code == 'es' %}🇪🇸{% elif language.code == 'en' %}🇬🇧{% endif %}
+                                    {% if language.code == 'es' %}
+                                        🇪🇸
+                                    {% elif language.code == 'en' %}
+                                        🇬🇧
+                                    {% elif language.code == 'fr' %}
+                                        🇫🇷
+                                    {% elif language.code == 'de' %}
+                                        🇩🇪
+                                    {% elif language.code == 'it' %}
+                                        🇮🇹
+                                    {% elif language.code == 'eu' %}
+                                        🇪🇺
+                                    {% else %}
+                                        🌐
+                                    {% endif %}
                                 </span>
                                 <span class="lang-name">{{ language.name_local|capfirst }}</span>
                                 {% if language.code == LANGUAGE_CODE %}

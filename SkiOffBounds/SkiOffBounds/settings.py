@@ -82,6 +82,10 @@ LANGUAGE_CODE = 'es'
 LANGUAGES = [
     ('es', _('Español')),
     ('en', _('English')),
+    ('fr', _('Français')),  
+    ('it', _('Italiano')),  
+    ('de', _('Deutsch')),   
+    ('eu', _('Euskera')),   
 ]
 
 LOCALE_PATHS = [

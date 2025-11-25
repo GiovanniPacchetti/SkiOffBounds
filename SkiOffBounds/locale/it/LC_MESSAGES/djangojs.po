@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 15:19+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2025-11-25 15:24+0100\n"
+"PO-Revision-Date: 2025-11-25 15:35+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Italian <it@li.org>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,36 +19,24 @@ msgstr ""
 
 #: .\app\static\js\favorites.js:25
 msgid "Añadido a favoritos"
-msgstr "Added to favorites"
+msgstr "Aggiunto ai preferiti"
 
 #: .\app\static\js\favorites.js:28
 msgid "Eliminado de favoritos"
-msgstr "Removed from favorites"
+msgstr "Rimosso dai preferiti"
 
 #: .\app\static\js\search.js:23
 msgid "Error al buscar"
-msgstr "Search error"
+msgstr "Errore nella ricerca"
 
 #: .\app\static\js\search.js:41
 msgid "No se encontraron resultados"
-msgstr "No results found"
+msgstr "Nessun risultato trovato"
 
 #: .\app\static\js\status.js:15
 msgid "Cargando..."
-msgstr "Loading resorts..."
+msgstr "Caricamento..."
 
 #: .\app\static\js\status.js:49
 msgid "Error"
-msgstr "Error"
-
-#~ msgid "Error al cargar estaciones"
-#~ msgstr "Error loading resorts"
-
-#~ msgid "No hay estaciones en esta localización"
-#~ msgstr "No resorts in this location"
-
-#~ msgid "Ver Detalles"
-#~ msgstr "View Details"
-
-#~ msgid "Añadir a favoritos"
-#~ msgstr "Add to favorites"
+msgstr "Errore"
