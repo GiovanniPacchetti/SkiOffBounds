@@ -119,11 +119,11 @@ if 'RENDER' in os.environ:
     ALLOWED_HOSTS = ['*'] 
     
     # 3. Configuración WhiteNoise para servir estáticos
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_ROOT = os.path.join(BASE_DIR, '/app/static/')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
     # 4. TRUCO PARA IMÁGENES (Media apuntando a Static)
     # Como has movido tus fotos a 'app/static/assets/images', 
     # le decimos a Django que las URLs de media empiezan ahí.
     # Así: MEDIA_URL + "foto.jpg" -> "/static/assets/images/foto.jpg"
-    MEDIA_URL = 'app/static/assets/images/'
+    MEDIA_URL = '/assets/images/'
