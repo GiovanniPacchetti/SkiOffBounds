@@ -5,7 +5,7 @@
 .hero {
     height: 100vh;
     background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-    background-image: url("../../../media/portadas/montagnes-enneigees-au-coucher-du-soleil-alpes-dolomitiques-val-di-fassa-italie-beau-paysage-hiver_545689-7719_imgupscal (1).jpg");
+    background-image: url("../../assets/images/portadas/montagnes-enneigees-au-coucher-du-soleil-alpes-dolomitiques-val-di-fassa-italie-beau-paysage-hiver_545689-7719_imgupscal (1).jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
