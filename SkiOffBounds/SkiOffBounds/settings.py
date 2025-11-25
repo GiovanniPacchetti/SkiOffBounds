@@ -116,14 +116,17 @@ if 'RENDER' in os.environ:
     
     # 2. Seguridad
     DEBUG = False
-    ALLOWED_HOSTS = ['*'] 
+    ALLOWED_HOSTS = ['*']
     
-    # 3. Configuración WhiteNoise para servir estáticos
-    STATIC_ROOT = os.path.join(BASE_DIR, '/app/static/')
+    # 3. Configuración WhiteNoise
+    # CORRECCIÓN IMPORTANTE: Usamos 'staticfiles' relativo, no '/app/static/' absoluto
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     
-    # 4. TRUCO PARA IMÁGENES (Media apuntando a Static)
-    # Como has movido tus fotos a 'app/static/assets/images', 
-    # le decimos a Django que las URLs de media empiezan ahí.
-    # Así: MEDIA_URL + "foto.jpg" -> "/static/assets/images/foto.jpg"
-    MEDIA_URL = '/assets/images/'
+    # 4. TRUCO PARA IMÁGENES
+    # Le decimos a Django que la "URL" de los media es la misma que donde están tus fotos estáticas
+    # Si tus fotos están en static/assets/images/..., la URL web es /static/assets/images/...
+    MEDIA_URL = '/static/assets/images/'
+    
+    # Para que WhiteNoise sepa que también queremos servir cosas que vengan de media (por si acaso)
+    WHITENOISE_ROOT = os.path.join(BASE_DIR, 'app/static/assets/images')
