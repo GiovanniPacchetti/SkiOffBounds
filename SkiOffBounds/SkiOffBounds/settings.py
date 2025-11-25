@@ -126,4 +126,4 @@ if 'RENDER' in os.environ:
     # Como has movido tus fotos a 'app/static/assets/images', 
     # le decimos a Django que las URLs de media empiezan ahí.
     # Así: MEDIA_URL + "foto.jpg" -> "/static/assets/images/foto.jpg"
-    MEDIA_URL = '/static/assets/images/portadas/'
+    MEDIA_URL = 'app/static/assets/images/portadas/'
