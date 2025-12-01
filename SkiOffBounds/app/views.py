@@ -116,7 +116,7 @@ def search_estaciones_api(request):
         'localizacion': e.localizacion.nombre,
         'km_pistas': e.km_pistas_totales,
         'altitud_max': e.altitud_maxima,
-        'url': f'/home/estaciones/{e.id}/'
+        'url': f'/estaciones/{e.id}/'
     } for e in estaciones]
     
     return JsonResponse(data, safe=False)
@@ -138,14 +138,11 @@ def filtrar_estaciones_api(request):
         item = {
             'id': e.id,
             'nombre': e.nombre,
-            # AQUÍ ESTÁ LA CLAVE 1: Usamos 'localizacion' (simple)
             'localizacion': e.localizacion.nombre, 
             'km_pistas': e.km_pistas_totales,
-            # AQUÍ ESTÁ LA CLAVE 2: Enviamos las altitudes
             'altitud_min': e.altitud_minima,
             'altitud_max': e.altitud_maxima,
-            # Nota: No enviamos precio porque no lo tienes en el modelo
-            'url': f'/home/estaciones/{e.id}/' # O usar reverse()
+            'url': f'/estaciones/{e.id}/' 
         }
 
         # Imagen de portada (Manejo de errores si no hay imagen)
@@ -198,11 +195,11 @@ def api_estado_estacion(request, estacion_id):
     
     data = {
         'estado': estado_texto,          # Texto traducido para mostrar al usuario
-        'estado_code': estado_code,      # ← NUEVO: Código fijo para JS ('open', 'closed', 'partial')
+        'estado_code': estado_code,      # Código fijo para JS ('open', 'closed', 'partial')
         'temperatura': f"{temp}ºC",
         'espesor': f"{espesor} cm",
         'clima': clima_texto,
-        'clima_code': clima_code,        # ← OPCIONAL: Por si quieres usar el clima también
+        'clima_code': clima_code,        # Por si quieres usar el clima también
         'icono_clima': icono
     }
     

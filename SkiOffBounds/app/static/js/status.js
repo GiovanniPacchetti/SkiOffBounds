@@ -15,7 +15,7 @@ window.inicializarEstadoEnVivo = function() {
             const loadingText = gettext('Cargando...'); 
             badge.innerHTML = `<i class="bi bi-arrow-repeat spin"></i> ${loadingText}`;
 
-            fetch(`/home/api/estacion/${id}/estado/`)
+            fetch(`/api/estacion/${id}/estado/`)
                 .then(response => response.json())
                 .then(data => {
                     let colorClass = 'text-success'; // Verde por defecto (open)
