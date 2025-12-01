@@ -18,9 +18,9 @@ urlpatterns = [
 
 # 2. URLs que soportan prefijo de idioma (/es/, /en/)
 urlpatterns += i18n_patterns(
-    path('home/', include('app.urls')),
+    path('', include('app.urls')),
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='home/', permanent=False)),
+    path('', RedirectView.as_view(url='', permanent=False)),
 )
 
 # 3. Archivos Media

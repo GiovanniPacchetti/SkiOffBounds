@@ -19,6 +19,7 @@
     align-items: center;
 }
 
+/* --- LOGO --- */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -45,6 +46,7 @@
     text-transform: uppercase;
 }
 
+/* --- MENÚ --- */
 .navbar-menu {
     display: flex;
     list-style: none;
@@ -129,16 +131,13 @@
     color: #333;
 }
 
-
 /* =========================================
-   SELECTOR DE IDIOMA CUSTOM (Minimalista & Alineado)
+   SELECTOR DE IDIOMA (Minimalista & Alineado)
    ========================================= */
 
 .nav-item-lang {
     position: relative;
-    margin-left: 25px; /* Un poco más de separación del menú */
-    
-    /* ESTO ES LO QUE FALTABA PARA LA ALINEACIÓN VERTICAL */
+    margin-left: 25px; /* Separación del menú */
     display: flex;
     align-items: center;
     height: 100%;
@@ -148,44 +147,40 @@
     position: relative;
     cursor: pointer;
     font-family: inherit;
-    line-height: 1; /* Evita alturas extrañas heredadas */
+    line-height: 1;
 }
 
-/* Botón visible (Píldora con Borde) */
+/* Botón visible */
 .selected-lang {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 16px; /* Un poco más ancho para que respire */
+    padding: 8px 16px;
     border-radius: 20px;
-    
-    /* RECUPERAMOS EL BORDE AQUÍ: */
-    background: #fff;              /* Fondo blanco explícito */
-    border: 1px solid #d5e4ee;     /* El borde gris azulado suave que tenías antes */
-    
+    background: #fff;
+    border: 1px solid #d5e4ee;
     transition: all 0.3s ease;
     font-weight: 600;
     font-size: 0.9rem;
-    color: #153155;                /* Tu azul oscuro corporativo */
+    color: #153155;
 }
 
-/* Efecto Hover mejorado */
 .selected-lang:hover {
-    border-color: #3fa9f5;         /* Borde azul brillante al pasar el ratón */
-    background: #f5fafb;           /* Fondo ligeramente azulado */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Pequeña sombra para dar volumen */
+    border-color: #3fa9f5;
+    background: #f5fafb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .arrow-icon {
     font-size: 0.75rem;
     transition: transform 0.3s ease;
-    margin-top: 1px; /* Ajuste óptico minúsculo */
+    margin-top: 1px;
 }
 
-/* Lista desplegable flotante */
+/* Lista desplegable */
 .lang-options {
     position: absolute;
-    top: calc(100% + 10px); /* Posición exacta debajo del botón */
+    top: calc(100% + 10px);
     right: 0;
     background: white;
     min-width: 160px;
@@ -203,7 +198,6 @@
     z-index: 1000;
 }
 
-/* Estado Abierto */
 .custom-lang-dropdown.open .lang-options {
     opacity: 1;
     visibility: visible;
@@ -214,7 +208,6 @@
     transform: rotate(180deg);
 }
 
-/* Opciones de la lista */
 .lang-options li {
     display: flex;
     align-items: center;
@@ -240,3 +233,126 @@
 .lang-flag { margin-right: 10px; font-size: 1.1rem; }
 .lang-name { flex-grow: 1; }
 .check-icon { font-size: 0.9rem; }
+
+/* --- BOTÓN HAMBURGUESA (Oculto en Desktop) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animación al abrir (se convierte en X) */
+.menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+
+/* --- RESPONSIVE: NAVBAR (MÓVIL) --- */
+@media (max-width: 768px) {
+    /* 1. Contenedor principal */
+    .navbar {
+        padding: 15px 20px;
+        display: grid;
+        /* Grid de 3 columnas: Logo - Espacio - Botón */
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* 2. LOGO Y TEXTO (Visible por defecto) */
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        grid-column: 1; /* A la izquierda */
+    }
+
+    .navbar-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar-title {
+        font-size: 1rem;
+        display: block; /* Visible inicialmente */
+    }
+
+    /* 3. BOTÓN HAMBURGUESA (Derecha) */
+    .menu-toggle {
+        display: flex;
+        grid-column: 3; /* A la derecha */
+        z-index: 1001;  /* Por encima del menú abierto */
+    }
+
+    /* 4. MENÚ (Oculto por defecto) */
+    .navbar-menu {
+        display: none; /* Oculto */
+        grid-column: 1 / -1; /* Ocupa todo el ancho cuando sale */
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        background: white;
+        border-top: 1px solid #eee;
+        margin-top: 15px;
+    }
+
+    /* IDIOMA (También oculto) */
+    .nav-item-lang {
+        display: none;
+        grid-column: 1 / -1;
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+        padding-bottom: 20px;
+    }
+
+    /* --- ESTADO ABIERTO (Clase .active) --- */
+    
+    /* Mostrar menú e idioma */
+    .navbar-menu.active,
+    .nav-item-lang.active {
+        display: flex !important;
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* OCULTAR EL NOMBRE "SkiOffBounds" AL ABRIR (Lo que pedías) */
+    /* Usamos una clase en el body o navbar para saber que está abierto */
+    .navbar.menu-open .navbar-title {
+        display: none;
+    }
+
+    /* Centrar el logo cuando el menú está abierto */
+    .navbar.menu-open .navbar-brand {
+        justify-content: center;
+        width: 100%;
+        grid-column: 1 / -1; /* Ocupa todo para centrarse */
+        margin-bottom: 10px;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #f5f5f5;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

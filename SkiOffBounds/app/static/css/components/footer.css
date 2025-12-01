@@ -122,8 +122,26 @@
 .copyright-text {
     color: #555;
     font-size: 0.85rem;
-    margin-top: auto; /* Empuja hacia abajo si hay espacio */
+    margin-top: auto; 
 }
+
+
+.footer-meta {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+.w3c-image {
+    border: 0;
+    width: 88px;
+    height: 31px;
+    display: inline-block;
+}
+
+.form-hidden {
+    display: none;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -157,3 +175,4 @@
         text-align: center;
     }
 }
+
