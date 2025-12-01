@@ -13,7 +13,7 @@
 ## 🌐 Demo en Vivo
 
 **Accede al proyecto desplegado aquí:**  
-👉 **[ https://skioffbounds.onrender.com/es/](https://skioffbounds.onrender.com/es/)**
+👉 **[ https://skioffbounds.onrender.com](https://skioffbounds.onrender.com)**
 
 ---
 
