@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             searchTimeout = setTimeout(() => {
-                fetch(`/home/api/search/?q=${encodeURIComponent(query)}`)
+                fetch(`/api/search/?q=${encodeURIComponent(query)}`)
                     .then(response => response.json())
                     .then(data => displaySearchResults(data))
                     .catch(error => {
