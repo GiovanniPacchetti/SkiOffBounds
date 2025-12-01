@@ -224,15 +224,47 @@
     font-size: 1.8rem;
     color: var(--accent);
 }
-
 /* ACTION BUTTONS */
+
 .detail-actions {
     display: flex;
+    flex-wrap: wrap;        /* ESTO ES CLAVE: Permite que bajen si no caben */
     gap: 20px;
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid #e0e0e0;
+    width: 100%;            /* Asegura que ocupe el contenedor */
 }
+
+/* Estilo base del botón (por si no lo tenías controlado) */
+.action-button {
+    display: inline-flex;   /* Para alinear icono y texto */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    /* Evita que el botón se encoja demasiado */
+    flex: 1 0 auto;         /* Crece si puede, pero tiene ancho base */
+    min-width: 200px;       /* Ancho mínimo antes de saltar de línea */
+    max-width: 100%;        /* No salirse del padre */
+}
+
+/* RESPONSIVE FORZADO (Móvil estricto) */
+@media (max-width: 600px) {
+    .detail-actions {
+        flex-direction: column; /* Forzar columna en pantallas muy estrechas */
+    }
+    
+    .action-button {
+        width: 100%;            /* Ocupar todo el ancho */
+    }
+}
+
 
 
 
